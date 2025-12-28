@@ -1,8 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme - Forest Apothecary -->
     <style name="Base.Theme.Assignment" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/forest_green</item>
+        <item name="colorPrimaryDark">@color/deep_forest</item>
+        <item name="colorPrimaryVariant">@color/deep_forest</item>
+        <item name="colorOnPrimary">@color/snow_white</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/sage_green</item>
+        <item name="colorSecondaryVariant">@color/mint_sage</item>
+        <item name="colorOnSecondary">@color/deep_forest</item>
+
+        <!-- Background & Surface -->
+        <item name="android:colorBackground">@color/cream_mint</item>
+        <item name="colorSurface">@color/snow_white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSurfaceVariant">@color/cream_mint</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/deep_forest</item>
+        <item name="android:navigationBarColor">@color/deep_forest</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/forest_green</item>
+        <item name="android:textColorHint">@color/sage_green</item>
+
+        <!-- Ripple -->
+        <item name="colorControlHighlight">@color/ripple</item>
+
+        <!-- Button Styles -->
+        <item name="materialButtonStyle">@style/ForestButton</item>
+        <item name="materialButtonOutlinedStyle">@style/ForestButtonOutlined</item>
+
+        <!-- Card Styles -->
+        <item name="materialCardViewStyle">@style/ForestCard</item>
+
+        <!-- Checkbox -->
+        <item name="checkboxStyle">@style/ForestCheckbox</item>
     </style>
 
     <style name="Theme.Assignment" parent="Base.Theme.Assignment" />

@@ -241,10 +241,10 @@ class MainActivity : AppCompatActivity() {
 
         val spinnerAdapter = ArrayAdapter(
             this,
-            android.R.layout.simple_spinner_item,
+            R.layout.spinner_item,
             datasets
         )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAdapter.setDropDownViewResource(R.layout.spinner_item)
         spinnerDataset.adapter = spinnerAdapter
 
         Log.d(TAG, "Spinner setup with ${datasets.size} datasets")
@@ -656,7 +656,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         tvSummaryFirestore.text = "Results saved to Firebase Firestore (Dataset $datasetNumber)"
-        tvSummaryFirestore.setTextColor(Color.parseColor("#2E7D32"))
+        tvSummaryFirestore.setTextColor(Color.parseColor("#E3EED4")) // Cream mint for dark background
 
         summarySection.visibility = View.VISIBLE
 
@@ -673,6 +673,11 @@ class MainActivity : AppCompatActivity() {
         val item = state.foodItem
         val metrics = state.metrics
 
+        // Forest theme colors
+        val forestGreen = Color.parseColor("#375534")
+        val deepForest = Color.parseColor("#0F2A1D")
+        val snowWhite = Color.parseColor("#FFFAFA")
+
         // Populate dialog views
         dialogView.findViewById<TextView>(R.id.tvDetailId).text = "#${item.id}"
         dialogView.findViewById<TextView>(R.id.tvDetailName).text = item.name
@@ -686,14 +691,14 @@ class MainActivity : AppCompatActivity() {
         val tvMatchStatus = dialogView.findViewById<TextView>(R.id.tvDetailMatchStatus)
         if (state.isMatch) {
             tvMatchStatus.text = "MATCH"
-            tvMatchStatus.setTextColor(Color.parseColor("#2E7D32"))
-            tvMatchStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
-            tvPredicted.setTextColor(Color.parseColor("#2E7D32"))
+            tvMatchStatus.setTextColor(snowWhite)
+            tvMatchStatus.setBackgroundResource(R.drawable.bg_status_match)
+            tvPredicted.setTextColor(forestGreen)
         } else {
             tvMatchStatus.text = "MISMATCH"
-            tvMatchStatus.setTextColor(Color.parseColor("#C62828"))
-            tvMatchStatus.setBackgroundColor(Color.parseColor("#FFEBEE"))
-            tvPredicted.setTextColor(Color.parseColor("#C62828"))
+            tvMatchStatus.setTextColor(snowWhite)
+            tvMatchStatus.setBackgroundResource(R.drawable.bg_status_mismatch)
+            tvPredicted.setTextColor(deepForest)
         }
 
         // Metrics
@@ -713,25 +718,43 @@ class MainActivity : AppCompatActivity() {
         // Timestamp
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         dialogView.findViewById<TextView>(R.id.tvDetailTimestamp).text =
-            "Processed: ${dateFormat.format(System.currentTimeMillis())}"
+            "Analyzed: ${dateFormat.format(System.currentTimeMillis())}"
 
-        AlertDialog.Builder(this)
-            .setTitle("Prediction Details")
+        // Create dialog without title
+        val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
-            .setPositiveButton("Close", null)
-            .show()
+            .create()
+
+        // Make dialog background transparent to show our rounded corners
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Wire up the close button
+        dialogView.findViewById<Button>(R.id.btnClose).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     /**
-     * Show snackbar message
+     * Show snackbar message from top
      */
     private fun showSnackbar(message: String, isSuccess: Boolean) {
         val snackbar = Snackbar.make(rootLayout, message, Snackbar.LENGTH_LONG)
         if (isSuccess) {
-            snackbar.setBackgroundTint(Color.parseColor("#2E7D32"))
+            snackbar.setBackgroundTint(Color.parseColor("#375534")) // Forest green
         } else {
-            snackbar.setBackgroundTint(Color.parseColor("#C62828"))
+            snackbar.setBackgroundTint(Color.parseColor("#0F2A1D")) // Deep forest
         }
+        snackbar.setTextColor(Color.parseColor("#FFFAFA")) // Snow white text
+
+        // Position at top
+        val view = snackbar.view
+        val params = view.layoutParams as android.widget.FrameLayout.LayoutParams
+        params.gravity = android.view.Gravity.TOP or android.view.Gravity.CENTER_HORIZONTAL
+        params.topMargin = 100
+        view.layoutParams = params
+
         snackbar.show()
     }
 

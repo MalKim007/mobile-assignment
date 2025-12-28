@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Forest Badge - Pill shaped, Forest Green -->
+<!-- Summary Card Background - Forest Green -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/forest_green" />
-    <corners android:radius="12dp" />
+    <corners android:radius="16dp" />
 </shape>

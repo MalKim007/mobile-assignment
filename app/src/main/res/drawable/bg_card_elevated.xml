@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevated Card Background - Snow White with soft shadow effect -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow layer -->
+    <item
+        android:top="2dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#10000000" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <!-- Main card -->
+    <item
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/snow_white" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</layer-list>

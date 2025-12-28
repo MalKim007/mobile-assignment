@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Forest Apothecary - Clean Item Card -->
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,129 +7,164 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="5dp"
     android:clickable="true"
     android:focusable="true"
+    app:cardBackgroundColor="@color/snow_white"
     app:cardCornerRadius="12dp"
     app:cardElevation="2dp"
-    app:rippleColor="@color/design_default_color_primary">
+    app:rippleColor="@color/ripple">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <!-- Selection Checkbox -->
-        <CheckBox
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 1: Checkbox + ID Badge + Status                                -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
+            app:buttonTint="@color/forest_green"
+            app:buttonIconTint="@color/snow_white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/tvFoodName" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Food ID Badge -->
         <TextView
             android:id="@+id/tvFoodId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
             android:background="@drawable/bg_badge"
+            android:fontFamily="sans-serif-medium"
             android:paddingHorizontal="8dp"
-            android:paddingVertical="2dp"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:paddingVertical="3dp"
+            android:textColor="@color/snow_white"
+            android:textSize="11sp"
             app:layout_constraintStart_toEndOf="@id/checkBox"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="#1" />
+            app:layout_goneMarginStart="0dp"
+            tools:text="#11" />
 
-        <!-- Status Indicator / Progress -->
+        <!-- Status: Processing spinner -->
         <ProgressBar
             android:id="@+id/progressBar"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:indeterminateTint="@color/sage_green"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tvFoodId"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toTopOf="@id/tvFoodId"
+            tools:visibility="gone" />
 
+        <!-- Status: Completed icon -->
         <ImageView
             android:id="@+id/ivStatusIcon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_check_circle"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tvFoodId"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@android:drawable/ic_menu_info_details" />
+            app:layout_constraintTop_toTopOf="@id/tvFoodId"
+            tools:ignore="ContentDescription"
+            tools:visibility="gone" />
 
+        <!-- Status text (hidden by default) -->
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/sage_green"
             android:textSize="11sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/progressBar"
             app:layout_constraintEnd_toStartOf="@id/progressBar"
             app:layout_constraintTop_toTopOf="@id/progressBar"
-            tools:text="Processing..." />
+            tools:text="Analyzing..."
+            tools:visibility="gone" />
 
-        <!-- Food Name -->
+        <!-- Barrier to handle checkbox GONE state -->
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="checkBox,tvFoodId" />
+
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 2: Food Name                                                   -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/tvFoodName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="10dp"
             android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
             android:maxLines="2"
-            android:textColor="#304FFE"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/tvStatus"
-            app:layout_constraintStart_toEndOf="@id/tvFoodId"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Chilli and Coriander King Prawns" />
+            android:textColor="@color/deep_forest"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrierRow1"
+            tools:text="Almond No Sugars" />
 
-        <!-- Ingredients (truncated) -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 3: Ingredients                                                 -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/tvIngredients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
+            android:fontFamily="sans-serif"
             android:maxLines="2"
-            android:textColor="#666666"
+            android:textColor="@color/sage_green"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFoodName"
-            tools:text="King Prawn (86%) (King Prawn (Penaeus vannamei), Water, Salt..." />
+            tools:text="Water, Almond (2.3%), Minerals (Calcium Citrate), Sea Salt..." />
 
-        <!-- Divider -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- DIVIDER                                                            -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <View
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="#E0E0E0"
+            android:layout_marginTop="10dp"
+            android:background="@color/cream_mint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIngredients" />
 
-        <!-- Ground Truth Label -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 4: Expected Allergens                                          -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/labelGroundTruth"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Expected:"
-            android:textColor="#888888"
-            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
+            android:text="Expected"
+            android:textColor="@color/sage_green"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider" />
 
@@ -137,24 +173,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="#2E7D32"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/forest_green"
             android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/labelGroundTruth"
+            app:layout_constraintBaseline_toBaselineOf="@id/labelGroundTruth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/labelGroundTruth"
-            app:layout_constraintTop_toTopOf="@id/labelGroundTruth"
-            tools:text="shellfish" />
+            tools:text="tree nut" />
 
-        <!-- Predicted Label -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 5: Predicted Allergens                                         -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/labelPredicted"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Predicted:"
-            android:textColor="#888888"
-            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            android:text="Predicted"
+            android:textColor="@color/sage_green"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelGroundTruth" />
 
@@ -163,62 +202,69 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/forest_green"
             android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/labelPredicted"
+            app:layout_constraintBaseline_toBaselineOf="@id/labelPredicted"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/labelPredicted"
-            app:layout_constraintTop_toTopOf="@id/labelPredicted"
-            tools:text="shellfish"
-            tools:textColor="#2E7D32" />
+            tools:text="tree nut" />
 
-        <!-- Match Indicator -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 6: Status Badge + Metrics (on same row)                        -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/tvMatchStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="2dp"
-            android:textSize="11sp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_status_match"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.03"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textAllCaps="true"
+            android:textColor="@color/snow_white"
+            android:textSize="10sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelPredicted"
-            tools:background="#E8F5E9"
             tools:text="MATCH"
-            tools:textColor="#2E7D32"
             tools:visibility="visible" />
 
-        <!-- Metrics Summary -->
         <TextView
             android:id="@+id/tvMetrics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginStart="10dp"
             android:fontFamily="monospace"
-            android:textColor="#888888"
+            android:gravity="end"
+            android:textColor="@color/sage_green"
             android:textSize="10sp"
             android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvMatchStatus"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMatchStatus"
-            tools:text="Latency: 2500ms | TTFT: 450ms | OTPS: 18 tok/s"
+            app:layout_constraintStart_toEndOf="@id/tvMatchStatus"
+            tools:text="Latency: 14208ms"
             tools:visibility="visible" />
 
-        <!-- Tap for details hint -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- ROW 7: Tap hint (right-aligned, subtle)                            -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+
         <TextView
             android:id="@+id/tvTapHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Tap for details"
-            android:textColor="#AAAAAA"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif"
+            android:text="tap for details"
+            android:textColor="@color/mint_sage"
             android:textSize="10sp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMetrics"
+            app:layout_constraintTop_toBottomOf="@id/tvMatchStatus"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

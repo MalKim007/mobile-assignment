@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Forest Badge - Pill shaped, Forest Green -->
+<!-- Progress Bar Track - Cream Mint -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/forest_green" />
-    <corners android:radius="12dp" />
+    <solid android:color="@color/cream_mint" />
+    <corners android:radius="4dp" />
 </shape>

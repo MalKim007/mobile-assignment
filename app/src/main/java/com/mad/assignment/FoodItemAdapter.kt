@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
+import com.google.android.material.checkbox.MaterialCheckBox
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -61,9 +61,18 @@ class FoodItemAdapter(
     // Track selected item IDs
     private val selectedIds = mutableSetOf<Int>()
 
+    // Forest theme colors
+    companion object {
+        private const val COLOR_FOREST_GREEN = "#375534"
+        private const val COLOR_DEEP_FOREST = "#0F2A1D"
+        private const val COLOR_SAGE_GREEN = "#6B9071"
+        private const val COLOR_MINT_SAGE = "#AEC3B0"
+        private const val COLOR_SNOW_WHITE = "#FFFAFA"
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView: MaterialCardView = itemView.findViewById(R.id.cardView)
-        val checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
+        val checkBox: MaterialCheckBox = itemView.findViewById(R.id.checkBox)
         val tvFoodId: TextView = itemView.findViewById(R.id.tvFoodId)
         val tvFoodName: TextView = itemView.findViewById(R.id.tvFoodName)
         val tvIngredients: TextView = itemView.findViewById(R.id.tvIngredients)
@@ -128,14 +137,15 @@ class FoodItemAdapter(
 
             // Status
             tvStatus.text = if (state.isSelected) "Selected" else "Tap to select"
-            tvStatus.setTextColor(if (state.isSelected) Color.parseColor("#304FFE") else Color.parseColor("#888888"))
+            tvStatus.setTextColor(if (state.isSelected) Color.parseColor(COLOR_FOREST_GREEN) else Color.parseColor(COLOR_SAGE_GREEN))
+            tvStatus.visibility = View.VISIBLE
             progressBar.visibility = View.GONE
             ivStatusIcon.visibility = View.GONE
 
             // Card styling
             cardView.alpha = 1.0f
             cardView.strokeWidth = if (state.isSelected) 2 else 0
-            cardView.strokeColor = Color.parseColor("#304FFE")
+            cardView.strokeColor = Color.parseColor(COLOR_FOREST_GREEN)
             cardView.setOnClickListener {
                 checkBox.isChecked = !checkBox.isChecked
             }
@@ -167,7 +177,8 @@ class FoodItemAdapter(
 
             // Status
             tvStatus.text = "Waiting..."
-            tvStatus.setTextColor(Color.parseColor("#888888"))
+            tvStatus.setTextColor(Color.parseColor(COLOR_SAGE_GREEN))
+            tvStatus.visibility = View.VISIBLE
             progressBar.visibility = View.GONE
             ivStatusIcon.visibility = View.GONE
 
@@ -203,15 +214,16 @@ class FoodItemAdapter(
             tvTapHint.visibility = View.GONE
 
             // Status - show progress
-            tvStatus.text = "Processing..."
-            tvStatus.setTextColor(Color.parseColor("#FF9800"))
+            tvStatus.text = "Analyzing..."
+            tvStatus.setTextColor(Color.parseColor(COLOR_SAGE_GREEN))
+            tvStatus.visibility = View.VISIBLE
             progressBar.visibility = View.VISIBLE
             ivStatusIcon.visibility = View.GONE
 
             // Card styling
             cardView.alpha = 1.0f
             cardView.strokeWidth = 2
-            cardView.strokeColor = Color.parseColor("#FF9800")
+            cardView.strokeColor = Color.parseColor(COLOR_SAGE_GREEN)
             cardView.setOnClickListener(null)
             cardView.isClickable = false
         }
@@ -241,36 +253,33 @@ class FoodItemAdapter(
             tvMatchStatus.visibility = View.VISIBLE
             if (state.isMatch) {
                 tvMatchStatus.text = "MATCH"
-                tvMatchStatus.setTextColor(Color.parseColor("#2E7D32"))
-                tvMatchStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
-                tvPredicted.setTextColor(Color.parseColor("#2E7D32"))
+                tvMatchStatus.setTextColor(Color.parseColor(COLOR_SNOW_WHITE))
+                tvMatchStatus.setBackgroundResource(R.drawable.bg_status_match)
+                tvPredicted.setTextColor(Color.parseColor(COLOR_FOREST_GREEN))
             } else {
                 tvMatchStatus.text = "MISMATCH"
-                tvMatchStatus.setTextColor(Color.parseColor("#C62828"))
-                tvMatchStatus.setBackgroundColor(Color.parseColor("#FFEBEE"))
-                tvPredicted.setTextColor(Color.parseColor("#C62828"))
+                tvMatchStatus.setTextColor(Color.parseColor(COLOR_SNOW_WHITE))
+                tvMatchStatus.setBackgroundResource(R.drawable.bg_status_mismatch)
+                tvPredicted.setTextColor(Color.parseColor(COLOR_DEEP_FOREST))
             }
 
             // Metrics summary
             tvMetrics.visibility = View.VISIBLE
             val m = state.metrics
-            tvMetrics.text = "Latency: ${m.latencyMs}ms | TTFT: ${m.ttft}ms | OTPS: ${m.otps} tok/s"
+            tvMetrics.text = "Latency: ${m.latencyMs}ms"
 
             // Tap hint
             tvTapHint.visibility = View.VISIBLE
 
-            // Status
-            tvStatus.text = "Done"
-            tvStatus.setTextColor(Color.parseColor("#2E7D32"))
+            // Status - hide for completed items
+            tvStatus.visibility = View.GONE
             progressBar.visibility = View.GONE
-            ivStatusIcon.visibility = View.VISIBLE
-            ivStatusIcon.setImageResource(android.R.drawable.ic_menu_info_details)
-            ivStatusIcon.setColorFilter(Color.parseColor("#2E7D32"))
+            ivStatusIcon.visibility = View.GONE
 
             // Card styling
             cardView.alpha = 1.0f
-            cardView.strokeWidth = if (state.isMatch) 2 else 0
-            cardView.strokeColor = if (state.isMatch) Color.parseColor("#2E7D32") else Color.parseColor("#C62828")
+            cardView.strokeWidth = if (state.isMatch) 2 else 1
+            cardView.strokeColor = if (state.isMatch) Color.parseColor(COLOR_FOREST_GREEN) else Color.parseColor(COLOR_DEEP_FOREST)
             cardView.isClickable = true
             cardView.setOnClickListener {
                 onItemClick(state)
@@ -296,7 +305,7 @@ class FoodItemAdapter(
             labelPredicted.visibility = View.VISIBLE
             tvPredicted.visibility = View.VISIBLE
             tvPredicted.text = "Error: ${state.errorMessage}"
-            tvPredicted.setTextColor(Color.parseColor("#C62828"))
+            tvPredicted.setTextColor(Color.parseColor(COLOR_DEEP_FOREST))
 
             // Hide other views
             tvMatchStatus.visibility = View.GONE
@@ -305,16 +314,15 @@ class FoodItemAdapter(
 
             // Status
             tvStatus.text = "Failed"
-            tvStatus.setTextColor(Color.parseColor("#C62828"))
+            tvStatus.setTextColor(Color.parseColor(COLOR_DEEP_FOREST))
+            tvStatus.visibility = View.VISIBLE
             progressBar.visibility = View.GONE
-            ivStatusIcon.visibility = View.VISIBLE
-            ivStatusIcon.setImageResource(android.R.drawable.ic_delete)
-            ivStatusIcon.setColorFilter(Color.parseColor("#C62828"))
+            ivStatusIcon.visibility = View.GONE
 
             // Card styling
             cardView.alpha = 0.8f
             cardView.strokeWidth = 2
-            cardView.strokeColor = Color.parseColor("#C62828")
+            cardView.strokeColor = Color.parseColor(COLOR_DEEP_FOREST)
             cardView.setOnClickListener(null)
             cardView.isClickable = false
         }

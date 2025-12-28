@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Forest Apothecary Color Palette -->
+
+    <!-- Primary Colors -->
+    <color name="deep_forest">#0F2A1D</color>
+    <color name="forest_green">#375534</color>
+    <color name="sage_green">#6B9071</color>
+    <color name="mint_sage">#AEC3B0</color>
+    <color name="cream_mint">#E3EED4</color>
+    <color name="snow_white">#FFFAFA</color>
+
+    <!-- Base Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Semantic Colors -->
+    <color name="primary">#375534</color>
+    <color name="primary_dark">#0F2A1D</color>
+    <color name="primary_light">#6B9071</color>
+    <color name="accent">#AEC3B0</color>
+    <color name="background">#E3EED4</color>
+    <color name="surface">#FFFAFA</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#375534</color>
+    <color name="text_hint">#6B9071</color>
+    <color name="text_on_dark">#FFFAFA</color>
+    <color name="text_on_primary">#FFFAFA</color>
+
+    <!-- Status Colors -->
+    <color name="status_match">#375534</color>
+    <color name="status_mismatch">#C86464</color>
+    <color name="soft_red">#C86464</color>
+    <color name="status_pending">#6B9071</color>
+    <color name="status_processing">#AEC3B0</color>
+    <color name="status_error">#C86464</color>
+
+    <!-- UI Element Colors -->
+    <color name="card_background">#FFFAFA</color>
+    <color name="divider">#AEC3B0</color>
+    <color name="ripple">#4DAEC3B0</color>
+    <color name="progress_track">#E3EED4</color>
+    <color name="progress_fill">#6B9071</color>
+
+    <!-- Overlay Colors -->
+    <color name="overlay_light">#80E3EED4</color>
+    <color name="overlay_dark">#800F2A1D</color>
+
+    <!-- Button States -->
+    <color name="button_primary">#375534</color>
+    <color name="button_primary_pressed">#0F2A1D</color>
+    <color name="button_secondary">#6B9071</color>
+    <color name="button_disabled">#AEC3B0</color>
 </resources>

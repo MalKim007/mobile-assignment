@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Progress Bar Fill - Gradient from Sage to Forest -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="@color/sage_green"
+        android:endColor="@color/forest_green"
+        android:angle="0" />
+    <corners android:radius="4dp" />
+</shape>
