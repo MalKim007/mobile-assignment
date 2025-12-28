@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "449864904940",
+    "project_id": "mad-project-a859a",
+    "storage_bucket": "mad-project-a859a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449864904940:android:379f064177def8d5e2f5c9",
+        "android_client_info": {
+          "package_name": "com.mad.assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzbxUYz43LCH6Wq4EUjxN_DvkyjL3e2bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

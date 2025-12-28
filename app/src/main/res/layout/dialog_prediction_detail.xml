@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <!-- Header with ID and Match Status -->
+        <TextView
+            android:id="@+id/tvDetailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#1" />
+
+        <TextView
+            android:id="@+id/tvDetailMatchStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvDetailId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDetailId"
+            tools:background="#E8F5E9"
+            tools:text="MATCH"
+            tools:textColor="#2E7D32" />
+
+        <!-- Food Name -->
+        <TextView
+            android:id="@+id/tvDetailName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#304FFE"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailId"
+            tools:text="Chilli and Coriander King Prawns" />
+
+        <!-- Section: Ingredients -->
+        <TextView
+            android:id="@+id/labelDetailIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ingredients"
+            android:textColor="#304FFE"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailName" />
+
+        <TextView
+            android:id="@+id/tvDetailIngredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="#F5F5F5"
+            android:padding="8dp"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDetailIngredients"
+            tools:text="King Prawn (86%) (King Prawn (Penaeus vannamei), Water, Salt), Coriander (3%), Rapeseed Oil, Chilli Flakes (1%), Garlic Puree, Salt, Lemon Juice" />
+
+        <!-- Section: Allergens Comparison -->
+        <TextView
+            android:id="@+id/labelDetailAllergens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Allergen Analysis"
+            android:textColor="#304FFE"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailIngredients" />
+
+        <!-- Raw Allergens -->
+        <TextView
+            android:id="@+id/labelRawAllergens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Raw (from source):"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDetailAllergens" />
+
+        <TextView
+            android:id="@+id/tvDetailAllergensRaw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/labelRawAllergens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelRawAllergens"
+            app:layout_constraintTop_toTopOf="@id/labelRawAllergens"
+            tools:text="Crustaceans" />
+
+        <!-- Mapped Allergens (Ground Truth) -->
+        <TextView
+            android:id="@+id/labelMappedAllergens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Expected (mapped):"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelRawAllergens" />
+
+        <TextView
+            android:id="@+id/tvDetailAllergensMapped"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#2E7D32"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/labelMappedAllergens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelMappedAllergens"
+            app:layout_constraintTop_toTopOf="@id/labelMappedAllergens"
+            tools:text="shellfish" />
+
+        <!-- Predicted Allergens -->
+        <TextView
+            android:id="@+id/labelPredictedAllergens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Predicted (LLM):"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelMappedAllergens" />
+
+        <TextView
+            android:id="@+id/tvDetailPredicted"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/labelPredictedAllergens"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/labelPredictedAllergens"
+            app:layout_constraintTop_toTopOf="@id/labelPredictedAllergens"
+            tools:text="shellfish"
+            tools:textColor="#2E7D32" />
+
+        <!-- Section: Inference Metrics -->
+        <TextView
+            android:id="@+id/labelDetailMetrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Inference Metrics"
+            android:textColor="#304FFE"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelPredictedAllergens" />
+
+        <TextView
+            android:id="@+id/tvDetailMetrics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#F5F5F5"
+            android:fontFamily="monospace"
+            android:padding="12dp"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDetailMetrics"
+            tools:text="Latency:      2500 ms\nTTFT:         450 ms\nITPS:         25 tok/s\nOTPS:         18 tok/s\nOET:          2000 ms\n\nJava Heap:    128 KB\nNative Heap:  45000 KB\nTotal PSS:    52000 KB" />
+
+        <!-- Timestamp -->
+        <TextView
+            android:id="@+id/tvDetailTimestamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#AAAAAA"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailMetrics"
+            tools:text="Timestamp: 2025-12-24 10:30:00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

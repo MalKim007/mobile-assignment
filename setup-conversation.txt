@@ -1,0 +1,3581 @@
+
+╭─── Claude Code v2.0.76 ──────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                  Welcome back Mal!                 │ started                 │
+│                                                    │ Run /init to create a … │
+│                     * ▐▛███▜▌ *                    │ ─────────────────────── │
+│                    * ▝▜█████▛▘ *                   │ Recent activity         │
+│                     *  ▘▘ ▝▝  *                    │ No recent activity      │
+│                                                    │                         │
+│   Opus 4.5 · Claude Max · mkim8189@gmail.com's     │                         │
+│   Organization                                     │                         │
+│ ~\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Pro… │                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+> How to create a new directory named assets with the /app/src/main 
+directory. i already in Project panel view from Android to Project 
+
+● To create the assets directory in Android Studio (Project view):
+
+  1. Navigate to app > src > main in the Project panel
+  2. Right-click on the main folder
+  3. Select New > Directory
+  4. Type assets and press Enter
+
+  That's it! The assets folder will be created at app/src/main/assets.
+
+  Alternatively, you can use the keyboard shortcut:
+  - Select the main folder
+  - Press Alt + Insert (Windows) or Cmd + N (Mac)
+  - Choose Directory and type assets
+
+> what about these: Activity 02: SDK and NDK Path Export
+Expected Output: The project SDK and NDK paths are successfully exported.
+1. Export the SDK and NDK using the command in Figure 24 from the home 
+directory.
+The red number in the ANDROID_NDK export statement shall be similar with the
+ project
+result in Figure 23.
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/27.0.12077973
+Figure 24: Exporting SDK and NDK
+Figure 25 shows the output exporting command and the verification after 
+exporting it.
+18
+Figure 25: Output from export and verification command
+2. Enter ls $ANDROID_NDK/build/cmake/android.toolchain.cmake in the 
+terminal.
+The output shall be similar as shown in Figure 26.
+Figure 26: cmake existence verification
+3. Change to llama.cpp directory.
+4. List the directory content. The src and ggml directories must be there. 
+
+● These instructions are for macOS/Linux. Since you're on Windows, the paths and commands are different.
+
+  Windows Equivalent
+
+  1. Find your SDK and NDK paths
+
+  In Android Studio:
+  - Go to File > Settings > Languages & Frameworks > Android SDK
+  - Note the Android SDK Location (typically C:\Users\<YourName>\AppData\Local\Android\Sdk)
+  - Click SDK Tools tab to see NDK version
+
+  2. Set Environment Variables (Command Prompt)
+
+  set ANDROID_SDK_ROOT=C:\Users\Akmal\AppData\Local\Android\Sdk
+  set ANDROID_NDK=%ANDROID_SDK_ROOT%\ndk\27.0.12077973
+
+  Or in PowerShell:
+  $env:ANDROID_SDK_ROOT = "$env:LOCALAPPDATA\Android\Sdk"
+  $env:ANDROID_NDK = "$env:ANDROID_SDK_ROOT\ndk\27.0.12077973"
+
+  Note: Replace 27.0.12077973 with your actual NDK version number.
+
+  3. Verify cmake toolchain exists
+
+  dir %ANDROID_NDK%\build\cmake\android.toolchain.cmake
+
+  4. Navigate to llama.cpp and list contents
+
+  cd path\to\llama.cpp
+  dir
+
+  Check that src and ggml directories are present.
+
+  ---
+  To make these permanent, add them to Windows Environment Variables:
+  1. Press Win + R, type sysdm.cpl, press Enter
+  2. Go to Advanced tab > Environment Variables
+  3. Add ANDROID_SDK_ROOT and ANDROID_NDK under User variables
+
+> to run the set env command, no need to navigate to other directory? 
+Users/Akmal is enough? 
+
+● Correct! No need to navigate anywhere. You can run the set commands from any directory.
+
+  Environment variables are session-wide settings — they don't depend on your current folder location.
+
+  So whether you're in:
+  - C:\Users\Akmal
+  - C:\Users\Akmal\Desktop
+  - C:\Users\Akmal\Desktop\UTeM\...
+
+  It doesn't matter. Just open Command Prompt or PowerShell and run:
+
+  set ANDROID_SDK_ROOT=C:\Users\Akmal\AppData\Local\Android\Sdk
+  set ANDROID_NDK=%ANDROID_SDK_ROOT%\ndk\27.0.12077973
+
+  Then verify with:
+  echo %ANDROID_SDK_ROOT%
+  echo %ANDROID_NDK%
+
+  These will work from any directory.
+
+> so "export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk" will not work right
+ because its for mac? 
+
+● Exactly right! It won't work on Windows for two reasons:
+
+  1. export is a Linux/macOS command. Windows uses set (Command Prompt) or $env: (PowerShell).
+  2. $HOME/Library/Android/sdk is a macOS path. On Windows, the SDK is typically at:
+  C:\Users\Akmal\AppData\Local\Android\Sdk
+
+  Quick comparison:
+
+  |               | macOS/Linux           | Windows (CMD)              |
+  |---------------|-----------------------|----------------------------|
+  | Command       | export                | set                        |
+  | Home variable | $HOME                 | %USERPROFILE%              |
+  | SDK path      | ~/Library/Android/sdk | %LOCALAPPDATA%\Android\Sdk |
+
+  So your Windows equivalent is:
+  set ANDROID_SDK_ROOT=C:\Users\Akmal\AppData\Local\Android\Sdk
+  set ANDROID_NDK=%ANDROID_SDK_ROOT%\ndk\27.0.12077973
+
+  You've got it!
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\AssignmentSourceCode> $env:ANDROID_SDK_ROOT = 
+"$env:LOCALAPPDATA\Android\Sdk"
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> $env:ANDROID_NDK = 
+"$env:ANDROID_SDK_ROOT\ndk\27.0.12077973"
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode>   echo %ANDROID_SDK_ROOT%
+%ANDROID_SDK_ROOT%
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode>   echo %ANDROID_NDK%
+%ANDROID_NDK%
+ nothing? 
+
+● You set the variables correctly! The issue is you're using Command Prompt syntax (%VAR%) to verify, but you're in PowerShell.
+
+  In PowerShell, use this to verify:
+
+  echo $env:ANDROID_SDK_ROOT
+  echo $env:ANDROID_NDK
+
+  Or simply:
+  $env:ANDROID_SDK_ROOT
+  $env:ANDROID_NDK
+
+  Syntax difference:
+
+  | Shell          | Set variable       | Read variable |
+  |----------------|--------------------|---------------|
+  | Command Prompt | set VAR=value      | %VAR%         |
+  | PowerShell     | $env:VAR = "value" | $env:VAR      |
+
+  You're in PowerShell, so use $env: for both setting and reading.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\AssignmentSourceCode>   echo $env:ANDROID_SDK_ROOT
+C:\Users\Akmal\AppData\Local\Android\Sdk
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode>   echo $env:ANDROID_NDK
+C:\Users\Akmal\AppData\Local\Android\Sdk\ndk\27.0.12077973 
+
+● It's working now. Both paths are set correctly.
+
+  Now continue with the next steps:
+
+  Step 2: Verify cmake toolchain exists
+
+  Test-Path "$env:ANDROID_NDK\build\cmake\android.toolchain.cmake"
+
+  Should return True.
+
+  Or to see the full path:
+  ls "$env:ANDROID_NDK\build\cmake\android.toolchain.cmake"
+
+  Step 3 & 4: Navigate to llama.cpp and list contents
+
+  cd path\to\llama.cpp
+  ls
+
+  Check that src and ggml directories are present.
+
+  ---
+  Note: These environment variables are only for this PowerShell session. If you close the terminal, you'll need to set them again.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\AssignmentSourceCode>   echo $env:ANDROID_SDK_ROOT
+C:\Users\Akmal\AppData\Local\Android\Sdk
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode>   echo $env:ANDROID_NDK
+C:\Users\Akmal\AppData\Local\Android\Sdk\ndk\27.0.12077973
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> Test-Path 
+"$env:ANDROID_NDK\build\cmake\android.toolchain.cmake"
+True
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> ls 
+"$env:ANDROID_NDK\build\cmake\android.toolchain.cmake"
+
+
+    Directory: 
+C:\Users\Akmal\AppData\Local\Android\Sdk\ndk\27.0.12077973\build\cmake
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         7/12/2025   2:00 PM          10343 android.toolchain.cmake
+
+
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> cd path\to\llama.cpp
+cd : Cannot find path 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assig
+nment-Project\AssignmentSourceCode\path\to\llama.cpp' because it does not 
+exist.
+At line:1 char:1
++ cd path\to\llama.cpp
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: 
+(C:\Users\Akmal\...th\to\llama.cpp:String) [Set-Location], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : 
+PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> cd slm
+cd : Cannot find path 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assig
+nment-Project\AssignmentSourceCode\slm' because it does not exist.
+At line:1 char:1
++ cd slm
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: 
+(C:\Users\Akmal\...tSourceCode\slm:String) [Set-Location], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : 
+PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\AssignmentSourceCode> cd 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm
+(base) PS 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm> cd 
+llama.cpp
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp> ls
+
+
+    Directory: C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Pr
+oject\slm\llama.cpp
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        24/12/2025   2:12 PM                .devops
+d-----        24/12/2025   2:12 PM                .github
+d-----        24/12/2025   2:12 PM                benches
+d-----        24/12/2025   2:12 PM                ci
+d-----        24/12/2025   2:12 PM                cmake
+d-----        24/12/2025   2:12 PM                common
+d-----        24/12/2025   2:12 PM                docs
+d-----        24/12/2025   2:12 PM                examples
+d-----        24/12/2025   2:12 PM                ggml
+d-----        24/12/2025   2:12 PM                gguf-py
+d-----        24/12/2025   2:12 PM                grammars
+d-----        24/12/2025   2:12 PM                include
+d-----        24/12/2025   2:12 PM                licenses
+d-----        24/12/2025   2:12 PM                media
+d-----        24/12/2025   2:12 PM                models
+d-----        24/12/2025   2:12 PM                pocs
+d-----        24/12/2025   2:12 PM                requirements              
+                                                                            
+                           
+d-----        24/12/2025   2:12 PM                scripts
+d-----        24/12/2025   2:12 PM                src 
+
+● Everything looks good! You've completed all the steps successfully:
+
+  | Step                      | Status |
+  |---------------------------|--------|
+  | SDK path exported         | ✓      |
+  | NDK path exported         | ✓      |
+  | cmake toolchain verified  | ✓      |
+  | llama.cpp directory found | ✓      |
+  | src directory present     | ✓      |
+  | ggml directory present    | ✓      |
+
+  Your llama.cpp is at:
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp
+
+  Activity 02 is complete. You're ready for the next activity!
+
+> "Activity 03: CMake Build Configuration
+Expected output: The llama.cpp configuration files are successfully built 
+for Android
+application.
+1. Create a new directory named build-android within the llama.cpp 
+directory. " where is this? inside llama.cpp or same hierarchy as llma? 
+
+● Inside llama.cpp.
+
+  The instruction says "within the llama.cpp directory", so:
+
+  slm/
+  └── llama.cpp/
+      ├── build-android/   ← Create here
+      ├── src/
+      ├── ggml/
+      └── ...
+
+  Since you're already in the llama.cpp directory, just run:
+
+  mkdir build-android
+
+  This creates:
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android
+
+> 2. Then, change to new directory.
+19
+3. Paste the cmake command in Figure 28 into the Terminal. This command 
+decides how
+code should be compiled, for which platform, using which compiler, with 
+which
+features enabled or disabled.
+The red colored font in Figure 28 must be the same as the output in Figure 
+26.
+cmake .. \
+ -
+DCMAKE_TOOLCHAIN_FILE=/Users/emalianakasmuri/Library/Android
+/sdk/ndk/27.0.12077973/build/cmake/android.toolchain.cmake \
+ -DANDROID_ABI=arm64-v8a \
+ -DANDROID_PLATFORM=android-26 \
+ -DBUILD_SHARED_LIBS=ON \
+ -DLLAMA_CURL=OFF \
+ -DLLAMA_SERVER=OFF \
+ -DLLAMA_BUILD_SERVER=OFF \
+ -DLLAMA_BUILD_TESTS=OFF \
+ -DLLAMA_BUILD_EXAMPLES=OFF \
+ -DLLAMA_BUILD_TOOLS=OFF \
+-DGGML_OPENMP=OFF \
+ -DLLAMA_BUILD_CLI=OFF
+Figure 28: cmake command 
+
+● That command is for macOS. Here's the Windows PowerShell version:
+
+  Step 1: Change to build-android directory
+
+  cd build-android
+
+  Step 2: Run cmake command
+
+  cmake .. `
+    -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" `
+    -DANDROID_ABI=arm64-v8a `
+    -DANDROID_PLATFORM=android-26 `
+    -DBUILD_SHARED_LIBS=ON `
+    -DLLAMA_CURL=OFF `
+    -DLLAMA_SERVER=OFF `
+    -DLLAMA_BUILD_SERVER=OFF `
+    -DLLAMA_BUILD_TESTS=OFF `
+    -DLLAMA_BUILD_EXAMPLES=OFF `
+    -DLLAMA_BUILD_TOOLS=OFF `
+    -DGGML_OPENMP=OFF `
+    -DLLAMA_BUILD_CLI=OFF
+
+  Key differences from macOS:
+  | macOS                  | Windows PowerShell   |
+  |------------------------|----------------------|
+  | \ (line continuation)  | ` (backtick)         |
+  | /Users/.../sdk/ndk/... | $env:ANDROID_NDK\... |
+
+  Or as a single line (easier to copy-paste):
+
+  cmake .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp> cd build-android        
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> cmake .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_
+NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a 
+-DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF 
+-DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF 
+-DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF 
+-DLLAMA_BUILD_CLI=OFF
+cmake : The term 'cmake' is not recognized as the name of a cmdlet, 
+function, script file, or operable program. Check the spelling of the name, 
+or if a path was included, verify 
+that the path is correct and try again.
+At line:1 char:1
++ cmake .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android ...
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (cmake:String) [], 
+CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException 
+
+● CMake is not installed or not in your PATH. You can use the CMake bundled with Android SDK.
+
+  Option 1: Find CMake in Android SDK
+
+  First, check what CMake versions you have:
+
+  ls "$env:ANDROID_SDK_ROOT\cmake"
+
+  Then use the full path. For example (adjust version number based on what you find):
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Option 2: Install CMake via Android Studio
+
+  1. Open Android Studio
+  2. Go to File > Settings > Languages & Frameworks > Android SDK
+  3. Click SDK Tools tab
+  4. Check CMake and click Apply
+
+  After installing, run the ls command above to find the version, then use Option 1.
+
+> but previously,  cmake toolchain verified? and i already download it 
+  ⎿  [Image #7]
+
+● Good question! Two different things:
+
+  | What you verified                                                                 | What's missing                                     |
+  |-----------------------------------------------------------------------------------|----------------------------------------------------|
+  | android.toolchain.cmake - a config file that tells cmake how to build for Android | cmake.exe - the program itself is not in your PATH |
+
+  CMake is installed (as shown in your screenshot), but Windows doesn't know where to find it.
+
+  Find your CMake version:
+
+  ls "$env:ANDROID_SDK_ROOT\cmake"
+
+  This will show something like 3.22.1 or 3.31.0.
+
+  Then run (replace version number with what you found):
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  The & at the start is required in PowerShell to run executables with paths containing spaces or variables.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> ls "$env:ANDROID_SDK_ROOT\cmake"
+
+
+    Directory: C:\Users\Akmal\AppData\Local\Android\Sdk\cmake
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         7/12/2025   2:11 PM                3.22.1
+d-----        24/12/2025   2:01 PM                4.1.2 
+
+● You have two versions. Use either one. Here's the command with 3.22.1:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Or with the newer 4.1.2:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\4.1.2\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Either version should work fine. Try 3.22.1 first since it's more commonly tested.
+
+> what do u mean more commonly tested? which version is better? 
+
+● Honestly, either will work fine for this task. I shouldn't have added that qualifier.
+
+  - 3.22.1 - Older, stable
+  - 4.1.2 - Newer, more recent features/fixes
+
+  Just pick one and run it. If one has issues, try the other. Go with 4.1.2 since it's newer:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\4.1.2\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -DCMAKE_TOOLCHAIN_FILE
+="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" 
+-DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON
+ -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF 
+-DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF 
+-DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+-- Building for: NMake Makefiles
+CMake Error at CMakeLists.txt:2 (project):
+  Running
+
+   'nmake' '-?'
+
+  failed with:
+
+   The system cannot find the file specified
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assignment-Project
+/slm/llama.cpp/build-android/CMakeFiles/CMakeOutput.log". 
+
+● CMake is trying to use NMake (Windows build tool) which isn't installed. For Android builds, use Ninja which comes with the Android SDK.
+
+  Add -G Ninja and specify the Ninja path:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  The key additions:
+  - -G Ninja - Use Ninja generator instead of NMake
+  - -DCMAKE_MAKE_PROGRAM="..." - Points to the Ninja executable
+
+> umm why in my lecturer guide (shes using mac), doesnt need to download 
+Ninja? 
+
+● macOS has make pre-installed (comes with Xcode Command Line Tools). So when your lecturer runs cmake .., it automatically uses Unix Makefiles and just works.
+
+  Windows doesn't have make pre-installed, so CMake tries to find NMake (Visual Studio's version) and fails.
+
+  You don't need to download Ninja either - it's already included with the Android SDK CMake you have. You just need to tell CMake to use it with -G Ninja.
+
+  | OS      | Default generator     | Pre-installed?        |
+  |---------|-----------------------|-----------------------|
+  | macOS   | Unix Makefiles        | ✓ Yes (make included) |
+  | Windows | NMake / Visual Studio | ✗ No                  |
+
+  That's why the same command works on Mac but needs -G Ninja on Windows.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja 
+-DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCM
+AKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" 
+-DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON
+ -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF 
+-DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF 
+-DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+CMake Error: Error: generator : Ninja
+Does not match the generator used previously: NMake Makefiles
+Either remove the CMakeCache.txt file and CMakeFiles directory or choose a 
+different binary directory. 
+
+● CMake cached the previous failed attempt. Delete the cache and try again:
+
+  Remove-Item CMakeCache.txt
+  Remove-Item -Recurse CMakeFiles
+
+  Then run the cmake command again:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> Remove-Item CMakeCache.txt
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> Remove-Item -Recurse CMakeFiles
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_M
+AKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLC
+HAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" 
+-DANDROID_ABI=arm64-v8a -DANDROID_PLATF
+ORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF 
+-DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF 
+-DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+-- The C compiler identification is Clang 18.0.1
+-- The CXX compiler identification is Clang 18.0.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/nd
+k/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe - 
+skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/
+ndk/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe - 
+skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMAKE_BUILD_TYPE=Release
+-- Found Git: C:/Program Files/Git/cmd/git.exe (found version 
+"2.41.0.windows.1") 
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.120779
+73/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
+-- Setting GGML_NATIVE_DEFAULT to OFF
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE
+-- Warning: ccache not found - consider installing it for faster compilation
+ or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: aarch64
+-- GGML_SYSTEM_ARCH: ARM
+-- Including CPU backend
+-- ARM detected
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E - Failed
+-- Checking for ARM features using flags:
+-- Performing Test HAVE_DOTPROD
+-- Performing Test HAVE_DOTPROD - Failed
+-- Performing Test HAVE_SVE
+-- Performing Test HAVE_SVE - Failed
+-- Performing Test HAVE_MATMUL_INT8
+-- Performing Test HAVE_MATMUL_INT8 - Failed
+-- Performing Test HAVE_FMA
+-- Performing Test HAVE_FMA - Success
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC - Failed
+-- Performing Test HAVE_SME
+-- Performing Test HAVE_SME - Failed
+-- Adding CPU backend variant ggml-cpu:
+-- ggml version: 0.9.4
+-- ggml commit:  5ee4e43f2
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    LLAMA_BUILD_CLI
+    LLAMA_SERVER
+
+
+-- Build files have been written to: C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/As
+sessment/Assignment-Project/slm/llama.cpp/build-android 
+
+● Success! The CMake configuration completed.
+
+  -- Configuring done
+  -- Generating done
+  -- Build files have been written to: .../llama.cpp/build-android
+
+  The warnings about LLAMA_BUILD_CLI and LLAMA_SERVER are fine — those options were probably renamed in newer versions of llama.cpp. Doesn't affect the build.
+
+  Activity 03 is complete! ✓
+
+  What's the next activity? Probably running the actual build with:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe"
+
+  Or your lecturer's guide might say cmake --build . which would be:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build .
+
+> this is the next step: In an Android project, CMake is used to 
+cross-compile native C/C++ code (such as
+llama.cpp) into an Android-compatible shared library (.so) by selecting the 
+correct ABI,
+API level, compiler, and system libraries, while disabling desktop-only 
+components like
+CLI tools and servers. The resulting .so is then loaded through JNI and 
+called from
+Kotlin/Java, allowing Android apps to safely and efficiently use native 
+code.
+The build will produce a long list of output. However, the output that 
+mattered most is
+Configuring done and Generating done shown in Figure 29.
+Figure 29: A successful cmake script execution
+4. Then enter the command in Figure 30.
+20
+In an Android project, this command compiles the native C/C++ sources into 
+an
+optimized Android shared library (libllama.so) that is suitable for 
+deployment on real
+devices and use via JNI from Kotlin.
+cmake --build . --config Release
+Figure 30: Build configuration
+The build will immediately starts as shown Figure 31.
+Figure 31: Build process begins
+Figure 32: Build process completed
+5. List the build-android/bin content. The output shall be similar as 
+highlighted in Figure
+33.
+21
+Figure 33: Files in the build-android/bin directory 
+
+● Step 4: Run the build
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config Release
+
+  This will compile and produce the .so library files. Wait for it to complete.
+
+  Step 5: List the bin directory contents
+
+  After the build finishes:
+
+  ls bin
+
+  You should see files like:
+  - libllama.so
+  - libggml.so
+  - And other .so files
+
+  These are the shared libraries that your Android app will use via JNI.
+
+> where to run this "& "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" 
+--build . --config Release" ? which directry 
+
+● Stay in the same build-android directory where you just ran the cmake configuration.
+
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android
+
+  The . in --build . means "build in the current directory" — which is where the CMake configuration files were just generated.
+
+  If you're still there, just run:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config Release
+
+> There is too much errors and warning, omg im afraid.....     (base) PS 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama
+.cpp\build-android> & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. 
+-G Ninja -DCMAKE_M
+AKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLC
+HAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" 
+-DANDROID_ABI=arm64-v8a -DANDROID_PLATF
+ORM=android-26 -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF 
+-DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF 
+-DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+-- The C compiler identification is Clang 18.0.1
+-- The CXX compiler identification is Clang 18.0.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/nd
+k/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe - 
+skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/
+ndk/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe - 
+skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMAKE_BUILD_TYPE=Release
+-- Found Git: C:/Program Files/Git/cmd/git.exe (found version 
+"2.41.0.windows.1") 
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.120779
+73/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
+-- Setting GGML_NATIVE_DEFAULT to OFF
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE
+-- Warning: ccache not found - consider installing it for faster compilation
+ or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: aarch64
+-- GGML_SYSTEM_ARCH: ARM
+-- Including CPU backend
+-- ARM detected
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E - Failed
+-- Checking for ARM features using flags:
+-- Performing Test HAVE_DOTPROD
+-- Performing Test HAVE_DOTPROD - Failed
+-- Performing Test HAVE_SVE
+-- Performing Test HAVE_SVE - Failed
+-- Performing Test HAVE_MATMUL_INT8
+-- Performing Test HAVE_MATMUL_INT8 - Failed
+-- Performing Test HAVE_FMA
+-- Performing Test HAVE_FMA - Success
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC - Failed
+-- Performing Test HAVE_SME
+-- Performing Test HAVE_SME - Failed
+-- Adding CPU backend variant ggml-cpu:
+-- ggml version: 0.9.4
+-- ggml commit:  5ee4e43f2
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    LLAMA_BUILD_CLI
+    LLAMA_SERVER
+
+
+-- Build files have been written to: C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/As
+sessment/Assignment-Project/slm/llama.cpp/build-android
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config 
+Release
+[163/177] Building CXX object common/CMakeFiles/common.dir/common.cpp.o
+In file included from C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assign
+ment-Project/slm/llama.cpp/common/common.cpp:8:
+In file included from C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assign
+ment-Project/slm/llama.cpp/common/common.h:8:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/set:1494:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/functional:526:
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fu
+nctional/boyer_moore_searcher.h:27:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/vector:325:
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fo
+rmat/formatter_bool.h:20:   
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fo
+rmat/formatter_integral.h:35:
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3257:1: warning: 
+'wstring_convert<std::codecvt_utf8<char32_t>, char32_t>' is deprecated 
+[-Wdeprecated-declarations]
+ 3257 | wstring_convert<_Codecvt, _Elem, _WideAlloc, 
+_ByteAlloc>::to_bytes(const _Elem* __frm, const _Elem* __frm_end) {
+      | ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3161:12: note: in 
+instantiation of member function 
+'std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t>::to_bytes' 
+requested here
+ 3161 |     return to_bytes(__wstr.data(), __wstr.data() + __wstr.size());
+      |            ^
+C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assignment-Project/slm/llama
+.cpp/common/common.cpp:732:52: note: in instantiation of member function 
+'std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t>::to_bytes' 
+requested here
+  732 |         std::string filename_reencoded = 
+converter.to_bytes(filename_utf32);
+      |                                                    ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3114:28: note: 
+'wstring_convert<std::codecvt_utf8<char32_t>, char32_t>' has been explicitly
+ marked deprecated here
+ 3114 | class _LIBCPP_TEMPLATE_VIS _LIBCPP_DEPRECATED_IN_CXX17 
+wstring_convert {
+      |                            ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__config:942:41: note: 
+expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+  942 | #    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+      |                                         ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__config:915:49: note: 
+expanded from macro '_LIBCPP_DEPRECATED'
+  915 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+1 warning generated.
+[177/177] Linking CXX static library common\libcommon.a 
+
+● Don't worry — the build SUCCEEDED! 🎉
+
+  Look at the key indicators:
+
+  [177/177] Linking CXX static library common\libcommon.a
+
+  - 177/177 = All 177 files compiled successfully
+  - Only 1 warning generated (about deprecated wstring_convert — harmless)
+  - No errors
+
+  Warnings ≠ Errors
+  - Warnings = "Hey, this might be an issue someday" (build continues)
+  - Errors = "Cannot continue" (build stops)
+
+  Now verify by listing the bin directory:
+
+  ls bin
+
+  You should see the .so files like libllama.so, libggml.so, etc.
+
+  Activity 04 complete! ✓
+
+> ok next Phase 05: Basic Pipeline Development
+have 4 activities need to be done, ready pal? 
+
+● Ready! Let's go through Phase 05 together.
+
+  Share the first activity instructions and we'll tackle them one by one.
+
+> Activity 01: Native Library Definition
+Expected outcome: The native library to communicate with the .gguf is 
+defined.
+1. Create a new directory named jniLibs within the app/src/main directory.
+2. Create a new directory named arm64-v8a within the app/src/main/jniLibs 
+directory.
+3. Copy the following files into the arm64-v8a directory. These files are 
+located in the
+/llama.cpp/build-android/bin directory.
+a. libggml-base.so
+b. libggml-cpu.so
+c. libggml.so
+d. libllama.so 
+
+● Here are the PowerShell commands:
+
+  Step 1 & 2: Create directories
+
+  mkdir C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a
+
+  This creates both jniLibs and arm64-v8a in one command.
+
+  Step 3: Copy the .so files
+
+  $source = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android\bin"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a"
+
+  Copy-Item "$source\libggml-base.so" $dest
+  Copy-Item "$source\libggml-cpu.so" $dest
+  Copy-Item "$source\libggml.so" $dest
+  Copy-Item "$source\libllama.so" $dest
+
+  Verify:
+
+  ls $dest
+
+  You should see all 4 files:
+  - libggml-base.so
+  - libggml-cpu.so
+  - libggml.so
+  - libllama.so
+
+  Or do it manually in Android Studio:
+  1. Right-click main → New > Directory → type jniLibs/arm64-v8a
+  2. Copy the 4 .so files from llama.cpp/build-android/bin into that folder
+
+> so this is freely any directory i can execute the command rigth? 
+
+● Yes, exactly! Since I'm using absolute paths (full paths starting from C:\), you can run these commands from any directory.
+
+  The commands don't use . or relative paths, so your current location doesn't matter.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\AssignmentSourceCode> ls $dest
+
+
+    Directory: C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Pr
+oject\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a
+
+
+Mode                 LastWriteTime         Length Name                      
+                                                                            
+                           
+----                 -------------         ------ ----                      
+                                                                            
+                           
+-a----        24/12/2025   2:59 PM        5065616 libggml-base.so           
+                                                                            
+                           
+-a----        24/12/2025   3:00 PM        4216904 libggml-cpu.so
+-a----        24/12/2025   3:00 PM         589320 libggml.so
+-a----        24/12/2025   3:01 PM       29102800 libllama.so 
+
+● All 4 files copied successfully:
+
+  | File            | Size    |
+  |-----------------|---------|
+  | libggml-base.so | ~5 MB   |
+  | libggml-cpu.so  | ~4 MB   |
+  | libggml.so      | ~0.6 MB |
+  | libllama.so     | ~29 MB  |
+
+  Activity 01 complete! ✓
+
+  What's Activity 02?
+
+> Activity 02: JNI Bridge Definition
+Expected outcome: The native.cpp file is relocated into the project 
+app/src/main cpp
+directory
+1. Create a new directory name cpp within the app/src/main directory.
+2. Relocate the native-lib.cpp and CMakeLists.txt files into the directory 
+that was just created. This file was unzipped from the previous phase.
+
+These step 1 and 2 i know what to do as I unzipped it my own..
+
+3. Open the native-lib.cpp file.
+4. The JNI function name must match the Android package name and the class 
+that
+invokes the function. It adheres the Java_<package>_<Class>_<function> 
+naming
+convention. Figure 36 shows an example that adhere to the naming convention 
+and
+mapping to the class name.
+Amend the file to adhere to the project package and class name.
+Figure 36: JNI function name mapping (attached file [Image #16])
+
+5. Save the file.
+6. Open the CMakeLists.txt file.
+7. Change the "androidSLM" to the project name.
+8. Save the file.
+9. Close the files. 
+  ⎿  [Image #16]
+
+● Got it! For steps 3-8, you need to update the JNI function name to match your project's package name.
+
+  Let me check your project's package name:
+
+● Search(pattern: "**/AndroidManifest.xml", path: "~\Desktop\UTeM\Y3S1\MAD\Asses
+        sment\Assignment-Project\AssignmentSourceCode")
+  ⎿  Found 1 file (ctrl+o to expand)
+
+● Read(app\src\main\AndroidManifest.xml)
+  ⎿  Read 25 lines
+
+● Read(app\build.gradle.kts)
+  ⎿  Read 49 lines
+
+● Found it! Your package name is com.mad.assignment.
+
+  For Step 4 (native-lib.cpp):
+
+  Change the JNI function name from:
+  Java_edu_utem_ftmk_slm02_MainActivity_echoFromNative
+
+  To:
+  Java_com_mad_assignment_MainActivity_echoFromNative
+
+  Naming convention breakdown:
+  | Part     | Example             | Your Project       |
+  |----------|---------------------|--------------------|
+  | Prefix   | Java_               | Java_              |
+  | Package  | edu_utem_ftmk_slm02 | com_mad_assignment |
+  | Class    | MainActivity        | MainActivity       |
+  | Function | echoFromNative      | echoFromNative     |
+
+  For Steps 6-8 (CMakeLists.txt):
+
+  Change "androidSLM" to "Assignment" (or your project name).
+
+  ---
+  Once you've placed the files in app/src/main/cpp, let me know and I can help verify or edit them directly if needed.
+
+> check it for me, i already done it 
+
+● Read(app\src\main\cpp\native-lib.cpp)
+  ⎿  Read 36 lines
+
+● Read(app\src\main\cpp\CMakeLists.txt)
+  ⎿  Read 43 lines
+
+● Both files look correct! ✓
+
+  native-lib.cpp
+
+  Java_com_mad_assignment_MainActivity_echoFromNative  ✓
+  Matches your package com.mad.assignment + class MainActivity
+
+  CMakeLists.txt
+
+  project("Assignment")  ✓
+  Changed from "androidSLM" to "Assignment"
+
+  Activity 02 complete! ✓
+
+  What's Activity 03?
+
+> JNICALL in @app\src\main\cpp\native-lib.cpp have error. should i just 
+click fix below there? 
+  ⎿  [Image #18]
+
+● Don't click the fix! This is a false warning from Android Studio's linter.
+
+  The code is actually correct:
+  JNIEXPORT jstring JNICALL
+
+  - JNIEXPORT = export macro
+  - jstring = return type
+  - JNICALL = calling convention macro
+
+  Android Studio sometimes misreads JNI syntax. The IDE hasn't fully configured the NDK paths yet.
+
+  What to do:
+
+  Ignore the warning for now. Once you complete Activity 03 (configuring CMake in build.gradle), Android Studio will sync properly and the error should disappear.
+
+  If it still shows after syncing, the code will still compile correctly — it's just an IDE display issue, not an actual error.
+
+  Continue to Activity 03!
+
+> Activity 03: Gradle Setting
+Expected Outcome: The ndk is defined in the Gradle setting
+1. Open the build.gradle (Module: app) file.
+2. Add the highlighted codes shown in Figure 37into the file.
+[Image #19]
+Figure 37: ndk definition in app gradle setting
+
+3. Add the highlighted codes in Figure 38. The defaultConfig{} block is 
+minimized for
+readability.
+[Image #20]
+4. Sync the Gradle setting. 
+  ⎿  [Image #19]
+  ⎿  [Image #20]
+
+● I can see from the images what needs to be added. Let me update your build.gradle.kts file:
+
+● Read(app\build.gradle.kts)
+  ⎿  Read 49 lines
+
+● Now I'll add the required configurations:
+
+● Update(app\build.gradle.kts)
+  ⎿  Added 10 lines                                                      
+      17          versionName = "1.0"                                    
+      18                                                                 
+      19          testInstrumentationRunner =                            
+          "androidx.test.runner.AndroidJUnitRunner"                      
+      20 +                                                               
+      21 +        ndk {                                                  
+      22 +            abiFilters += listOf("arm64-v8a")                  
+      23 +        }                                                      
+      24 +                                                               
+      25 +        externalNativeBuild {                                  
+      26 +            cmake {                                            
+      27 +                cppFlags += ""                                 
+      28 +            }                                                  
+      29 +        }                                                      
+      30      }                                                          
+      31                                                                 
+      32      buildTypes {                                               
+
+● Update(app\build.gradle.kts)
+  ⎿  Added 6 lines                                                       
+      45      kotlinOptions {                                            
+      46          jvmTarget = "11"                                       
+      47      }                                                          
+      48 +                                                               
+      49 +    externalNativeBuild {                                      
+      50 +        cmake {                                                
+      51 +            path = file("src/main/cpp/CMakeLists.txt")         
+      52 +        }                                                      
+      53 +    }                                                          
+      54  }                                                              
+      55                                                                 
+      56  dependencies {                                                 
+
+● Done! I've added both configurations:
+
+  Inside defaultConfig (lines 21-29):
+
+  ndk {
+      abiFilters += listOf("arm64-v8a")
+  }
+
+  externalNativeBuild {
+      cmake {
+          cppFlags += ""
+      }
+  }
+
+  Inside android block (lines 49-53):
+
+  externalNativeBuild {
+      cmake {
+          path = file("src/main/cpp/CMakeLists.txt")
+      }
+  }
+
+  Step 4: Sync Gradle
+
+  In Android Studio, click "Sync Now" in the yellow banner at the top, or:
+  - File > Sync Project with Gradle Files
+
+  After syncing, the JNICALL error should also disappear.
+
+  Activity 03 complete! ✓
+
+  What's Activity 04?
+
+> where is the location of the modified file? 
+
+● The modified file is:
+
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\build.gradle.kts
+
+  In Android Studio's Project panel:
+  app
+  └── build.gradle.kts   ← This file
+
+  Or shown as "build.gradle.kts (Module :app)" in the editor tabs.
+
+> Activity 04: Baseline App Execution
+Expected Outcome: The application successfully executed on an Android smart
+phone.
+1. Connect the Android smart phone to the computer.
+2. Click the File menu from the menu bar
+3. Select the Invalidate Caches menu item from the menu. A window named 
+Invalidate
+Caches as shown in Figure 39 will be displayed.
+[Image #21]
+Figure 39: Invalidate caches window
+4. Check the first check box.
+5. Then, click the Invalidate and Restart button. The studio shall restart 
+and open the
+project again.
+6. Click the Build button from the bottom left corner to bring out the build
+ panel.
+7. Click the Build menu from the menu bar.
+8. Select the Clean and Assemble Project with test menu item from the menu.
+9. Observe the Build messages from the panel.
+10.Execute the application on the Android smart phone.
+11.Observe the Logcat messages.
+12. Filter the Logcat message for JNI_TEST. The output shall be similar as 
+show in Figure 40.
+[Image #22]
+Figure 40: Output from JNI_TEST filter
+13. Filter the Logcat message for JNI_TEST. The output shall be similar as 
+show in Figure 41.
+[Image #23]
+Figure 41: Output from NATIVE_LIB filter
+Both outputs indicate the app is successfully run without crashing with the 
+call to the native method. 
+  ⎿  [Image #21]
+  ⎿  [Image #22]
+  ⎿  [Image #23]
+
+● Activity 04 is all manual steps in Android Studio. Here's a summary:
+
+  Steps:
+
+  1. Connect your Android phone via USB (enable USB debugging)
+  2. Invalidate Caches:
+    - File → Invalidate Caches...
+    - Check ☑️ "Clear file system cache and Local History" (first checkbox)
+    - Click "Invalidate and Restart"
+  3. After Android Studio restarts:
+    - Build → Clean and Assemble Project with test
+    - Wait for build to complete
+  4. Run the app:
+    - Select your phone from the device dropdown
+    - Click ▶️ Run
+  5. Check Logcat:
+    - Filter by JNI_TEST → should show "hello"
+    - Filter by NATIVE_LIB → should show:
+        - echoFromNative() called
+      - Received input: hello
+
+  ---
+  Note: For the Logcat output to show, your MainActivity needs to call the native echoFromNative() function. Do you have that set up already, or is that part of a later activity?
+
+> /exit 
+  ⎿  See ya!
+
+> where is logcat located? 
+
+● In Android Studio, Logcat is at the bottom panel.
+
+  To open Logcat:
+
+  Option 1: Click "Logcat" tab at the bottom of Android Studio
+
+  Option 2: View → Tool Windows → Logcat
+
+  Option 3: Press Alt + 6 (Windows)
+
+  ---
+  To filter messages:
+
+  1. In the Logcat panel, find the search/filter box
+  2. Type JNI_TEST or NATIVE_LIB to filter
+
+  Make sure your phone is selected in the device dropdown at the top of the Logcat panel.
+
+> APK app-debug.apk is not compatible with 16 KB devices. Some libraries 
+have LOAD segments not aligned at 16 KB boundaries:
+lib/arm64-v8a/libggml-base.so
+lib/arm64-v8a/libggml-cpu.so
+lib/arm64-v8a/libggml.so
+lib/arm64-v8a/libllama.so
+lib/arm64-v8a/libnative-lib.so 
+
+● This is a new Android 15+ requirement for 16KB page size alignment. You have two options:
+
+  Option 1: Ignore (if your phone works)
+
+  If your phone is not a 16KB device (most phones aren't yet), the app should still run. Try running it anyway - this may just be a warning.
+
+  Option 2: Rebuild llama.cpp with 16KB alignment
+
+  Go back to the build-android directory and rebuild with the alignment flag:
+
+  cd C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android
+
+  Clean and reconfigure:
+  Remove-Item -Recurse -Force *
+
+  Run cmake with the 16KB alignment flag:
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Build:
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config Release
+
+  Then copy the new .so files to jniLibs/arm64-v8a again.
+
+  ---
+  Which do you prefer? Try Option 1 first - just run the app and see if it works on your phone.
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> Remove-Item -Recurse -Force *
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja 
+-DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" 
+-DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\
+>> build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a 
+-DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON 
+-DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF 
+-DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF 
+-DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+& : The term '\cmake\3.22.1\bin\cmake.exe' is not recognized as the name of 
+a cmdlet, function, script file, or operable program. Check the spelling of 
+the name, or if a path was 
+included, verify that the path is correct and try again.
+At line:1 char:3
++ & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCM ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: 
+(\cmake\3.22.1\bin\cmake.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException 
+
+● The environment variables were lost (new terminal session). Set them again first:
+
+  $env:ANDROID_SDK_ROOT = "$env:LOCALAPPDATA\Android\Sdk"
+  $env:ANDROID_NDK = "$env:ANDROID_SDK_ROOT\ndk\27.0.12077973"
+
+  Then run the cmake command:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+> (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\slm\llama.cpp\build-android> $env:ANDROID_SDK_ROOT = 
+"$env:LOCALAPPDATA\Android\Sdk"
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android>   $env:ANDROID_NDK = 
+"$env:ANDROID_SDK_ROOT\ndk\27.0.12077973"
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja 
+-DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" 
+-DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\
+>> build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a 
+-DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON 
+-DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF 
+-DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF 
+-DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+CMake Error at C:/Users/Akmal/AppData/Local/Android/Sdk/cmake/3.22.1/share/c
+make-3.22/Modules/CMakeDetermineSystem.cmake:130 (message):
+  Could not find toolchain file:
+  C:\Users\Akmal\AppData\Local\Android\Sdk\ndk\27.0.12077973\
+
+  build\cmake\android.toolchain.cmake
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
+CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+CMake Warning:
+  Value of CMAKE_TOOLCHAIN_FILE contained a newline; truncating 
+
+● The command got split with a newline (see >> in your terminal). Run it as one single line without pressing Enter in the middle:
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Copy and paste the entire command above as one line. Make sure there's no line break.
+
+> so now i just need to run it again? and is kb alignment? 
+
+● Yes! Two steps:
+
+  Step 1: Run cmake config (one line, no breaks)
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja -DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON -DBUILD_SHARED_LIBS=ON -DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF -DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+
+  Step 2: Build
+
+  & "$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config Release
+
+  Step 3: Copy new .so files
+
+  $source = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android\bin"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a"
+
+  Copy-Item "$source\libggml-base.so" $dest -Force
+  Copy-Item "$source\libggml-cpu.so" $dest -Force
+  Copy-Item "$source\libggml.so" $dest -Force
+  Copy-Item "$source\libllama.so" $dest -Force
+
+  ---
+  Yes, 16KB alignment is included via:
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+> i meant what is 16kb alignment for? with and without? 
+
+● 16KB page alignment is about how memory is organized on Android devices.
+
+  What is it?
+
+  |           | Traditional         | New (Android 15+)                 |
+  |-----------|---------------------|-----------------------------------|
+  | Page size | 4KB                 | 16KB                              |
+  | Devices   | Most current phones | Some newer phones (Pixel 9, etc.) |
+
+  Why does it matter?
+
+  When Android loads a .so library into memory, it loads it in "pages". If the library was built for 4KB pages but the device uses 16KB pages, the app crashes.
+
+  With vs Without:
+
+  |                       | Without flag     | With flag       |
+  |-----------------------|------------------|-----------------|
+  | Works on 4KB devices  | ✓ Yes            | ✓ Yes           |
+  | Works on 16KB devices | ✗ No (crash)     | ✓ Yes           |
+  | File size             | Slightly smaller | Slightly larger |
+
+  Summary:
+
+  - Without = Only works on older/most current phones
+  - With = Works on ALL phones (future-proof)
+
+  Your lecturer's guide probably didn't include it because it's a newer requirement (Android 15, late 2024). Adding it ensures your app works on both old and new devices.
+
+> why have warnings and failed? (base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\M
+AD\Assessment\Assignment-Project\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" .. -G Ninja 
+-DCMAKE_MAKE_PROGRAM="$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\ninja.exe" -DCM
+AKE_TOOLCHAIN_FILE="$env:ANDROID_NDK\build\cmake\android.toolchain.cmake" 
+-DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-26 
+-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON -DBUILD_SHARED_LIBS=ON 
+-DLLAMA_CURL=OFF -DLLAMA_SERVER=OFF -DLLAMA_BUILD_SERVER=OFF 
+-DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_TOOLS=OFF 
+-DGGML_OPENMP=OFF -DLLAMA_BUILD_CLI=OFF
+-- The C compiler identification is Clang 18.0.1
+-- The CXX compiler identification is Clang 18.0.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/nd
+k/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe - 
+skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Users/Akmal/AppData/Local/Android/Sdk/
+ndk/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe - 
+skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMAKE_BUILD_TYPE=Release
+-- Found Git: C:/Program Files/Git/cmd/git.exe (found version 
+"2.41.0.windows.1") 
+-- The ASM compiler identification is Clang with GNU-like command-line
+-- Found assembler: C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.120779
+73/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
+-- Setting GGML_NATIVE_DEFAULT to OFF
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE
+-- Warning: ccache not found - consider installing it for faster compilation
+ or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: aarch64
+-- GGML_SYSTEM_ARCH: ARM
+-- Including CPU backend
+-- ARM detected
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E
+-- Performing Test GGML_COMPILER_SUPPORTS_FP16_FORMAT_I3E - Failed
+-- Checking for ARM features using flags:
+-- Performing Test HAVE_DOTPROD
+-- Performing Test HAVE_DOTPROD - Failed
+-- Performing Test HAVE_SVE
+-- Performing Test HAVE_SVE - Failed
+-- Performing Test HAVE_MATMUL_INT8
+-- Performing Test HAVE_MATMUL_INT8 - Failed
+-- Performing Test HAVE_FMA
+-- Performing Test HAVE_FMA - Success
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC
+-- Performing Test HAVE_FP16_VECTOR_ARITHMETIC - Failed
+-- Performing Test HAVE_SME
+-- Performing Test HAVE_SME - Failed
+-- Adding CPU backend variant ggml-cpu:
+-- ggml version: 0.9.4
+-- ggml commit:  5ee4e43f2
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/As
+sessment/Assignment-Project/slm/llama.cpp/build-android
+(base) PS C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project
+\slm\llama.cpp\build-android> & 
+"$env:ANDROID_SDK_ROOT\cmake\3.22.1\bin\cmake.exe" --build . --config 
+Release
+[168/177] Building CXX object common/CMakeFiles/common.dir/common.cpp.o     
+                                                                            
+                            
+In file included from C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assign
+ment-Project/slm/llama.cpp/common/common.cpp:8:
+In file included from C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assign
+ment-Project/slm/llama.cpp/common/common.h:8:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/set:1494:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/functional:526:
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fu
+nctional/boyer_moore_searcher.h:27:
+In file included from 
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/vector:325:
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fo
+rmat/formatter_bool.h:20:   
+In file included from C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.1207
+7973/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__fo
+rmat/formatter_integral.h:35:
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3257:1: warning: 
+'wstring_convert<std::codecvt_utf8<char32_t>, char32_t>' is deprecated 
+[-Wdeprecated-declarations]
+ 3257 | wstring_convert<_Codecvt, _Elem, _WideAlloc, 
+_ByteAlloc>::to_bytes(const _Elem* __frm, const _Elem* __frm_end) {
+      | ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3161:12: note: in 
+instantiation of member function 
+'std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t>::to_bytes' 
+requested here
+ 3161 |     return to_bytes(__wstr.data(), __wstr.data() + __wstr.size());
+      |            ^
+C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assignment-Project/slm/llama
+.cpp/common/common.cpp:732:52: note: in instantiation of member function 
+'std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t>::to_bytes' 
+requested here
+  732 |         std::string filename_reencoded = 
+converter.to_bytes(filename_utf32);
+      |                                                    ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/locale:3114:28: note: 
+'wstring_convert<std::codecvt_utf8<char32_t>, char32_t>' has been explicitly
+ marked deprecated here
+ 3114 | class _LIBCPP_TEMPLATE_VIS _LIBCPP_DEPRECATED_IN_CXX17 
+wstring_convert {
+      |                            ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__config:942:41: note: 
+expanded from macro '_LIBCPP_DEPRECATED_IN_CXX17'
+  942 | #    define _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_DEPRECATED
+      |                                         ^
+C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/p
+rebuilt/windows-x86_64/sysroot/usr/include/c++/v1/__config:915:49: note: 
+expanded from macro '_LIBCPP_DEPRECATED'
+  915 | #      define _LIBCPP_DEPRECATED __attribute__((__deprecated__))
+      |                                                 ^
+1 warning generated.
+[177/177] Linking CXX static library common\libcommon.a 
+
+● Everything is fine! Those are normal. Let me explain:
+
+  The "Failed" messages during cmake config:
+
+  These are feature detection tests, not errors. CMake is checking:
+  - "Does this compiler support DOTPROD?" → No, skip it
+  - "Does this compiler support SVE?" → No, skip it
+  - etc.
+
+  It just means those optional CPU optimizations won't be used. The build continues with what IS supported (like FMA ✓).
+
+  The warning during build:
+
+  'wstring_convert...' is deprecated
+
+  This is a deprecation warning from the C++ standard library — not your code. It's harmless and doesn't affect functionality.
+
+  The result:
+
+  [177/177] Linking CXX static library common\libcommon.a
+
+  177/177 = SUCCESS! All files compiled.
+
+  ---
+  Now copy the new .so files:
+
+  $source = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android\bin"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a"
+
+  Copy-Item "$source\libggml-base.so" $dest -Force
+  Copy-Item "$source\libggml-cpu.so" $dest -Force
+  Copy-Item "$source\libggml.so" $dest -Force
+  Copy-Item "$source\libllama.so" $dest -Force
+
+  Then rebuild your Android app and try running it again.
+
+> all at once? :   $source = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessmen
+t\Assignment-Project\slm\llama.cpp\build-android\bin"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Projec
+t\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a"
+
+  Copy-Item "$source\libggml-base.so" $dest -Force
+  Copy-Item "$source\libggml-cpu.so" $dest -Force
+  Copy-Item "$source\libggml.so" $dest -Force
+  Copy-Item "$source\libllama.so" $dest -Force 
+
+● Yes! Paste all of it at once — PowerShell will run them line by line:
+
+  $source = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\build-android\bin"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\jniLibs\arm64-v8a"
+
+  Copy-Item "$source\libggml-base.so" $dest -Force
+  Copy-Item "$source\libggml-cpu.so" $dest -Force
+  Copy-Item "$source\libggml.so" $dest -Force
+  Copy-Item "$source\libllama.so" $dest -Force
+
+  Just copy and paste the whole block. Done!
+
+> how to rebuild my ap? 
+
+● In Android Studio:
+
+  1. Build → Clean Project
+  2. Build → Rebuild Project
+
+  Or faster:
+  - Build → Clean and Assemble Project with test
+
+  Then click ▶️ Run to install on your phone.
+
+  ---
+  If you still get the 16KB warning, also try:
+  - File → Invalidate Caches → Invalidate and Restart
+
+  Then rebuild again.
+
+> 2025-12-24 16:15:52.507  2427-2945  AppScanObserverService  system_server 
+                       E  Try to add a invalid package: com.mad.assignment |
+ 10459 | 0
+2025-12-24 16:15:52.628  2427-2427  SLM-SRV-SLAAppLib       system_server   
+                     E  initBroadcastReceivercom.mad.assignment
+2025-12-24 16:15:52.708  3259-3424  Launcher.AllAppsList    com.miui.home   
+                     E  Can't load postion for packageName: 
+com.mad.assignment activityName: com.mad.assignment.MainActivity
+2025-12-24 16:15:53.215  3259-3372  InstallApkReceiver      com.miui.home   
+                     E  install:package:com.mad.assignment
+2025-12-24 16:15:55.282  7848-8938  PackageUtil             
+com.lbe.security.miui                E  getPackageInfoAsUser failed 
+com.mad.assignment , 999
+2025-12-24 16:15:55.519  2427-2587  WindowManager           system_server   
+                     E  setClientVisible ActivityRecord{99e4b38 u0 
+com.mad.assignment/.MainActivity true
+2025-12-24 16:15:55.668  2427-6822  WindowManager           system_server   
+                     E  setClientVisible ActivityRecord{99e4b38 u0 
+com.mad.assignment/.MainActivity t1346} true
+2025-12-24 16:15:55.679  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993510, 
+oldVsyncId=26993510, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:55.679  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993510, 
+oldVsyncId=26993510, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.738  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993534, 
+oldVsyncId=26993533, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.738  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993534, 
+oldVsyncId=26993534, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.763  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993535, 
+oldVsyncId=26993535, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.763  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993535, 
+oldVsyncId=26993535, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:55.763  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993535, 
+oldVsyncId=26993535, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.775  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993543, 
+oldVsyncId=26993535, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.785  2427-2457  WindowManager           system_server   
+                     E  setClientVisible ActivityRecord{99e4b38 u0 
+com.mad.assignment/.MainActivity t1346} true
+2025-12-24 16:15:55.830  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993560, 
+oldVsyncId=26993560, layerName=878a076 ActivityRecordInputSink 
+com.mad.assignment/.MainActivity#27240
+2025-12-24 16:15:55.854  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993590, 
+oldVsyncId=26993582, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:55.854  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993590, 
+oldVsyncId=26993590, layerName=ActivityRecord{99e4b38 u0 
+com.mad.assignment/.MainActivity t1346}#27234
+2025-12-24 16:15:55.854  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993590, 
+oldVsyncId=26993590, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:55.859 17805-17805 Zygote                  pid-17805       
+                     E  process_name_ptr:17805 com.mad.assignment
+2025-12-24 16:15:55.859 17805-17805 Zygote                  pid-17805       
+                     E  SetMemoryProtected process_name_ptr:17805 
+com.mad.assignment
+2025-12-24 16:15:55.863  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993591, 
+oldVsyncId=26993590, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:55.863  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26993591, 
+oldVsyncId=26993591, layerName=ActivityRecord{99e4b38 u0 
+com.mad.assignment/.MainActivity t1346}#27234
+2025-12-24 16:15:55.914  3259-5006  ActivityManagerWrapper  com.miui.home   
+                     E  getRecentTasksForceIncludingTaskIdIfValid: 
+getRecentTasks: size=29
+                                                                            
+                         mainTaskId=1346   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 
+cmp=ComponentInfo{com.mad.assignment/com.mad.assignment.MainActivity} }
+                                                                            
+                         mainTaskId=1345   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=411041792 
+cmp=ComponentInfo{com.miui.securitycenter/com.miui.permcenter.install.AdbIns
+tallActivity} }
+                                                                            
+                         mainTaskId=1344   userId=0   windowMode=1   
+baseIntent=Intent { act=null flag=268435456 cmp=ComponentInfo{com.miui.secur
+itycenter/com.miui.permcenter.install.PackageManagerActivity} }
+                                                                            
+                         mainTaskId=1338   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                            
+                         mainTaskId=1318   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                            
+                         mainTaskId=1305   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.snapchat.android/com.snapchat.android.LandingPageActivity} }
+                                                                            
+                         mainTaskId=1306   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.whatsapp/com.whatsapp.Main} }
+                                                                            
+                         mainTaskId=1337   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.ss.android.ugc.trill/com.ss.android.ugc.aweme.splash.S
+plashActivity} }
+                                                                            
+                         mainTaskId=1336   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=268435456 
+cmp=ComponentInfo{com.android.vending/com.google.android.finsky.activities.M
+ainActivityPrivate} }
+                                                                            
+                         mainTaskId=1328   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.instagram.android/com.instagram.android.activity.MainT
+abActivity} }
+                                                                            
+                         mainTaskId=1312   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.maybank2u.life/com.zoontek.rnbootsplash.RNBootSplashActivity} }
+                                                                            
+                         mainTaskId=1291   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                            
+                         mainTaskId=1292   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.apps.youtube.music/com.google.android.a
+pps.youtube.music.activities.MusicActivity} }
+                                                                            
+                         mainTaskId=1319   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationLi
+stActivityGmail} }
+                                                                            
+                         mainTaskId=1332   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.miui.calculator/com.miui.calculator.cal.CalculatorActivity} }
+                                                                            
+                         mainTaskId=1326   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=Compon
+entInfo{com.anthropic.claude/com.anthropic.claude.mainactivity.MainActivity}
+ }
+                                                                            
+                         mainTaskId=1287   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.coinmarketcap.android/com.coinmarketcap.android.LaunchActivity} 
+}
+                                                                            
+                         mainTaskId=1286   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=872415232 cmp=Compon
+entInfo{com.android.deskclock/com.android.deskclock.DeskClockTabActivity} }
+                                                                            
+                         mainTaskId=1307   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.youtube/com.google.android.youtube.app.
+honeycomb.Shell$HomeActivity} }
+                                                                            
+                         mainTaskId=1324   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.facebook.katana/com.facebook.katana.LoginActivity} }
+2025-12-24 16:15:56.001  3259-5006  ActivityManagerWrapper  com.miui.home   
+                     E  getRecentTasksForceIncludingTaskIdIfValid: 
+getRecentTasks: size=29
+                                                                            
+                         mainTaskId=1346   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 
+cmp=ComponentInfo{com.mad.assignment/com.mad.assignment.MainActivity} }
+                                                                            
+                         mainTaskId=1345   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=411041792 
+cmp=ComponentInfo{com.miui.securitycenter/com.miui.permcenter.install.AdbIns
+tallActivity} }
+                                                                            
+                         mainTaskId=1344   userId=0   windowMode=1   
+baseIntent=Intent { act=null flag=268435456 cmp=ComponentInfo{com.miui.secur
+itycenter/com.miui.permcenter.install.PackageManagerActivity} }
+                                                                            
+                         mainTaskId=1338   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                            
+                         mainTaskId=1318   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                            
+                         mainTaskId=1305   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.snapchat.android/com.snapchat.android.LandingPageActivity} }
+                                                                            
+                         mainTaskId=1306   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.whatsapp/com.whatsapp.Main} }
+                                                                            
+                         mainTaskId=1337   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.ss.android.ugc.trill/com.ss.android.ugc.aweme.splash.S
+plashActivity} }
+                                                                            
+                         mainTaskId=1336   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=268435456 
+cmp=ComponentInfo{com.android.vending/com.google.android.finsky.activities.M
+ainActivityPrivate} }
+                                                                            
+                         mainTaskId=1328   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.instagram.android/com.instagram.android.activity.MainT
+abActivity} }
+                                                                            
+                         mainTaskId=1312   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.maybank2u.life/com.zoontek.rnbootsplash.RNBootSplashActivity} }
+                                                                            
+                         mainTaskId=1291   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                            
+                         mainTaskId=1292   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.apps.youtube.music/com.google.android.a
+pps.youtube.music.activities.MusicActivity} }
+                                                                            
+                         mainTaskId=1319   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationLi
+stActivityGmail} }
+                                                                            
+                         mainTaskId=1332   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.miui.calculator/com.miui.calculator.cal.CalculatorActivity} }
+                                                                            
+                         mainTaskId=1326   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=Compon
+entInfo{com.anthropic.claude/com.anthropic.claude.mainactivity.MainActivity}
+ }
+                                                                            
+                         mainTaskId=1287   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.coinmarketcap.android/com.coinmarketcap.android.LaunchActivity} 
+}
+                                                                            
+                         mainTaskId=1286   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=872415232 cmp=Compon
+entInfo{com.android.deskclock/com.android.deskclock.DeskClockTabActivity} }
+                                                                            
+                         mainTaskId=1307   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.youtube/com.google.android.youtube.app.
+honeycomb.Shell$HomeActivity} }
+                                                                            
+                         mainTaskId=1324   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.facebook.katana/com.facebook.katana.LoginActivity} }
+2025-12-24 16:15:56.437  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994153, 
+oldVsyncId=26994153, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:56.448  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994154, 
+oldVsyncId=26994153, layerName=878a076 ActivityRecordInputSink 
+com.mad.assignment/.MainActivity#27240
+2025-12-24 16:15:56.448  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994154, 
+oldVsyncId=26994154, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:56.477  3259-5006  ActivityManagerWrapper  com.miui.home   
+                     E  getRecentTasksForceIncludingTaskIdIfValid: 
+getRecentTasks: size=29
+                                                                            
+                         mainTaskId=1346   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 
+cmp=ComponentInfo{com.mad.assignment/com.mad.assignment.MainActivity} }
+                                                                            
+                         mainTaskId=1345   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=411041792 
+cmp=ComponentInfo{com.miui.securitycenter/com.miui.permcenter.install.AdbIns
+tallActivity} }
+                                                                            
+                         mainTaskId=1344   userId=0   windowMode=1   
+baseIntent=Intent { act=null flag=268435456 cmp=ComponentInfo{com.miui.secur
+itycenter/com.miui.permcenter.install.PackageManagerActivity} }
+                                                                            
+                         mainTaskId=1338   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                            
+                         mainTaskId=1318   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                            
+                         mainTaskId=1305   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.snapchat.android/com.snapchat.android.LandingPageActivity} }
+                                                                            
+                         mainTaskId=1306   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.whatsapp/com.whatsapp.Main} }
+                                                                            
+                         mainTaskId=1337   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.ss.android.ugc.trill/com.ss.android.ugc.aweme.splash.S
+plashActivity} }
+                                                                            
+                         mainTaskId=1336   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=268435456 
+cmp=ComponentInfo{com.android.vending/com.google.android.finsky.activities.M
+ainActivityPrivate} }
+                                                                            
+                         mainTaskId=1328   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.instagram.android/com.instagram.android.activity.MainT
+abActivity} }
+                                                                            
+                         mainTaskId=1312   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.maybank2u.life/com.zoontek.rnbootsplash.RNBootSplashActivity} }
+                                                                            
+                         mainTaskId=1291   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                            
+                         mainTaskId=1292   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.apps.youtube.music/com.google.android.a
+pps.youtube.music.activities.MusicActivity} }
+                                                                            
+                         mainTaskId=1319   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationLi
+stActivityGmail} }
+                                                                            
+                         mainTaskId=1332   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.miui.calculator/com.miui.calculator.cal.CalculatorActivity} }
+                                                                            
+                         mainTaskId=1326   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=Compon
+entInfo{com.anthropic.claude/com.anthropic.claude.mainactivity.MainActivity}
+ }
+                                                                            
+                         mainTaskId=1287   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.coinmarketcap.android/com.coinmarketcap.android.LaunchActivity} 
+}
+                                                                            
+                         mainTaskId=1286   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=872415232 cmp=Compon
+entInfo{com.android.deskclock/com.android.deskclock.DeskClockTabActivity} }
+                                                                            
+                         mainTaskId=1307   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.youtube/com.google.android.youtube.app.
+honeycomb.Shell$HomeActivity} }
+                                                                            
+                         mainTaskId=1324   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.facebook.katana/com.facebook.katana.LoginActivity} }
+2025-12-24 16:15:56.557  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994178, 
+oldVsyncId=26994154, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:56.571  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994186, 
+oldVsyncId=26994178, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:56.629  1228-4487  ANDR-PERF-LM            
+ven...qti.hardware.perf-hal-service  E  APE_PEHM: start() 267: Fail to start
+ -Pid is -1 for com.mad.assignment
+---------------------------- PROCESS STARTED (17805) for package 
+com.mad.assignment ----------------------------
+2025-12-24 16:15:57.144 17805-17805 nativeloader            
+com.mad.assignment                   D  Configuring clns-7 for other apk 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk. target_sdk_version=36, uses_libraries=, 
+library_path=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJ
+EP_0NJcHClQy1gg==/lib/arm64:/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.ass
+ignment-Uu9q2KJEP_0NJcHClQy1gg==/base.apk!/lib/arm64-v8a, 
+permitted_path=/data:/mnt/expand:/data/user/0/com.mad.assignment
+2025-12-24 16:15:57.169 17805-17805 Perf                    
+com.mad.assignment                   I  Connecting to perf service.
+2025-12-24 16:15:57.177 17805-17805 GraphicsEnvironment     
+com.mad.assignment                   V  Currently set values for:
+2025-12-24 16:15:57.178 17805-17805 GraphicsEnvironment     
+com.mad.assignment                   V    angle_gl_driver_selection_pkgs=[]
+2025-12-24 16:15:57.178 17805-17805 GraphicsEnvironment     
+com.mad.assignment                   V    
+angle_gl_driver_selection_values=[]
+2025-12-24 16:15:57.178 17805-17805 GraphicsEnvironment     
+com.mad.assignment                   V  Global.Settings values are invalid: 
+number of packages: 0, number of values: 0
+2025-12-24 16:15:57.178 17805-17805 GraphicsEnvironment     
+com.mad.assignment                   V  App is not on the allowlist for 
+updatable production driver.
+2025-12-24 16:15:57.183 17805-17805 ActivityThread          
+com.mad.assignment                   I  TrafficStats init done
+2025-12-24 16:15:57.188 17805-17805 ForceDarkHelperStubImpl 
+com.mad.assignment                   I  initialize for com.mad.assignment , 
+ForceDarkOrigin
+2025-12-24 16:15:57.191 17805-17805 nativeloader            
+com.mad.assignment                   D  Load libforcedarkimpl.so using 
+system ns (caller=/system_ext/framework/miui-framework.jar): ok
+2025-12-24 16:15:57.191 17805-17805 HWUI                    
+com.mad.assignment                   D  JNI_OnLoad success
+2025-12-24 16:15:57.191 17805-17805 MiuiForceDarkConfig     
+com.mad.assignment                   I  setConfig density:2.750000, 
+mainRule:0, secondaryRule:0, tertiaryRule:0
+2025-12-24 16:15:57.211 17805-17805 ActivityThread          
+com.mad.assignment                   I  Miui Feature Init done
+2025-12-24 16:15:57.233 17805-17805 libc                    
+com.mad.assignment                   W  Access denied finding property 
+"vendor.boostfwk.frameprefetcher"
+2025-12-24 16:15:57.334 17805-17805 FramePredict            
+com.mad.assignment                   D  FramePredict init: false
+2025-12-24 16:15:57.339 17805-17805 ActivityThread          
+com.mad.assignment                   I  HardwareRenderer preload  done
+2025-12-24 16:15:57.348 17805-18004 libc                    
+com.mad.assignment                   W  Access denied finding property 
+"vendor.migl.debug"
+2025-12-24 16:15:57.348 17805-18004 libMiGL                 
+com.mad.assignment                   D  SuperResolution SR initSR 
+mBaseSRWidthSize: 0, mBaseSRHeightSize: 0, mTargetSRWidthSize: 0, 
+mTargetSRHeightSize: 0
+2025-12-24 16:15:57.348 17805-18004 libMiGL                 
+com.mad.assignment                   I  EnableDR: 0
+2025-12-24 16:15:57.348 17805-18004 libMiGL                 
+com.mad.assignment                   D  mDFIInterval: -1
+2025-12-24 16:15:57.349 17805-18004 AdrenoGLES-0            
+com.mad.assignment                   I  QUALCOMM build                   : 
+a63fb93269, I16b8254a37
+                                                                            
+                        Build Date                       : 08/27/24
+                                                                            
+                        OpenGL ES Shader Compiler Version: EV031.36.08.30
+                                                                            
+                        Local Branch                     : 
+                                                                            
+                        Remote Branch                    : 
+refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.11.00.00.770.073
+                                                                            
+                        Remote Branch                    : NONE
+                                                                            
+                        Reconstruct Branch               : NOTHING
+2025-12-24 16:15:57.349 17805-18004 AdrenoGLES-0            
+com.mad.assignment                   I  Build Config                     : S
+ P 12.1.1 AArch64
+2025-12-24 16:15:57.349 17805-18004 AdrenoGLES-0            
+com.mad.assignment                   I  Driver Path                      : 
+/vendor/lib64/egl/libGLESv2_adreno.so
+2025-12-24 16:15:57.349 17805-18004 AdrenoGLES-0            
+com.mad.assignment                   I  Driver Version                   : 
+0615.91
+2025-12-24 16:15:57.372 17805-18004 AdrenoGLES-0            
+com.mad.assignment                   I  PFP: 0x016ee206, ME: 0x00000000
+2025-12-24 16:15:57.418 17805-17805 nativeloader            
+com.mad.assignment                   D  Load 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk!/lib/arm64-v8a/libnative-lib.so using class loader ns clns-7 
+(caller=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0N
+JcHClQy1gg==/base.apk!classes3.dex): ok
+2025-12-24 16:15:57.420 17805-17805 nativeloader            
+com.mad.assignment                   D  Load 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk!/lib/arm64-v8a/libggml-base.so using class loader ns clns-7 
+(caller=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0N
+JcHClQy1gg==/base.apk!classes3.dex): ok
+2025-12-24 16:15:57.422 17805-17805 nativeloader            
+com.mad.assignment                   D  Load 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk!/lib/arm64-v8a/libggml-cpu.so using class loader ns clns-7 
+(caller=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0N
+JcHClQy1gg==/base.apk!classes3.dex): ok
+2025-12-24 16:15:57.423 17805-17805 nativeloader            
+com.mad.assignment                   D  Load 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk!/lib/arm64-v8a/libggml.so using class loader ns clns-7 
+(caller=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0N
+JcHClQy1gg==/base.apk!classes3.dex): ok
+2025-12-24 16:15:57.425 17805-17805 nativeloader            
+com.mad.assignment                   D  Load 
+/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0NJcHClQy1
+gg==/base.apk!/lib/arm64-v8a/libllama.so using class loader ns clns-7 
+(caller=/data/app/~~38jJnwwJig4yUS5CWLmZag==/com.mad.assignment-Uu9q2KJEP_0N
+JcHClQy1gg==/base.apk!classes3.dex): ok
+2025-12-24 16:15:57.450 17805-17805 AppCompatDelegate       
+com.mad.assignment                   D  Checking for metadata for 
+AppLocalesMetadataHolderService : Service not found
+2025-12-24 16:15:57.655 17805-17805 .mad.assignment         
+com.mad.assignment                   I  hiddenapi: Accessing hidden method 
+Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0,
+ domain=platform, api=unsupported) from 
+Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=36) 
+using reflection: allowed
+2025-12-24 16:15:57.920 17805-17805 NATIVE_LIB              
+com.mad.assignment                   I  echoFromNative() called
+2025-12-24 16:15:57.920 17805-17805 NATIVE_LIB              
+com.mad.assignment                   I  Received input: hello
+2025-12-24 16:15:57.920 17805-17805 JNI_TEST                
+com.mad.assignment                   I  hello
+2025-12-24 16:15:57.980 17805-17805 .mad.assignment         
+com.mad.assignment                   W  type=1400 audit(0.0:122058): avc:  
+denied  { read } for  name="u:object_r:vendor_displayfeature_prop:s0" 
+dev="tmpfs" ino=458 scontext=u:r:untrusted_app:s0:c203,c257,c512,c768 
+tcontext=u:object_r:vendor_displayfeature_prop:s0 tclass=file permissive=0 
+app=com.mad.assignment
+2025-12-24 16:15:57.988 17805-17805 libc                    
+com.mad.assignment                   W  Access denied finding property 
+"ro.vendor.df.effect.conflict"
+2025-12-24 16:15:57.991 17805-17805 SecurityManager         
+com.mad.assignment                   D  checkAccessControl flag0
+2025-12-24 16:15:58.035 17805-17805 FramePredict            
+com.mad.assignment                   D  init success
+2025-12-24 16:15:58.039 17805-18197 FramePredict            
+com.mad.assignment                   E  registerContentObserver fail
+2025-12-24 16:15:58.052 17805-17805 HWUI                    
+com.mad.assignment                   W  Unknown dataspace 0
+2025-12-24 16:15:58.102  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994251, 
+oldVsyncId=26994186, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.102  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994251, 
+oldVsyncId=26994251, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.152  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994259, 
+oldVsyncId=26994251, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.152  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994259, 
+oldVsyncId=26994259, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.152  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994259, 
+oldVsyncId=26994259, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.168  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994303, 
+oldVsyncId=26994259, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.168  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994303, 
+oldVsyncId=26994303, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.168  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994303, 
+oldVsyncId=26994303, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.172 17805-17805 .mad.assignment         
+com.mad.assignment                   W  type=1400 audit(0.0:122059): avc:  
+denied  { read } for  name="u:object_r:vendor_display_prop:s0" dev="tmpfs" 
+ino=457 scontext=u:r:untrusted_app:s0:c203,c257,c512,c768 
+tcontext=u:object_r:vendor_display_prop:s0 tclass=file permissive=0 
+app=com.mad.assignment
+2025-12-24 16:15:58.178 17805-17805 libc                    
+com.mad.assignment                   W  Access denied finding property 
+"vendor.display.enable_optimal_refresh_rate"
+2025-12-24 16:15:58.178 17805-17805 libc                    
+com.mad.assignment                   W  Access denied finding property 
+"vendor.gpp.create_frc_extension"
+2025-12-24 16:15:58.185  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994312, 
+oldVsyncId=26994303, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.185  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994312, 
+oldVsyncId=26994312, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.192 17805-17805 VRI[MainActivity]       
+com.mad.assignment                   D  vri.reportNextDraw 
+android.view.ViewRootImpl.performTraversals:4923 
+android.view.ViewRootImpl.doTraversal:3553 
+android.view.ViewRootImpl$TraversalRunnable.run:11520 
+android.view.Choreographer$CallbackRecord.run:1730 
+android.view.Choreographer$CallbackRecord.run:1739 
+2025-12-24 16:15:58.193 17805-17805 VRI[MainActivity]       
+com.mad.assignment                   D  vri.Setup new 
+sync=wmsSync-VRI[MainActivity]#0
+2025-12-24 16:15:58.194 17805-17805 UserSceneDetector       
+com.mad.assignment                   D  invoke error.
+2025-12-24 16:15:58.233 17805-18004 HWUI                    
+com.mad.assignment                   D  makeCurrent 
+grContext:0xb4000073e6509bb0 reset mTextureAvailable
+2025-12-24 16:15:58.237 17805-18004 .mad.assignment         
+com.mad.assignment                   D  MiuiProcessManagerServiceStub 
+setSchedFifo
+2025-12-24 16:15:58.237 17805-18004 MiuiProcessManagerImpl  
+com.mad.assignment                   I  setSchedFifo pid:17805, mode:3
+2025-12-24 16:15:58.404 17805-18004 LB                      
+com.mad.assignment                   E  fail to open file: No such file or 
+directory
+2025-12-24 16:15:58.404 17805-18004 LB                      
+com.mad.assignment                   E  fail to open node: No such file or 
+directory
+2025-12-24 16:15:58.404 17805-18004 LB                      
+com.mad.assignment                   E  fail to open node: No such file or 
+directory
+2025-12-24 16:15:58.406 17805-17805 VRI[MainActivity]       
+com.mad.assignment                   D  vri.reportDrawFinished
+2025-12-24 16:15:58.407 17805-17805 Choreographer           
+com.mad.assignment                   I  Skipped 35 frames!  The application 
+may be doing too much work on its main thread.
+2025-12-24 16:15:58.408 17805-17805 UserSceneDetector       
+com.mad.assignment                   D  invoke error.
+2025-12-24 16:15:58.411  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994320, 
+oldVsyncId=26994312, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.427  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994357, 
+oldVsyncId=26994342, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.436  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994365, 
+oldVsyncId=26994365, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.436  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994365, 
+oldVsyncId=26994365, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.436  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994365, 
+oldVsyncId=26994365, layerName=Surface(name=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241)/@0x305126e - 
+animation-leash of starting_reveal#27245
+2025-12-24 16:15:58.436  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994365, 
+oldVsyncId=26994365, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.436  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994365, 
+oldVsyncId=26994365, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.448  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994373, 
+oldVsyncId=26994365, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.448  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994373, 
+oldVsyncId=26994373, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.448  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994373, 
+oldVsyncId=26994373, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.454  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994388, 
+oldVsyncId=26994373, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.454  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994388, 
+oldVsyncId=26994388, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.460 17805-17805 HandWritingStubImpl     
+com.mad.assignment                   I  refreshLastKeyboardType: 1
+2025-12-24 16:15:58.461  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994403, 
+oldVsyncId=26994388, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.461  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994403, 
+oldVsyncId=26994403, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.461 17805-17805 HandWritingStubImpl     
+com.mad.assignment                   I  getCurrentKeyboardType: 1
+2025-12-24 16:15:58.469  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994411, 
+oldVsyncId=26994403, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.477  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994419, 
+oldVsyncId=26994411, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.488  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994427, 
+oldVsyncId=26994419, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.488  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994427, 
+oldVsyncId=26994427, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.488  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994427, 
+oldVsyncId=26994427, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.488  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994427, 
+oldVsyncId=26994427, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994427, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, layerName=Surface(name=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241)/@0x305126e - 
+animation-leash of starting_reveal#27245
+2025-12-24 16:15:58.494  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994442, 
+oldVsyncId=26994442, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.502  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994457, 
+oldVsyncId=26994442, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.503  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994457, 
+oldVsyncId=26994457, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.503  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994457, 
+oldVsyncId=26994457, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:58.503  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994457, 
+oldVsyncId=26994457, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.503  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994457, 
+oldVsyncId=26994457, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.511  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994479, 
+oldVsyncId=26994457, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.511  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994479, 
+oldVsyncId=26994479, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.511  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994479, 
+oldVsyncId=26994479, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.519  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994501, 
+oldVsyncId=26994479, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.519  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994501, 
+oldVsyncId=26994501, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.519  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994501, 
+oldVsyncId=26994501, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.528  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994523, 
+oldVsyncId=26994501, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.528  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994523, 
+oldVsyncId=26994523, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.528  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994523, 
+oldVsyncId=26994523, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.536  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994545, 
+oldVsyncId=26994523, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.536  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994545, 
+oldVsyncId=26994545, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.536  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994545, 
+oldVsyncId=26994545, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.544  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994560, 
+oldVsyncId=26994545, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.544  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994560, 
+oldVsyncId=26994560, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.544  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994560, 
+oldVsyncId=26994560, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.553  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994575, 
+oldVsyncId=26994560, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.553  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994575, 
+oldVsyncId=26994575, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.553  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994575, 
+oldVsyncId=26994575, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.561  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994597, 
+oldVsyncId=26994575, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.561  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994597, 
+oldVsyncId=26994597, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.561  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994597, 
+oldVsyncId=26994597, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.566 17805-17805 HandWritingStubImpl     
+com.mad.assignment                   I  getCurrentKeyboardType: 1
+2025-12-24 16:15:58.569  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994612, 
+oldVsyncId=26994597, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.569  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994612, 
+oldVsyncId=26994612, 
+layerName=com.mad.assignment/com.mad.assignment.MainActivity#27242
+2025-12-24 16:15:58.578  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994620, 
+oldVsyncId=26994612, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.586  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994628, 
+oldVsyncId=26994620, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.594  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994636, 
+oldVsyncId=26994628, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.603  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994644, 
+oldVsyncId=26994636, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.603  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994644, 
+oldVsyncId=26994644, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.611  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994659, 
+oldVsyncId=26994644, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.620  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994674, 
+oldVsyncId=26994674, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.628  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994682, 
+oldVsyncId=26994674, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.636  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994690, 
+oldVsyncId=26994682, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.636  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994690, 
+oldVsyncId=26994690, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.636  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994690, 
+oldVsyncId=26994690, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:58.645  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994705, 
+oldVsyncId=26994705, layerName=86d12e3 Splash Screen 
+com.mad.assignment#27235
+2025-12-24 16:15:58.645  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994705, 
+oldVsyncId=26994705, layerName=Surface(name=86d12e3 Splash Screen 
+com.mad.assignment#27235)/@0xebaef0c - animation-leash of 
+window_animation#27246
+2025-12-24 16:15:58.645  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994705, 
+oldVsyncId=26994705, layerName=Splash Screen com.mad.assignment#27236
+2025-12-24 16:15:58.645  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994705, 
+oldVsyncId=26994705, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:58.652  3259-5006  ActivityManagerWrapper  com.miui.home   
+                     E  getRecentTasksForceIncludingTaskIdIfValid: 
+getRecentTasks: size=28
+                                                                            
+                         mainTaskId=1346   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 
+cmp=ComponentInfo{com.mad.assignment/com.mad.assignment.MainActivity} }
+                                                                            
+                         mainTaskId=1344   userId=0   windowMode=1   
+baseIntent=Intent { act=null flag=268435456 cmp=ComponentInfo{com.miui.secur
+itycenter/com.miui.permcenter.install.PackageManagerActivity} }
+                                                                            
+                         mainTaskId=1338   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+                                                                            
+                         mainTaskId=1318   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.twitter.android/com.twitter.android.StartActivity} }
+                                                                            
+                         mainTaskId=1305   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.snapchat.android/com.snapchat.android.LandingPageActivity} }
+                                                                            
+                         mainTaskId=1306   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.whatsapp/com.whatsapp.Main} }
+                                                                            
+                         mainTaskId=1337   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.ss.android.ugc.trill/com.ss.android.ugc.aweme.splash.S
+plashActivity} }
+                                                                            
+                         mainTaskId=1336   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.VIEW flag=268435456 
+cmp=ComponentInfo{com.android.vending/com.google.android.finsky.activities.M
+ainActivityPrivate} }
+                                                                            
+                         mainTaskId=1328   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.instagram.android/com.instagram.android.activity.MainT
+abActivity} }
+                                                                            
+                         mainTaskId=1312   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.maybank2u.life/com.zoontek.rnbootsplash.RNBootSplashActivity} }
+                                                                            
+                         mainTaskId=1291   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.android.chrome/com.google.android.apps.chrome.Main} }
+                                                                            
+                         mainTaskId=1292   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.apps.youtube.music/com.google.android.a
+pps.youtube.music.activities.MusicActivity} }
+                                                                            
+                         mainTaskId=1319   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.gm/com.google.android.gm.ConversationLi
+stActivityGmail} }
+                                                                            
+                         mainTaskId=1332   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.miui.calculator/com.miui.calculator.cal.CalculatorActivity} }
+                                                                            
+                         mainTaskId=1326   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=268435456 cmp=Compon
+entInfo{com.anthropic.claude/com.anthropic.claude.mainactivity.MainActivity}
+ }
+                                                                            
+                         mainTaskId=1287   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=Compon
+entInfo{com.coinmarketcap.android/com.coinmarketcap.android.LaunchActivity} 
+}
+                                                                            
+                         mainTaskId=1286   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=872415232 cmp=Compon
+entInfo{com.android.deskclock/com.android.deskclock.DeskClockTabActivity} }
+                                                                            
+                         mainTaskId=1307   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.google.android.youtube/com.google.android.youtube.app.
+honeycomb.Shell$HomeActivity} }
+                                                                            
+                         mainTaskId=1324   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.facebook.katana/com.facebook.katana.LoginActivity} }
+                                                                            
+                         mainTaskId=1309   userId=0   windowMode=1   
+baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 
+cmp=ComponentInfo{com.reddit.frontpage/launcher.default} }
+2025-12-24 16:15:58.678  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26994728, 
+oldVsyncId=26994728, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:15:59.002  2427-2887  HyperSentinel           system_server   
+                     E  -> audit event by proc 17805 "com.mad.assignment": 
+running threads amount, 0 -> 30
+2025-12-24 16:15:59.335 17805-17905 .mad.assignment         
+com.mad.assignment                   I  Compiler allocated 5148KB to compile
+ void android.view.ViewRootImpl.performTraversals()
+2025-12-24 16:16:01.660  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26995959, 
+oldVsyncId=26995959, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:16:02.695 17805-18833 ProfileInstaller        
+com.mad.assignment                   D  Installing profile for 
+com.mad.assignment
+2025-12-24 16:16:03.574  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26996003, 
+oldVsyncId=26996003, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:16:03.707  1319-1319  MI-SF                   surfaceflinger  
+                     E  MiSurfaceFlingerImpl.cpp.vsyncId=26996040, 
+oldVsyncId=26996040, layerName=da03e70 
+com.mad.assignment/com.mad.assignment.MainActivity#27241
+2025-12-24 16:16:24.541 17805-17907 .mad.assignment         
+com.mad.assignment                   W  userfaultfd: MOVE ioctl seems 
+unsupported: Connection timed out 
+
+● Your app is working! 🎉
+
+  Look at the key lines:
+
+  NATIVE_LIB    I  echoFromNative() called
+  NATIVE_LIB    I  Received input: hello
+  JNI_TEST      I  hello
+
+  This is exactly what was expected in Activity 04!
+
+  All native libraries loaded successfully:
+
+  Load libnative-lib.so... ok
+  Load libggml-base.so... ok
+  Load libggml-cpu.so... ok
+  Load libggml.so... ok
+  Load libllama.so... ok
+
+  ---
+  The "E" (Error) logs you see (like MI-SF, surfaceflinger, etc.) are not your app's errors — they're just Xiaomi/MIUI system logs. Ignore them.
+
+  Phase 05 Activity 04 complete! ✓
+
+  The JNI bridge is working and calling native code successfully. Ready for the next phase?
+
+> Phase 06: Simple Inference Development
+have 2 activities only 
+
+● Let's go! Share Activity 01 instructions.
+
+> Activity01: Inference Setup
+Expected outcome: The relevant native files are included in the project.
+1. Download rev01.zip.
+2. There should be a file named native-libs.cpp. Copy this file to replace 
+the current
+implementation of the project.
+3. Made the necessary changes to new implementation.
+4. Create a new directory named llama within the app/src/main/cpp directory.
+5. Copy the llama.h file from the /llama.cpp/include directory into the 
+recently created
+directory. All errors in the native-libs.cpp class should disappear.
+6. The following files are located in /llama.cpp/ggml/include.
+a. ggml.h
+b. ggml-alloc.h
+c. ggml-backend.h
+d. ggml-backend.h
+e. ggml-opt.h
+7. Copy these files into the llama directory that was created in step 4 of 
+this activity.
+8. Copy the MainActivity.kt from the unzip folder to replace the current 
+MainActivity.kt.
+9. Made the necessary changes to new implementation.
+
+NOTE that, native-libs.cpp is located at 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question 
+& Materials\rev01\rev01\native-lib.cpp 
+
+● Let me help with the PowerShell commands:
+
+  Step 2: Copy native-lib.cpp (replace existing)
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\rev01\rev01\native-lib.cpp" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\native-lib.cpp" -Force
+
+  Step 4: Create llama directory
+
+  mkdir "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama"
+
+  Step 5: Copy llama.h
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\include\llama.h" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama\"
+
+  Step 6-7: Copy ggml header files
+
+  $src = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\ggml\include"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama"
+
+  Copy-Item "$src\ggml.h" $dest
+  Copy-Item "$src\ggml-alloc.h" $dest
+  Copy-Item "$src\ggml-backend.h" $dest
+  Copy-Item "$src\ggml-opt.h" $dest
+
+  Step 8: Copy MainActivity.kt
+
+  Where is the MainActivity.kt in the rev01 folder? Let me know the path, or check:
+  ls "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\rev01\rev01\"
+
+  ---
+  After copying, I'll help you with Step 3 & 9 (making necessary changes to match your package name com.mad.assignment).
+
+> 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question 
+& Materials\rev01\rev01\MainActivity.kt 
+
+● Step 8: Copy MainActivity.kt
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\rev01\rev01\MainActivity.kt" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\java\com\mad\assignment\MainActivity.kt" -Force
+
+  ---
+  All commands together (copy-paste all at once):
+
+  # Step 2: Copy native-lib.cpp
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\rev01\rev01\native-lib.cpp" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\native-lib.cpp" -Force
+
+  # Step 4: Create llama directory
+  mkdir "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama"
+
+  # Step 5: Copy llama.h
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\include\llama.h" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama\"
+
+  # Step 6-7: Copy ggml headers
+  $src = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\ggml\include"
+  $dest = "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama"
+  Copy-Item "$src\ggml.h" $dest
+  Copy-Item "$src\ggml-alloc.h" $dest
+  Copy-Item "$src\ggml-backend.h" $dest
+  Copy-Item "$src\ggml-opt.h" $dest
+
+  # Step 8: Copy MainActivity.kt
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\rev01\rev01\MainActivity.kt" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\java\com\mad\assignment\MainActivity.kt" -Force
+
+  ---
+  After running these, let me check the files and help with Step 3 & 9 (the necessary changes for your package name).
+
+> ummm can you do it for me for the necessary changes my lecturer mentioned?
+ heheh 
+
+● Of course! Let me read the files first and make the changes for you.
+
+● Read(app\src\main\cpp\native-lib.cpp)
+  ⎿  Read 313 lines
+
+● Read(app\src\main\java\com\mad\assignment\MainActivity.kt)
+  ⎿  Read 177 lines
+
+● I see the changes needed. Let me update both files for your package com.mad.assignment:
+
+  Updating native-lib.cpp
+
+● Update(app\src\main\cpp\native-lib.cpp)
+  ⎿  Added 1 line, removed 1 line                                        
+      61      // ================= Load model =================          
+      62      llama_model_params model_params =                          
+          llama_model_default_params();                                  
+      63      const char* model_path =                                   
+      64 -            "/data/data/edu.utem.ftmk.slm02                    
+         -/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";                     
+      64 +            "/data/data/com.mad.assignment                     
+         +/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";                     
+      65                                                                 
+      66      llama_model* model =                                       
+          llama_model_load_from_file(model_path, model_params);          
+      67      if (!model) {                                              
+
+● Update(app\src\main\cpp\native-lib.cpp)
+  ⎿  Added 1 line, removed 1 line                                        
+      282                                                                
+      283  extern "C"                                                    
+      284  JNIEXPORT jstring JNICALL                                     
+      285 -Java_edu_utem_ftmk_slm02_MainActivity_inferAllergens(         
+      285 +Java_com_mad_assignment_MainActivity_inferAllergens(          
+      286          JNIEnv *env,                                          
+      287          jobject,                                              
+      288          jstring inputPrompt) {                                
+
+● Update(app\src\main\cpp\native-lib.cpp)
+  ⎿  Added 1 line, removed 1 line                                        
+      291                          "inferAllergens() called");           
+      292                                                                
+      293      const char* model_path =                                  
+      294 -            "/data/data/edu.utem.ftmk.slm01                   
+          -/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";                    
+      294 +            "/data/data/com.mad.assignment                    
+          +/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";                    
+      295                                                                
+      296      __android_log_print(ANDROID_LOG_INFO, LOG_TAG,            
+      297                          "Model path: %s", model_path);        
+
+● Now updating MainActivity.kt:
+
+● Update(app\src\main\java\com\mad\assignment\MainActivity.kt)
+  ⎿  Added 1 line, removed 1 line                                        
+      1 -package edu.utem.ftmk.slm02                                     
+      1 +package com.mad.assignment                                      
+      2                                                                  
+      3  import android.content.Context                                  
+      4  import android.os.Bundle                                        
+
+● Update(app\src\main\java\com\mad\assignment\MainActivity.kt)
+  ⎿  Added 2 lines, removed 2 lines                                      
+       7  import android.widget.EditText                                 
+       8  import android.widget.TextView                                 
+       9  import androidx.appcompat.app.AppCompatActivity                
+      10 -import edu.utem.ftmk.slm01.InferenceMetrics                    
+      11 -import edu.utem.ftmk.slm01.MemoryReader                        
+      10 +import com.mad.assignment.InferenceMetrics                     
+      11 +import com.mad.assignment.MemoryReader                         
+      12  import java.io.File                                            
+      13                                                                 
+      14  /**                                                            
+
+● Done! Let me check if the InferenceMetrics and MemoryReader classes exist:
+
+● Search(pattern: "**/*.kt", path: "app\src\main\java")
+  ⎿  Found 3 files (ctrl+o to expand)
+
+● Read(app\src\main\java\com\mad\assignment\InferenceMetrics.kt)
+  ⎿  Read 38 lines
+
+● Read(app\src\main\java\com\mad\assignment\MemoryReader.kt)
+  ⎿  Read 40 lines
+
+● All files are correctly set up. Here's a summary of changes made:
+
+  native-lib.cpp (3 changes):
+
+  | Line | Changed From                                         | Changed To                                          |
+  |------|------------------------------------------------------|-----------------------------------------------------|
+  | 64   | edu.utem.ftmk.slm02                                  | com.mad.assignment                                  |
+  | 285  | Java_edu_utem_ftmk_slm02_MainActivity_inferAllergens | Java_com_mad_assignment_MainActivity_inferAllergens |
+  | 294  | edu.utem.ftmk.slm01                                  | com.mad.assignment                                  |
+
+  MainActivity.kt (2 changes):
+
+  | Line  | Changed From                 | Changed To                  |
+  |-------|------------------------------|-----------------------------|
+  | 1     | package edu.utem.ftmk.slm02  | package com.mad.assignment  |
+  | 10-11 | import edu.utem.ftmk.slm01.* | import com.mad.assignment.* |
+
+  Supporting classes verified:
+
+  - InferenceMetrics.kt ✓ (already has com.mad.assignment)
+  - MemoryReader.kt ✓ (already has com.mad.assignment)
+
+  ---
+  Activity 01 complete! ✓
+
+  What's Activity 02?
+
+> Activity 02: App Execution
+1. Clean and build the project. Refer step 6 of Activity 04: Baseline App 
+Execution of
+Phase 05: Basic Pipeline Development.
+2. Execute the application on an Android smart phone.
+3. Use the data in Table 1 to interact with the application. The app is 
+taking some time to
+predict the allergens.
+4. Observe the result in the Logcat panel.
+5. Filter the result for SLM_NATIVE and SLM_METRICS.
+6. Record the result after each interaction in Table 1. 
+  ⎿  [Image #25]
+
+● Activity 02 is manual testing. Here's what to do:
+
+  Step 1: Check for model file
+
+  The app needs the model file qwen2.5-1.5b-instruct-q4_k_m.gguf in the assets folder. Check if you have it:
+
+  ls "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\assets"
+
+  If not there, you need to copy/download it from your lecturer's materials.
+
+  Step 2: Clean and Build
+
+  In Android Studio:
+  1. Build → Clean Project
+  2. Build → Rebuild Project
+
+  Or: Build → Clean and Assemble Project with test
+
+  Step 3: Run the app
+
+  Click ▶️ Run on your connected phone.
+
+  Step 4: Test with ingredients
+
+  | Test | Input                  |
+  |------|------------------------|
+  | 1    | apple, pear, fish, egg |
+  | 2    | sugar, syrup, water    |
+  | 3    | salt, peanut, vinegar  |
+
+  Step 5: Check Logcat
+
+  Filter by:
+  - SLM_NATIVE - shows model loading and inference
+  - SLM_METRICS - shows performance metrics (latency, TTFT, tokens/sec)
+
+  ---
+  Note: The model is ~1GB, so first inference may take time. Do you have the model file ready?
+
+> yes! the model is in 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Assignmen
+tSourceCode\app\src\main\assets\qwen2.5-1.5b-instruct-q4_k_m.gguf 
+
+● You're all set! Now just:
+
+  1. Clean and Build
+
+  In Android Studio:
+  - Build → Clean Project
+  - Build → Rebuild Project
+
+  2. Run
+
+  Click ▶️ Run on your phone
+
+  3. Test
+
+  Enter these ingredients one at a time and tap Predict:
+
+  | Test | Input                  | Expected              |
+  |------|------------------------|-----------------------|
+  | 1    | apple, pear, fish, egg | fish, egg             |
+  | 2    | sugar, syrup, water    | No allergens detected |
+  | 3    | salt, peanut, vinegar  | peanut                |
+
+  4. Check Logcat
+
+  Filter: SLM_NATIVE or SLM_METRICS
+
+  ---
+  Heads up:
+  - First run will be slow (model loading ~1GB from assets)
+  - Each prediction may take 10-30 seconds depending on your phone
+
+  Good luck! Let me know the results or if you hit any errors.
+
+> i cant find Build > Rebuild 
+
+● Try these alternatives in Android Studio:
+
+  Option 1:
+
+  Build → Clean Project (then) Build → Make Project
+
+  Option 2:
+
+  Build → Clean and Assemble Project with test
+
+  Option 3:
+
+  Use the toolbar:
+  - Click the hammer icon 🔨 (Build) in the toolbar
+
+  Option 4:
+
+  Keyboard shortcut:
+  - Ctrl + F9 (Make Project)
+
+  ---
+  Or just:
+  1. Build → Clean Project
+  2. Then click ▶️ Run — it will build automatically before running
+
+> why C:\Users\Akmal\AppData\Local\Android\Sdk\ndk\27.0.12077973\toolchains\
+llvm\prebuilt\windows-x86_64\bin\clang++.exe 
+--target=aarch64-none-linux-android24 
+--sysroot=C:/Users/Akmal/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolcha
+ins/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS  -g -DANDROID 
+-fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong
+ -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security
+   -fno-limit-debug-info  -fPIC -MD -MT 
+CMakeFiles/native-lib.dir/native-lib.cpp.o -MF 
+CMakeFiles\native-lib.dir\native-lib.cpp.o.d -o 
+CMakeFiles/native-lib.dir/native-lib.cpp.o -c 
+C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assignment-Project/Assignmen
+tSourceCode/app/src/main/cpp/native-lib.cpp
+
+In file included from C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assign
+ment-Project/AssignmentSourceCode/app/src/main/cpp/native-lib.cpp:1:
+C:/Users/Akmal/Desktop/UTeM/Y3S1/MAD/Assessment/Assignment-Project/Assignmen
+tSourceCode/app/src/main/cpp/llama/llama.h:5:10: fatal error: 'ggml-cpu.h' 
+file not found
+    5 | #include "ggml-cpu.h"
+      |          ^~~~~~~~~~~~ 
+
+● The llama.h file needs ggml-cpu.h which wasn't in the original list. Copy the missing header:
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\ggml\include\ggml-cpu.h" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama\"
+
+  If there are more missing headers, let's copy all of them at once:
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\ggml\include\*.h" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama\" -Force
+
+  This copies all .h files from ggml/include to be safe.
+
+  Then rebuild the project.
+
+> they will overwrite right if already exist ? 
+
+● Yes! The -Force flag will overwrite existing files. That's safe — same files, just ensuring all headers are there.
+
+  Run it:
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\slm\llama.cpp\ggml\include\*.h" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\cpp\llama\" -Force
+
+  Then rebuild.
+
+> umm lol it literally copied everything.. is it ok? and not degreade 
+performance? 
+
+● Totally fine! No performance impact at all.
+
+  Header files (.h) are only used during compilation — they tell the compiler what functions exist. They are not included in your final APK.
+
+  What affects your app size/performance:
+  - .so files (the 4 libraries) ✓ Already optimized
+  - Model file (~1GB) ✓ Necessary
+
+  The extra .h files just sit in your project folder and get ignored after build. No worries!
+
+  Now rebuild and run.
+
+> need to build clean again? 
+
+● Just Build → Make Project (or click ▶️ Run) is enough.
+
+  Clean is only needed if you have weird cached issues. Since you just added header files, a normal build will pick them up.
+
+> so now what to test again? 
+
+● Run the app and test with these inputs:
+
+  | Test | Type in the input field | Expected Result       |
+  |------|-------------------------|-----------------------|
+  | 1    | apple, pear, fish, egg  | fish, egg             |
+  | 2    | sugar, syrup, water     | No allergens detected |
+  | 3    | salt, peanut, vinegar   | peanut                |
+
+  Steps:
+
+  1. Click ▶️ Run to install on your phone
+  2. Enter the ingredients in the text field
+  3. Tap Predict button
+  4. Wait (10-30 seconds for first run)
+  5. Check result on screen and Logcat
+
+  Logcat filters:
+
+  - SLM_NATIVE — model loading info
+  - SLM_METRICS — performance metrics
+
+> waittt... i have a dataset.. named foodpreprocessed.xlxs where do i put it
+ in the project folder? does code changes needed? 
+
+● Wait — what is the dataset for?
+
+  The current app works like this:
+  1. User types ingredients manually
+  2. Model predicts allergens
+  3. Shows result
+
+  Questions:
+  1. Did your lecturer mention using this dataset?
+  2. Is it for automated testing (loop through many ingredients)?
+  3. Or is it reference data for the model?
+
+  Let me know the purpose, or share what your lecturer's guide says about it, and I'll help you integrate it properly.
+
+> here is the real question.. before these, thats just setup 
+
+● Got it! Share the real question and I'll help you implement it with the dataset.
+
+> Assignment Requirements
+It is an early success for the app to be able to predict despite the output 
+it produces.
+Implement the following requirements to enhance the application.
+1. The app should be able to predict from the foodpreprocessed.xlxs.
+2. The food preprocessed data should be divided into 20 different sets.
+3. The app should allow the user to select the data set to be processed.
+4. The app should allow the user to view the food and prediction details.
+5. The app should not freeze/hang or halt during the prediction for each 
+data sets.
+6. The app should notify the user when the prediction has ended for a set of
+ data or on any
+other failures. 
+
+● Now I understand! This is a significant enhancement. Let me help you plan and implement this.
+
+  First, let me check the dataset structure:
+
+● Search(pattern: "**/*foodpreprocessed*", path:
+        "~\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project")
+  ⎿  Found 2 files (ctrl+o to expand)
+
+● Found it! This is a complex enhancement with multiple requirements. Let me create a plan:
+
+● Here's what we need to implement:
+
+  Requirements Breakdown:
+
+  | #   | Requirement            | Implementation                            |
+  |-----|------------------------|-------------------------------------------|
+  | 1   | Predict from xlsx      | Convert to JSON (Android can't read xlsx) |
+  | 2   | 20 data sets           | Split data into 20 groups                 |
+  | 3   | Select data set        | Add Dropdown/Spinner (1-20)               |
+  | 4   | View food & prediction | Add list view (RecyclerView)              |
+  | 5   | No freeze/hang         | Use Kotlin Coroutines (background thread) |
+  | 6   | Notify on completion   | Toast/Snackbar messages                   |
+
+  Before I start, I need to know:
+
+  1. What columns are in the xlsx file? (e.g., food name, ingredients, allergens?)
+    - Can you open it in Excel and tell me the column headers?
+  2. How many rows of data total? (so I know how to divide into 20 sets)
+  3. Do you have Python available? (to convert xlsx → JSON)
+
+  Or if you want, share a screenshot of the Excel file structure and I'll proceed from there.
+
+> so you can event read inside xlsx? and there is no way for Android Studio 
+read xlsx too? 
+
+● Good questions!
+
+  Can I (Claude) read xlsx?
+
+  No, xlsx is a compressed binary format. I can only read text-based files (txt, csv, json, code, etc.)
+
+  Can Android read xlsx?
+
+  Yes, but you need to add a library. Two options:
+
+  | Option              | Pros                | Cons                          |
+  |---------------------|---------------------|-------------------------------|
+  | Apache POI          | Reads xlsx directly | Large library (~10MB), slower |
+  | Convert to JSON/CSV | Lightweight, fast   | Extra step upfront            |
+
+  ---
+  My Recommendation:
+
+  Convert xlsx → JSON once, then include JSON in assets folder. This is:
+  - Faster at runtime
+  - Smaller app size
+  - Simpler code
+
+  ---
+  Quick way to see your data:
+
+  Can you open foodpreprocessed.xlsx in Excel and:
+  1. Tell me the column headers (first row)
+  2. Tell me how many rows of data
+  3. Or Save As → CSV and I can read it
+
+  Would you prefer to:
+  - A) Add Apache POI library (read xlsx directly in app)
+  - B) Convert to JSON first (recommended)
+
+> but from the question, it explicitly say to read from excel right, not to 
+convert anything? 
+
+● You're right! The question says "predict from foodpreprocessed.xlsx" — so we should read xlsx directly.
+
+  Let's use Apache POI library to read Excel files in Android.
+
+  Step 1: Add dependency to build.gradle.kts (Module: app)
+
+● Read(app\build.gradle.kts)
+  ⎿  Read 65 lines
+
+● Update(app\build.gradle.kts)
+  ⎿  Tool use rejected with user message: wait dont do anything yet
+
+● Got it, stopping! What would you like to do first?
+
+> /exit 
+  ⎿  Bye!
+
+> ok how to add the libraary? i want to do it manually 
+
+● Add Apache POI library manually:
+
+  1. Open Android Studio
+  2. Open file: app/build.gradle.kts
+  3. Find the dependencies { } block at the bottom
+  4. Add these lines inside the dependencies block:
+
+  // Apache POI for reading Excel files
+  implementation("org.apache.poi:poi:5.2.5")
+  implementation("org.apache.poi:poi-ooxml:5.2.5")
+
+  // Coroutines for background processing (no UI freeze)
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+  5. Click Sync Now (yellow banner at top)
+
+  ---
+  Your dependencies block should look like:
+
+  dependencies {
+      implementation(libs.androidx.core.ktx)
+      implementation(libs.androidx.appcompat)
+      implementation(libs.material)
+      implementation(libs.androidx.activity)
+      implementation(libs.androidx.constraintlayout)
+      testImplementation(libs.junit)
+      androidTestImplementation(libs.androidx.junit)
+      androidTestImplementation(libs.androidx.espresso.core)
+
+      // Apache POI for reading Excel files
+      implementation("org.apache.poi:poi:5.2.5")
+      implementation("org.apache.poi:poi-ooxml:5.2.5")
+
+      // Coroutines for background processing
+      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+  }
+
+  Let me know when sync is done!
+
+> and firebase too 
+
+● Add these Firebase dependencies too:
+
+  dependencies {
+      implementation(libs.androidx.core.ktx)
+      implementation(libs.androidx.appcompat)
+      implementation(libs.material)
+      implementation(libs.androidx.activity)
+      implementation(libs.androidx.constraintlayout)
+      testImplementation(libs.junit)
+      androidTestImplementation(libs.androidx.junit)
+      androidTestImplementation(libs.androidx.espresso.core)
+
+      // Apache POI for reading Excel files
+      implementation("org.apache.poi:poi:5.2.5")
+      implementation("org.apache.poi:poi-ooxml:5.2.5")
+
+      // Coroutines for background processing
+      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+      // Firebase
+      implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+      implementation("com.google.firebase:firebase-analytics")
+      implementation("com.google.firebase:firebase-firestore")
+      implementation("com.google.firebase:firebase-auth")
+  }
+
+  Also add Firebase plugin:
+
+  At the top of app/build.gradle.kts, add the Google Services plugin:
+
+  plugins {
+      alias(libs.plugins.android.application)
+      alias(libs.plugins.kotlin.android)
+      id("com.google.gms.google-services")  // Add this
+  }
+
+  In project-level build.gradle.kts:
+
+  Add this in the plugins block:
+
+  id("com.google.gms.google-services") version "4.4.0" apply false
+
+  ---
+  Don't forget:
+
+  You'll need to download google-services.json from Firebase Console and put it in the app/ folder.
+
+  Need help setting up Firebase project?
+
+> where is this? In project-level build.gradle.kts:
+
+  Add this in the plugins block:
+
+  id("com.google.gms.google-services") version "4.4.0" apply false 
+
+● The project-level build.gradle.kts is in the root folder:
+
+  AssignmentSourceCode/
+  ├── build.gradle.kts       ← This one (project-level)
+  ├── app/
+  │   └── build.gradle.kts   ← You already edited this one (app-level)
+
+  In Android Studio's Project panel, look for:
+  - build.gradle.kts (Project: AssignmentSourceCode)
+
+  Or the file path:
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\build.gradle.kts
+
+  Open it and add in the plugins block:
+  id("com.google.gms.google-services") version "4.4.0" apply false
+
+> why apply false? 
+
+● apply false means:
+
+  - Declare the plugin at project level (make it available)
+  - But don't activate it here
+
+  Then in app/build.gradle.kts, you actually apply it with:
+  id("com.google.gms.google-services")
+
+  Why this pattern?
+
+  | Level         | What happens                                     |
+  |---------------|--------------------------------------------------|
+  | Project-level | "Here's the plugin, version 4.4.0" (download it) |
+  | App-level     | "Use it in this module" (activate it)            |
+
+  This allows:
+  - Multiple modules to share the same plugin version
+  - Only apply to modules that need it (e.g., app needs Firebase, but a library module might not)
+
+  It's Android/Gradle's standard way of managing plugins across multi-module projects.
+
+> cna you search the internet latest stable version of ti? 
+
+● Web Search("google-services gradle plugin latest stable version 2024 2025")
+  ⎿  Did 1 search in 17s                                                   
+
+● Latest stable version is 4.4.4
+
+  Use this in your project-level build.gradle.kts:
+
+  id("com.google.gms.google-services") version "4.4.4" apply false
+
+  Sources:
+  - https://mvnrepository.com/artifact/com.google.gms/google-services
+  - https://developers.google.com/android/guides/google-services-plugin
+
+> ok now give me step by step guide on how to create firebase project 
+
+● Step-by-Step: Create Firebase Project
+
+  Step 1: Go to Firebase Console
+
+  - Open browser: https://console.firebase.google.com
+  - Sign in with your Google account
+
+  Step 2: Create New Project
+
+  1. Click "Create a project" (or "Add project")
+  2. Enter project name: MAD-Assignment (or any name)
+  3. Click Continue
+
+  Step 3: Google Analytics (Optional)
+
+  - Toggle ON or OFF (your choice)
+  - If ON, select or create an Analytics account
+  - Click Create project
+  - Wait for it to finish, then click Continue
+
+  Step 4: Add Android App
+
+  1. In the project dashboard, click the Android icon (🤖)
+  2. Fill in:
+    - Package name: com.mad.assignment
+    - App nickname: MAD Assignment (optional)
+    - SHA-1: Skip for now (optional)
+  3. Click Register app
+
+  Step 5: Download google-services.json
+
+  1. Click Download google-services.json
+  2. Save it to your computer
+
+  Step 6: Add to Project
+
+  Copy the file to:
+  C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\
+
+  So it sits at:
+  AssignmentSourceCode/
+  ├── app/
+  │   ├── google-services.json  ← Here!
+  │   ├── build.gradle.kts
+  │   └── src/
+
+  Step 7: Sync Project
+
+  Back in Android Studio, click Sync Now
+
+  ---
+  Let me know when done!
+
+> ok done.. 
+
+● Now let's implement the assignment requirements.
+
+  First, I need to know the structure of your xlsx file. Can you open foodpreprocessed.xlsx in Excel and tell me:
+
+  1. Column headers (first row) - e.g., "Food Name", "Ingredients", etc.
+  2. Total number of rows (so we can divide by 20)
+
+  Or take a screenshot of the first few rows and share it.
+
+  This will help me write the correct code to read and parse the data.
+
+> wait, where do i store it in my project? 
+
+● Put it in the assets folder (same place as your model file):
+
+  AssignmentSourceCode/
+  ├── app/
+  │   └── src/
+  │       └── main/
+  │           └── assets/
+  │               ├── qwen2.5-1.5b-instruct-q4_k_m.gguf  ← Model (already here)
+  │               └── foodpreprocessed.xlsx              ← Put here!
+
+  PowerShell command:
+
+  Copy-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\FoodAllergenDataset\foodpreprocessed.xlsx" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\app\src\main\assets\"
+
+  Then the app can read it using:
+  context.assets.open("foodpreprocessed.xlsx")
+
+> /export export this conversation to 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & 
+Materials 
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\export this conversation to C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials.txt'
+
+> export this conversation to 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question 
+& Materials 
+
+● The export command syntax seems incorrect. Try:
+
+  /export "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\conversation.md"
+
+  Or just:
+  /export
+  And it will save to the default location.
+
+  ---
+  Back to the assignment - did you copy the xlsx file to assets? Ready to continue with the implementation?
+
+> /export 
+"C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & 
+Materials\conversation.md" 
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\"C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\conversation.txt'
+
+> /export 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & 
+Materials\conversation.md 
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question & Materials\conversation.txt'
+
+> > /export 
+"C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question
+ & Materials\conversation.md"
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 
+'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Assignme
+ntSourceCode\"C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Pro
+ject\Question & Materials\conversation.txt'
+
+> /export 
+C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Question 
+& Materials\conversation.md
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 
+'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Assignme
+ntSourceCode\C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proj
+ect\Question & Materials\conversation.txt' 
+
+● The path has spaces and special characters (&) causing issues. Try:
+
+  Option 1: Export to current folder
+
+  /export conversation.md
+
+  Then manually move the file.
+
+  Option 2: Use a simple path without spaces
+
+  /export C:\Users\Akmal\Desktop\conversation.md
+
+  Then move it to your desired folder after.
+
+> ok i aleady renamed it C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Ass
+ignment-Project\QuestionAndMaterials 
+
+● Try now:
+
+  /export C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\QuestionAndMaterials\conversation.md
+
+> /export C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Que
+stionAndMaterials\conversation.md 
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\QuestionAndMaterials\conversation.txt'
+
+> > /export C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proje
+ct\QuestionAndMaterials\conversation.md
+  ⎿  Failed to export conversation: ENOENT: no such file or directory, open 
+'C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\Assignme
+ntSourceCode\C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Proj
+ect\QuestionAndMaterials\conversation.txt' 
+
+● The command keeps prepending the current directory. Just use a filename:
+
+  /export conversation.md
+
+  This will save it to C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\conversation.md
+
+  Then manually move it:
+
+  Move-Item "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\AssignmentSourceCode\conversation.md" "C:\Users\Akmal\Desktop\UTeM\Y3S1\MAD\Assessment\Assignment-Project\QuestionAndMaterials\"
+
+
+
