@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "name": "Chilli and Coriander King Prawns",
+    "link": "https://world.openfoodfacts.org/product/01804225",
+    "ingredients": "King Prawn (86%) (King Prawn (Penaeus vannamei) (Crustacean), Salt), Chilli and Coriander Marinade (14%) (Vegetable Oil (Rapeseed Oil and/or Sunflower Oil), Water, Coriander, Red Bell Pepper, Red Chilli, Ginger, Lime Juice, Lemon Grass, Shallot, Cassava Starch, Salt, potato starch, garlic)",
+    "allergensRaw": "Crustaceans",
+    "allergensMapped": "shellfish"
+  },
+  {
+    "id": 2,
+    "name": "Red Bull Energy Drink",
+    "link": "https://world.openfoodfacts.org/product/90162602",
+    "ingredients": "Carbonated Water, Sugar, Glucose, Citric Acid, Taurine, Natural flavors, Artificial Flavors, Sodium Bicarbonate, Magnesium Carbonate, Artificial Colors, Caffeine, Niacinamide, Pyridoxine Hci, Calcium Pantothenate, Vitamin B12.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 3,
+    "name": "Tomato Ketchup BIO",
+    "link": "https://world.openfoodfacts.org/product/8715700407760",
+    "ingredients": "tomatoes (180 g per 100 g of ketchup), sugar, vinegar, salt, spices (contain celery), onion powder, garlic powder,",
+    "allergensRaw": "Celery",
+    "allergensMapped": ""
+  },
+  {
+    "id": 4,
+    "name": "PROPERCHIPS Sea Salt Lentil Chips",
+    "link": "https://world.openfoodfacts.org/product/5060283762199",
+    "ingredients": "Lentil flour (30%), potato starch, vegetable oils (sunflower, rapeseed), corn flour, salt.",
+    "allergensRaw": "",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 5,
+    "name": "Weetabix produit à base de blé complet 100%",
+    "link": "https://world.openfoodfacts.org/product/5010029000023",
+    "ingredients": "Whole wheat (95%), malted barley extract, sugar, salt, niacin, iron, riboflavin (b2), thiamin (b1), folic acid.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 6,
+    "name": "Custard powder",
+    "link": "https://world.openfoodfacts.org/product/5000354908248",
+    "ingredients": "maize starch, salt, flavouring, colour (annatto),",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 7,
+    "name": "Heinz Baked Beans",
+    "link": "https://world.openfoodfacts.org/product/5000157024886",
+    "ingredients": "Beans (51%), Tomatoes (34%), Water, Sugar, spirit Vinegar, Modified Cornflour, Salt, Spice extracts, Herb Extract",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 8,
+    "name": "Classic Yellow Mustard",
+    "link": "https://world.openfoodfacts.org/product/0041500763675",
+    "ingredients": "SPIRIT VINEGAR, WATER, MUSTARD SEED, SALT, TURMERIC, PAPRIKA, SPICE, FLAVOURING, GARLIC POWDER.",
+    "allergensRaw": "Mustard",
+    "allergensMapped": ""
+  },
+  {
+    "id": 9,
+    "name": "Wild Pacific Sardines in Extra Virgin Olive Oil Lightly Smoked",
+    "link": "https://world.openfoodfacts.org/product/0829696000800",
+    "ingredients": "Sardines (sardinops sagax or sardinops melanostictus), organic extra virgin olive oil, water, sea salt, aqueous natural smoke.",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 10,
+    "name": "Lea & Perrins, The Original Worcestershire Sauce, Unwrap The Flavor",
+    "link": "https://world.openfoodfacts.org/product/0051600000013",
+    "ingredients": "Distilled white vinegar, molasses, sugar, water, salt, onions, anchovies, garlic, cloves, tamarind extract, natural flavorings, chili pepper extract.",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 11,
+    "name": "Almond No Sugars",
+    "link": "https://world.openfoodfacts.org/product/4061459332896",
+    "ingredients": "Water, Almond (2.3%), Minerals (Calcium Citrate), Sea Salt, Stabiliser: Gellan Gum, Vitamins (Riboflavin, Vitamin B12, Vitamin D, Vitamin E).",
+    "allergensRaw": "Nuts",
+    "allergensMapped": "tree nut"
+  },
+  {
+    "id": 12,
+    "name": "nut granola blueberry cinnamon sweet & crunchy",
+    "link": "https://world.openfoodfacts.org/product/0819562022791",
+    "ingredients": "sunflower seeds, pumpkin seeds, coconut, almonds, pecans, erythritol, butter (pasteurized cream, natural flavor), dried blueberries, cinnamon, salt, monk fruit extract",
+    "allergensRaw": "Milk, Nuts",
+    "allergensMapped": "milk, tree nut"
+  },
+  {
+    "id": 13,
+    "name": "Oregano Crostini Italian Bread Bites",
+    "link": "https://world.openfoodfacts.org/product/5060198640643",
+    "ingredients": "flour, olive oil, salt, yeast, oregano, malted what flour",
+    "allergensRaw": "",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 14,
+    "name": "Sablé Nature sans sucres",
+    "link": "https://world.openfoodfacts.org/product/3175681134904",
+    "ingredients": "wheat flour 58.5%, sweetener: maltitols of vegetable origin, rapeseed oil, wheat starch, wheat fiber, natural flavour, sea salt, emulsifiers: rapeseed lecithins, baking powder: ammonium carbonates,",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 15,
+    "name": "Wild sardines, oil, smoked",
+    "link": "https://world.openfoodfacts.org/product/0048000007063",
+    "ingredients": "Smoked sardines , soybean oil, water, salt, smoke flavor",
+    "allergensRaw": "Fish, Soybeans",
+    "allergensMapped": "fish, soy"
+  },
+  {
+    "id": 16,
+    "name": "Fanta Orange",
+    "link": "https://world.openfoodfacts.org/product/5449000004840",
+    "ingredients": "Agua carbonatada, 8% zumo de naranja a partir de concentrado. azúcar. acidulantes: ácido cítrico y ácido málico, estabilizantes: E-414. E-444 y E.445. edulcorantes: E-950. aspartamo y E-959. conservador E-202, corrector de acidez: citratos de sodio, aromas naturales de naranja y otros aromas naturales, antioxidante ácido ascórbico y colorante carotenos. Contiene una fuente de fenilalanina.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 17,
+    "name": "Chosen classic Mayo",
+    "link": "https://world.openfoodfacts.org/product/0815074020003",
+    "ingredients": "AVOCADO OIL, FILTERED WATER, EGG YOLKS, ORGANIC WHOLE EGGS, ORGANIC DISTILLED WHITE VINEGAR, ORGANIC MUSTARD (ORGANIC DISTILLED VINEGAR, WATER, ORGANIC MUSTARD SEED, SALT, ORGANIC SPICES), SALT, ORGANIC ROSEMARY EXTRACT (FOR FRESHNESS), EGG.",
+    "allergensRaw": "Eggs, Mustard",
+    "allergensMapped": "egg"
+  },
+  {
+    "id": 18,
+    "name": "Baked Beans in a Rich Tomato Sauce",
+    "link": "https://world.openfoodfacts.org/product/4088600072517",
+    "ingredients": "haricot beans 50%, tomato 35%, water, sugar, modified maize starch, salt, onion powder, ground paprika, flavourings, paprika extract,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 19,
+    "name": "Kimchi",
+    "link": "https://world.openfoodfacts.org/product/0810075553161",
+    "ingredients": "NAPA CABBAGE, RADISH, RICE PASTE WATER, RICE POWDER), KELP BASE SAUCE(KELP EXTRACT, SORBITOL), RED PEPPER POWDER, GARLIC, FERMENTED ANCHOVY SAUCE (ANCHOW, SALT), SALT, KOREAN LEEK, ONION, CHIVES, FERMENTED SHRIMP SAUCE(SHRIMP, SALT, LACTIC ACID BACTERIA, GINGER CONTAINS FISH(ANCHOVY), SHRIMP",
+    "allergensRaw": "Crustaceans, Fish",
+    "allergensMapped": "fish, shellfish"
+  },
+  {
+    "id": 20,
+    "name": "Goldfish Baked Snack Crackers Cheddar",
+    "link": "https://world.openfoodfacts.org/product/0014100075233",
+    "ingredients": "ENRICHED WHEAT FLOUR (FLOUR, NIACIN, REDUCED IRON, THIAMINE MONONITRATE, RIBOFLAVIN, FOLIC ACID), CHEDDAR CHEESE ([CULTURED MILK, SALT, ENZYMES), ANNATTO), VEGETABLE OILS (CANOLA, SUNFLOWER AND/OR SOYBEAN), SALT, CONTAINS 2% OR LESS OF: YEAST, SUGAR, AUTOLYZED YEAST EXTRACT, PAPRIKA, SPICES, CELERY, ONION POWDER, MONOCALCIUM PHOSPHATE, BAKING SODA.",
+    "allergensRaw": "Celery, Gluten, Milk, Soybeans",
+    "allergensMapped": "milk, soy, wheat"
+  },
+  {
+    "id": 21,
+    "name": "Baked Beans In Tomato Sauce",
+    "link": "https://world.openfoodfacts.org/product/5018374350930",
+    "ingredients": "Haricot Beans (49%), Water, Tomato Purée (20%), Sugar, Modified Maize Starch, Salt, Onion Powder, Colour (Paprika Extract), Maltodextrin, Spice Extracts.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 22,
+    "name": "Easy Bake Yeast",
+    "link": "https://world.openfoodfacts.org/product/5010067373417",
+    "ingredients": "water, mango juice from concentrate, passion fruit juice from concentrate, lime juice, natural flavourings including passion fruit and mango, stabiliser: pectin, citric acid, sweetener: steviol glycosides from stevia",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 23,
+    "name": "Coca Cola Original taste",
+    "link": "https://world.openfoodfacts.org/product/5449000000439",
+    "ingredients": "carbonated water, sugar, colour (caramel e150), acid (phosphoric acid), natural flavourings (including caffeine)",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 24,
+    "name": "Ambrosia Rice pudding",
+    "link": "https://world.openfoodfacts.org/product/5000354800931",
+    "ingredients": "full cream milk , skimmed milk , whey , rice 9%, sugar",
+    "allergensRaw": "Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 25,
+    "name": "Chickpeas In Water",
+    "link": "https://world.openfoodfacts.org/product/5051399182506",
+    "ingredients": "chickpeas, water, antioxidant (ascorbic acid).",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 26,
+    "name": "Onken",
+    "link": "https://world.openfoodfacts.org/product/7610900299072",
+    "ingredients": "Yogurt (MILK), Vitamin D. Contains live cultures: Lactobacillus Bulgaricus, Streptococcus Thermophilus, and Bifidobacterium.",
+    "allergensRaw": "Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 27,
+    "name": "Mi Goreng",
+    "link": "https://world.openfoodfacts.org/product/8850987131707",
+    "ingredients": "noodles: soft wheat flour 64,11%, palm oil, anti-oxidant e320, e321), modified tapioca starch, salt, sugar, thickener (e466), acidity regulator (e500, e501) seasonings: sugar, spices, salt, soy sauce powder, flavour enhancers (e621, e635), oyster aroma (flavour, fish, shrimp), colouring (e150a), anti-aggregator (e551), shallot aroma, seasoning oil: sweet soy sauce (corn glucose syrup, soy sauce, molasses, caramel color, vinegar), shallot oil, garlic oil, garlic flavour, topping: dried vegetables pepper bag: chilli powder",
+    "allergensRaw": "Crustaceans, Fish, Gluten, Soybeans",
+    "allergensMapped": "fish, shellfish, soy, wheat"
+  },
+  {
+    "id": 28,
+    "name": "Light Rye Crispbread",
+    "link": "https://world.openfoodfacts.org/product/0033617322616",
+    "ingredients": "WHOLE GRAIN RYE FLOUR, SALT.",
+    "allergensRaw": "Gluten, Milk, Sesame Seeds",
+    "allergensMapped": "milk, sesame, wheat"
+  },
+  {
+    "id": 29,
+    "name": "CREAMY PEANUT BUTTER",
+    "link": "https://world.openfoodfacts.org/product/0037600223324",
+    "ingredients": "ROASTED PEANUTS SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 30,
+    "name": "Sardine Fillets in 100% Olive Oil",
+    "link": "https://world.openfoodfacts.org/product/0070303022160",
+    "ingredients": "Sardines (Fish), Olive Oil, Salt",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 31,
+    "name": "Flourless Sprouted Grain Bread",
+    "link": "https://world.openfoodfacts.org/product/0073472001202",
+    "ingredients": "organic sprouted wheat, filtered water, organic sprouted barley, organic sprouted millet, organic malted barley, organic sprouted lentils, organic sprouted soybeans, organic sprouted spelt, fresh yeast,organic wheat gluten, sea salt,",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 32,
+    "name": "Chocolate Sea Salt RXBAR",
+    "link": "https://world.openfoodfacts.org/product/0857777004232",
+    "ingredients": "Dates, Egg Whites, Cashews, Almonds, Chocolate, Cocoa, Natural Flavors, Sea Salt",
+    "allergensRaw": "Eggs, Nuts",
+    "allergensMapped": "egg, tree nut"
+  },
+  {
+    "id": 33,
+    "name": "Bolachas Recheadas Framboesa",
+    "link": "https://world.openfoodfacts.org/product/20005559",
+    "ingredients": "sugar, glucose fructose syrup, wheat flour, chocolate liquor, eggs, palm oil, cocoa butter, concentrated raspberry juice, sorbitol, pectin, citric acid, leavening (sodium acid pyrophosphate, baking soda), emulsifier blend (soy lecithin, sunflower lecithin, mono - and diglycerides of fatty acids), whey protein concentrate, natural raspberry flavor, natural flavors, salt, wheat starch,",
+    "allergensRaw": "Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 34,
+    "name": "Low Sugar Maple & Pecan Granola imp",
+    "link": "https://world.openfoodfacts.org/product/5060043224585",
+    "ingredients": "Wholegrain Oat Flakes (67%), Rapeseed Oil, Nuts (8%) [Pecan Nut Pieces, Walnut Pieces, Almond Pieces], Seeds (6%) [Sunflower, Pumpkin], Desiccated Coconut, Maple Syrup (2%), Chicory Fibre, Natural Flavouring, Sea Salt, Fructose.",
+    "allergensRaw": "Nuts",
+    "allergensMapped": "tree nut"
+  },
+  {
+    "id": 35,
+    "name": "Organic Roasted Seaweed Snack",
+    "link": "https://world.openfoodfacts.org/product/0096619332748",
+    "ingredients": "Organic Seaweed, Organic Sunflower Oil, Organic Sesame Oil, Sea Salt, Organic Rosemary Extract",
+    "allergensRaw": "Sesame Seeds",
+    "allergensMapped": "sesame"
+  },
+  {
+    "id": 36,
+    "name": "Moutarde de Dijon",
+    "link": "https://world.openfoodfacts.org/product/3270190136880",
+    "ingredients": "water, organic mustard seeds 30%, organic alcohol vinegar, salt,",
+    "allergensRaw": "Mustard",
+    "allergensMapped": ""
+  },
+  {
+    "id": 37,
+    "name": "Protein Bars",
+    "link": "https://world.openfoodfacts.org/product/0193908007292",
+    "ingredients": "Dates, Egg Whites, Cashews, Almonds,, Chocolate, Cocoa, Natural Flavors, Sea Salt, Dates, Egg Whites, Almonds, Cashews,, Blueberries, Natural Flavors.",
+    "allergensRaw": "Eggs, Nuts",
+    "allergensMapped": "egg, tree nut"
+  },
+  {
+    "id": 38,
+    "name": "Toblerone Dark Chocolate with Honey & Almond Nougat",
+    "link": "https://world.openfoodfacts.org/product/7614500010617",
+    "ingredients": "cocoa mass, sugar, milk fat, honey (3,0 %), almonds (1,6%), cocoa butter, emulsifier (soya lecithin), egg white, chocolate contains: cocoa solids: 50% minimum,",
+    "allergensRaw": "Eggs, Milk, Nuts, Soybeans",
+    "allergensMapped": "egg, milk, soy, tree nut"
+  },
+  {
+    "id": 39,
+    "name": "Olive oil",
+    "link": "https://world.openfoodfacts.org/product/5000442007594",
+    "ingredients": "Extra Virgin Olive Oil (51%) Water, Alcohol, Emulsifier: Sunflower Lecithin Flavouring, Thickener: Xanthan Gum",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 40,
+    "name": "Sardines in Water",
+    "link": "https://world.openfoodfacts.org/product/0048000007070",
+    "ingredients": "SARDINES (SPRATTUS SPRATTUS, CLUPEA HARENGUS), WATER, SALT.",
+    "allergensRaw": "Eggs, Fish",
+    "allergensMapped": "egg, fish"
+  },
+  {
+    "id": 41,
+    "name": "Marinara",
+    "link": "https://world.openfoodfacts.org/product/0747479000413",
+    "ingredients": "Italian Whole Peeled Tomatoes, Olive Oil, Onions, Salt, Garlic, Basil, Black Pepper, Oregano.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 42,
+    "name": "6 Soft White Rolls Sliced",
+    "link": "https://world.openfoodfacts.org/product/5010044002316",
+    "ingredients": "wheat flour [with calcium, iron, niacin (b3) and thiamin (b1)], water, vegetable oil (rapeseed, sustainable palm), yeast, salt, sugar, emulsifiers: e472e, e471, e481, soya flour, gelling agent: e466, preservative: calcium propionate, flour treatment agents: ascorbic acid (vitamin c), e920 (vegetarian)",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 43,
+    "name": "Salted Mixed Nuts",
+    "link": "https://world.openfoodfacts.org/product/0096619885725",
+    "ingredients": "cashews, almonds, pecans, brazil nuts, macadamia nuts, peanut oil , sea salt.",
+    "allergensRaw": "Nuts, Peanuts",
+    "allergensMapped": "peanut, tree nut"
+  },
+  {
+    "id": 44,
+    "name": "Lancashire oven bottom muffins",
+    "link": "https://world.openfoodfacts.org/product/5023528000036",
+    "ingredients": "wheat flour (with calcium carbonate, iron, thiamin (b1), niacin (b3)), water, yeast, sugar, salt, vinegar, rapeseed oil, soya flour, palm oil, emulsifier (sodium stearoyl-2-lactylate), preservative (calcium propionate), flour treatment agent: ascorbic acid (vitamin c)",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 45,
+    "name": "Classic Mayo",
+    "link": "https://world.openfoodfacts.org/product/0815074022809",
+    "ingredients": "AVOCADO OIL, FILTERED WATER, EGG YOLKS, WHOLE EGGS, DISTILLED VINEGAR, MUSTARD (WATER, MUSTARD SEEDS, DISTILLED VINEGAR, SALT), SALT, ROSEMARY EXTRACT",
+    "allergensRaw": "Eggs, Mustard",
+    "allergensMapped": "egg"
+  },
+  {
+    "id": 46,
+    "name": "Nutella",
+    "link": "https://world.openfoodfacts.org/product/3017620422003",
+    "ingredients": "sugar, palm oil, hazelnuts 13%, low-fat cocoa 7.4%, skimmed milk powder 6.6%, whey powder, emulsifiers: lecithins [soya], vanillin, gluten-free,",
+    "allergensRaw": "Milk, Nuts, Soybeans",
+    "allergensMapped": "milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 47,
+    "name": "Ginger Crystallized In Dark Chocolate",
+    "link": "https://world.openfoodfacts.org/product/0716270001660",
+    "ingredients": "dark chocolate (cocoa liquor , sugar, cocoa butter , soy lecithin, vanilla), crystallized ginger (ginger, sugar)",
+    "allergensRaw": "Soybeans",
+    "allergensMapped": "milk, soy"
+  },
+  {
+    "id": 48,
+    "name": "Tremoços",
+    "link": "https://world.openfoodfacts.org/product/5601378850300",
+    "ingredients": "Lupin beans, water, salt and acidity regulator: citric acid.",
+    "allergensRaw": "Lupin",
+    "allergensMapped": ""
+  },
+  {
+    "id": 49,
+    "name": "Power Cakes Flapjack & Waffle Mix Buttermilk",
+    "link": "https://world.openfoodfacts.org/product/0705599011610",
+    "ingredients": "Whole grain wheat flour, Whole grain oat flour, wheat protein isolate, whey protein concentrate, brown sugar, milk protein concentrate, buttermilk powder, leavening (monocalcium phosphate, baking soda), sea salt. Contains milk and wheat. Due to processing on shared equipment, may also contain trace amounts of egg, soy, and tree nuts.",
+    "allergensRaw": "Gluten, Milk, Nuts",
+    "allergensMapped": "egg, milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 50,
+    "name": "belvoir farm elderflower cordial",
+    "link": "https://world.openfoodfacts.org/product/5022019010202",
+    "ingredients": "Sugar, water, elderflowers, pressed lemon juice, citric acid",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 51,
+    "name": "Prince Goût Chocolat",
+    "link": "https://world.openfoodfacts.org/product/7622210449283",
+    "ingredients": "WHEAT flour 35%, whole WHEAT flour 15.7%, sugar, vegetable oils (palm, rapeseed), low-fat cocoa powder 4.5%, glucose syrup, WHEAT starch, raising agents (ammonium bicarbonate, sodium bicarbonate, disodium diphosphate), emulsifiers (SOY lecithin, sunflower lecithin), salt, skimmed MILK powder, lactose and MILK proteins, flavors, MAY CONTAIN EGG.",
+    "allergensRaw": "Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 52,
+    "name": "Sourdough White Ciabattin",
+    "link": "https://world.openfoodfacts.org/product/5025125000006",
+    "ingredients": "Wheat Flour (Fortified with Calcium Carbonate, Iron, Niacin, Thiamin), Water, Salt, Fermented Wheat Flour.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 53,
+    "name": "Fine cut Oxford marmalade",
+    "link": "https://world.openfoodfacts.org/product/5035660138782",
+    "ingredients": "Glucose-Fructose Syrup, Seville Oranges, Sugar, Acid: Citric Acid, Acidity Regulator: Sodium Citrates, Gelling Agent: Pectin, Orange Oil.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 54,
+    "name": "Breakfast sandwich biscuits hazelnut - cocoa",
+    "link": "https://world.openfoodfacts.org/product/0819019020271",
+    "ingredients": "Whole Grain Flour, lupine, barley, cane sugar, sustainable palm oil, hazelnut paste, cocoa butter, cocoa powder, agave inulin, flaxseed flour, almonds, baking soda, sea salt, natural flavorings, sunflower lecithin",
+    "allergensRaw": "Gluten, Lupin, Nuts",
+    "allergensMapped": "milk, tree nut, wheat"
+  },
+  {
+    "id": 55,
+    "name": "Old English Medium Sliced White Bread",
+    "link": "https://world.openfoodfacts.org/product/5010044006529",
+    "ingredients": "Wheat Flour [with Calcium, Iron, Niacin (B3) and Thiamin (B1)], Water, Yeast, Liquid Concentrated Sponge Extract (Water, Wheat Flour, Yeast), Vegetable Oil (Rapeseed, Sustainable Palm), Salt, Fermented Wheat Flour, Soya Flour, Flour Treatment Agent: Ascorbic Acid (Vitamin C).",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 56,
+    "name": "Tortilla chips",
+    "link": "https://world.openfoodfacts.org/product/00414234",
+    "ingredients": "Maize Flour Vegetable Oil (Sunflower/Rapeseed)",
+    "allergensRaw": "",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 57,
+    "name": "Chick Peas in Salted Water",
+    "link": "https://world.openfoodfacts.org/product/5013635312160",
+    "ingredients": "Chick Peas (60%), Water, Salt.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 58,
+    "name": "Organic Sea Salt Tortilla Chips",
+    "link": "https://world.openfoodfacts.org/product/0815099021634",
+    "ingredients": "organic whole ground corn, organic sunflower oil and/or organic safflower oil, sea salt,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 59,
+    "name": "Premium Soy Sauce",
+    "link": "https://world.openfoodfacts.org/product/0078895126396",
+    "ingredients": "Water, Soybeans 17.5%, Salt, Sugar, Wheat Flour.",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 60,
+    "name": "PEANUT BUTTER SPREAD",
+    "link": "https://world.openfoodfacts.org/product/0051500243213",
+    "ingredients": "PEANUTS, SUGAR, PALM OIL, SALT, MOLASSES",
+    "allergensRaw": "Gluten, Nuts, Peanuts",
+    "allergensMapped": "peanut, tree nut, wheat"
+  },
+  {
+    "id": 61,
+    "name": "Organic Bread 21 Whole Grains and Seeds",
+    "link": "https://world.openfoodfacts.org/product/0013764027053",
+    "ingredients": "organic whole wheat (organic whole wheat flour, organic cracked whole wheat), water, organic cane sugar, organic whole grains and seeds mix (organic whole flax seeds, organic sunflower seeds, organic tri-color quinoa (organic black quinoa, organic red quinoa, organic white quinoa), organic ground whole flax seeds, organic triticale, organic pumpkin seeds, organic rolled barley, organic rolled oats, organic rolled rye, organic blue cornmeal, organic millet, organic yellow cornmeal, organic kamut khorasan wheat, organic sorghum flour, organic buckwheat flour, organic quinoa, organic poppy seeds), organic wheat gluten, organic oat fiber, yeast, organic molasses, sea salt, organic cultured wheat flour, organic vinegar, organic acerola cherry powder, enzymes",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 62,
+    "name": "Grahams",
+    "link": "https://world.openfoodfacts.org/product/0044000004637",
+    "ingredients": "UNBLEACHED ENRICHED FLOUR (WHEAT FLOUR, NIACIN, REDUCED IRON, THIAMINE MONONITRATE (VITAMIN B1), RIBOFLAVIN (VITAMIN B2), FOLIC ACID), GRAHAM FLOUR (WHOLE GRAIN WHEAT FLOUR), SUGAR, SOYBEAN AND/OR CANOLA OIL, HONEY, LEAVENING (BAKING SODA, CALCIUM PHOSPHATE), SALT, SOY LECITHIN, ARTIFICIAL FLAVOR, WHEAT, SOY.",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 63,
+    "name": "Barbecue Sauce",
+    "link": "https://world.openfoodfacts.org/product/0013409918104",
+    "ingredients": "Sugars (glucose-fructose, con - centrated pineapple juice, refiners' molasses, sugar), Tomato paste, Vinegar, Water, Modified corn starch, Salt, Natural smoke flavour, Spices, Caramel colour, Sodium benzoate (preservative), Dried garlic, Mustard flour, Tamarind, Natural flavour, Celery seed. Contains: Mustard.",
+    "allergensRaw": "Celery, Mustard",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 64,
+    "name": "Solid White Tuna Albacore",
+    "link": "https://world.openfoodfacts.org/product/08660533",
+    "ingredients": "WHITE TUNA, WATER, VEGETABLE BROTH, SEA SALT.",
+    "allergensRaw": "Fish, Soybeans",
+    "allergensMapped": "fish, soy"
+  },
+  {
+    "id": 65,
+    "name": "Organic Tortilla Chips",
+    "link": "https://world.openfoodfacts.org/product/0096619656493",
+    "ingredients": "Organic corn, organic vegetable oil (organic sunflower and/or organic canola oil), sea salt.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 66,
+    "name": "Kinder Bueno",
+    "link": "https://world.openfoodfacts.org/product/8000500037560",
+    "ingredients": "milk chocolate 31,5 % (sugar, cocoa butter, cocoa mass, skimmed milk powder, concentrated butter, emulsifiers: lecithins [soya], vanillin), sugar, palm oil, wheat flour, ground hazelnuts 10,8%, skimmed milk powder, milk powder, dark chocolate (sugar, cocoa mass, cocoa butter, emulsifiers: lecithins [soya], vanillin), lean cocoa, emulsifiers: lecithins [soya], raising agents (sodium acid carbonate, ammonium acid carbonate), salt, vanillin,",
+    "allergensRaw": "Gluten, Milk, Nuts, Soybeans",
+    "allergensMapped": "milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 67,
+    "name": "Bournville Dark Chocolate bar",
+    "link": "https://world.openfoodfacts.org/product/7622210249661",
+    "ingredients": "sugar, cocoa butter, cocoa mass, palm oil, emulsifiers (soya lecithin, e476),skimmed milk powder",
+    "allergensRaw": "Milk, Soybeans",
+    "allergensMapped": "milk, soy"
+  },
+  {
+    "id": 68,
+    "name": "Jaffa Cakes",
+    "link": "https://world.openfoodfacts.org/product/20005573",
+    "ingredients": "sugar, glucose-fructose syrup, 15% orange juice from concentratetd orange juice, wheat flour, cocoa mass, 6% liquid whole egg, palm oil, cocoa butter, stabilisier: sorbitols, gelling agent: pectins, acid: citric acid, raising agents: sodium carbonates, diphosphates, whey powder (milk), emulsifiers: lecithins, mono - and diglycerides of fatty acids, natural orange flavouring, natural vanilla flavouring with other natural flavourings, salt, wheat starch,",
+    "allergensRaw": "Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 69,
+    "name": "Le Beurre Tendre Doux",
+    "link": "https://world.openfoodfacts.org/product/3451790988677",
+    "ingredients": "cream (origin france), milk fat , lactic ferments,",
+    "allergensRaw": "Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 70,
+    "name": "SWEET & SALTY POPCORN",
+    "link": "https://world.openfoodfacts.org/product/5060283760669",
+    "ingredients": "Wholegrain corn (63%), rapeseed oil, demerara sugar, glazing agent (isomalt), sea salt.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 71,
+    "name": "Creamy Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0051500720011",
+    "ingredients": "roasted peanuts, sugar, molasses, fully hydrogenated vegetable oils (rapeseed and soybean), mono and diglycerides, salt",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 72,
+    "name": "Dark Chocolate",
+    "link": "https://world.openfoodfacts.org/product/20005832",
+    "ingredients": "sugar, cocoa mass, cocoa butter, emulsifier (sunflower lecithins), vanilla extract",
+    "allergensRaw": "Soybeans",
+    "allergensMapped": "milk, soy"
+  },
+  {
+    "id": 73,
+    "name": "Baked Beans",
+    "link": "https://world.openfoodfacts.org/product/5000232902450",
+    "ingredients": "Beans (51%), Tomatoes (38%), Water, Sugar, Modified Maize Starch, Reduced Sodium Sea Salt, Spirit Vinegar, Salt, Paprika, White Pepper, Spices, Flavourings.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 74,
+    "name": "Vitalite Dairy Free Spread",
+    "link": "https://world.openfoodfacts.org/product/5000373704289",
+    "ingredients": "vegetable oils (sunflower (21%), rapeseed, palm), water, salt, emulsifiers (e471), sunflower lecithin, preservative (potassium sorbate), acid (lactic acid), vitamins (niacin, b6, b2, folic acid, b12), flavourings, colours (annatto, curcumin)",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 75,
+    "name": "4 Fruity Teacakes",
+    "link": "https://world.openfoodfacts.org/product/5010044001012",
+    "ingredients": "Wheat Flour [with Calcium, Iron, Niacin (B3) and Thiamin (B1)], Water, Dried Fruit Blend in varying proportions (13%) (Currants, Sultanas, Raisins), Sugar, Yeast, Vegetable Oil (Rapeseed, Sustainable Palm, Sunflower), Salt, Gelling Agent: E466, Emulsifiers: E471, E481, E472e, Soya Flour, Preservative: Calcium Propionate, Flour Treatment Agents: Ascorbic Acid (Vitamin C), E920 (Vegetarian)",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 76,
+    "name": "Original Taste",
+    "link": "https://world.openfoodfacts.org/product/5449000054227",
+    "ingredients": "Water, fructose - glucose syrup, carbon dioxide, colorant: e150d, acid: phosphoric acid, natural flavorings (including caffeine).",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 77,
+    "name": "Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0051500255162",
+    "ingredients": "MADE FROM ROASTED PEANUTS AND SUGAR, CONTAINS 2% OR LESS OF: MOLASSES, FULLY HYDROGENATED VEGETABLE OILS (RAPESEED AND SOYBEAN), MONO AND DIGLYCERIDES, SALT.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 78,
+    "name": "Keto cookies",
+    "link": "https://world.openfoodfacts.org/product/0787692523030",
+    "ingredients": "grain free flour blend (lupin flour, almond flour), pea protein, almond butter (roasted almonds), organic erythritol, coconut oil, palm fruit oil, chicory root fiber, desiccated coconut, sunflower lecithin, vegetable glycerine, natural flavor, xanthan gum, baking soda, gum acacia, stevoside (stevia extract), mixed tocopherols, allergens: contains lupin, almond and coconut,",
+    "allergensRaw": "Lupin, Nuts",
+    "allergensMapped": "milk, tree nut, wheat"
+  },
+  {
+    "id": 79,
+    "name": "Love, Corn (Sea Salt)",
+    "link": "https://world.openfoodfacts.org/product/5060490400242",
+    "ingredients": "Corn, sunflower oil, sea salt",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 80,
+    "name": "wholemeal sourdough bread",
+    "link": "https://world.openfoodfacts.org/product/00363167",
+    "ingredients": "wholemeal british wheat flour, water, rapseed oil, sea salt, wheat gluten, extra virgin olive oil 1%, soya flour, fermented wheat flour, fortified wheat flour (wheat flour, calcium carbonate, iron, niacin, thiamin), wheat flour, flour treatment agent:ascorbic acid.",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 81,
+    "name": "Honey Nut Cheerios",
+    "link": "https://world.openfoodfacts.org/product/0016000124790",
+    "ingredients": "Whole Grain Oats, Sugar, Corn Starch, Honey, Brown Sugar Syrup, Salt, Tripotassium Phosphate, Canola Oil, Natural Almond Flavor, Vitamin E, Calcium Carbonate, Vitamin C, sodium ascorbate, Iron, Zinc, mineral nutrients, niacinamide, Vitamin B6, pyridoxine hydrochloride, Vitamin B1, thiamin mononitrate, Vitamin A, palmitate, Vitamin B2, riboflavin, folic acid, Vitamin B13, Vitamin D3",
+    "allergensRaw": "Nuts",
+    "allergensMapped": "tree nut"
+  },
+  {
+    "id": 82,
+    "name": "Pains au lait x10",
+    "link": "https://world.openfoodfacts.org/product/3256540000698",
+    "ingredients": "wheat flour 43%, sourdough 21%, wheat flour 11%, water, salt, fresh eggs 11%, sugar, pastry butter, rapeseed oil, yeast, skimmed milk powder equivalent to 10% reconstituted skimmed milk, emulsifier: mono and diglycerides of fatty acids, salt, wheat protein, wheat gluten, carrot extract, flavourings, antioxidant: ascorbic acid, milk protein",
+    "allergensRaw": "Eggs, Gluten, Milk",
+    "allergensMapped": "egg, milk, wheat"
+  },
+  {
+    "id": 83,
+    "name": "Organic Protein Protein Powder",
+    "link": "https://world.openfoodfacts.org/product/0851770007566",
+    "ingredients": "ORGAIN ORGANIC PROTEIN BLEND (PEA PROTEIN, BROWN RICE PROTEIN, CHIA SEED), ORGAIN ORGANIC CREAMER BASE ACACA HIGH OLEIC SUNFLOWER OIL, RICE DEXTRIN, SUNFLOWER LECITHIN, ROSEMARY EXTRACT), ERYTHRITOL, NATURAL FLAVORS, ACACIA ORCAIN ORGANIC 50 SUPERFOODS BLEND MILLET, AMARANTH, BUCKWHEAT, QUINOA CHIA, KALE POWDER, APPLE PULP, CINNAMON, ORGANIC SPROUTS BLEND (AMARANTH SPROUT, QUINOA SPROUT, MILLET SPROUT, BUCKWHEAT SPROUT, GARBANZO BEAN SPROUT, LENTIL SPROUT, ADZUKI SPROUT FLAX SPROUT, SUNFLOWER SPROUT, PUMPKIN SPROUT, CHIA SPROUT, SESAME SPROUT), ORGANIC SUPER VEGGIES, SUPER BERRIES SUPER GRASSES AND SUPER FOODS BLEND (ACAI&quot,, CRANBERRY, WHEAT GRASS, BARLEY GRASS, OAT GRASS, BANANA, MANGO, BEET, CARROT, SPINACH, BROCCOL TOMATO, KALE, CABBAGE, PARSLEY LEAF, BRUSSELS SPROUT, GREEN BELL PEPPER, CUCUMBER, CELERY, GARLIC, GINGER ROOT, GREEN ONION CAULIFLOWER, ASPARAGUS, PINEAPPLE, TURMERIC, STRAWBERRY&quot,, TART CHERRY, BLACKBERRY, BLUEBERRY, RASPBERRY REBA STEVIA EXTRACT, SEA SALT, GUAR GUM, XANTHAN GUM, NATURAL FLAVOR, ORGANIC FOOD BASED VITAMIN C (AMLA FRUIT EXTRACT ORGANIC FOOD BASED VITAMIN BLEND (GUAVA, HOLY BASIL, LEMON EXTRACT), PROBIOTIC (BACILLUS COAGULANS)",
+    "allergensRaw": "Banana, Celery, Sesame Seeds",
+    "allergensMapped": "sesame, wheat"
+  },
+  {
+    "id": 84,
+    "name": "Granola Almond & Super Berry",
+    "link": "https://world.openfoodfacts.org/product/9326666610485",
+    "ingredients": "Whole Grains (56%) [Oats, Wheat, Triticale (Wheat, Rye), Barley], Golden Syrup (Sugar, Water), Nuts [Almond (7%), Peanut (2.5%)], Sunflower Oil, Rice Crisps (4%), Dried Berries [Sweetened Cranberry (3%), Blueberry (0.5%)], Psyllium Husk, Natural Flavours, Tapioca Starch, Salt, Antioxidant (Vitamin E). CONTAINS: WHEAT, GLUTEN, ALMOND, PEANUT. MAY CONTAIN: CASHEW, BRAZIL NUT, HAZELNUT, MACADAMIÁ, PECAN, PINE NUT, PISTACHIO, WALNUT, LUPIN, MILK, SESAME, SOY.",
+    "allergensRaw": "Gluten, Lupin, Milk, Nuts, Peanuts, Sesame Seeds",
+    "allergensMapped": "milk, peanut, sesame, soy, tree nut, wheat"
+  },
+  {
+    "id": 85,
+    "name": "Elegant collection a decadent 16 piece private reserve chocolate assortment, assortment",
+    "link": "https://world.openfoodfacts.org/product/0077260062512",
+    "ingredients": "Sugar, milk ingredients, corn syrup, cocoa butter, cocoa mass, brown sugar, palm kernel oil, water, almonds, hazelnuts, hydrogenated coconut oil, salt, soy lecithin, raspberries, coconut oil, honey, dried egg-white, coffee, flavour, artificial flavour, citric acid, lemon oil, tapioca flour, invertase, colour, baking soda, potassium sorbate, sodium benzoate.",
+    "allergensRaw": "Eggs, Milk, Nuts, Soybeans",
+    "allergensMapped": "egg, milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 86,
+    "name": "Chocolate Orange Milk",
+    "link": "https://world.openfoodfacts.org/product/3664346304863",
+    "ingredients": "Sugar, cocoa mass, cocoa butter, skimmed milk powder, whey powder (from milk), vegetable fats (palm, shea), milk fat, emulsifiers (soya lecithins, E476), orange oil, flavouring. May contain nuts, wheat. MILK SOLIDS 14 % MINIMUM. COCOA SOLIDS 25% MINIMUM. CONTAINS VEGETABLE FATS IN ADDITION TO COCOA BUTTER. B Rec INSERT",
+    "allergensRaw": "Milk, Soybeans",
+    "allergensMapped": "milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 87,
+    "name": "Bran Flakes",
+    "link": "https://world.openfoodfacts.org/product/20621483",
+    "ingredients": "80% Shredded Wholegrain Wheat, 16% Wheat Bran, Sugar, Barley Malt Extract, Salt, Honey.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 88,
+    "name": "Steamed prawn dim sum",
+    "link": "https://world.openfoodfacts.org/product/00709842",
+    "ingredients": "Spread dim sum evenly in a steamer or basket lined with greaseproof paper, ensuring none are touching Place over boiling water, cover and steam Leave to stand for 1 min then serve immediately Do not reheat. STORAGE SUITABLE FOR FREEZING. For Use By, see front of pack. Keep refrigerated 0 C to +5 C. Freeze by date mark shown and use within 3 months. Once defrosted (in a refrigerator) eat within 24 hours. Defrost thoroughly before use. These dim sum are made with an authentic gelatinous rice pastry. Known as Har gow the pastry becomes translucent and sticky once cooked. nut allergy Tiger Prawns (Crustacean) (36%) Water Rice Flour Tapioca Flour Cornflour Courgette (2.5%) Water Chestnuts (2%) Chinese Chives Sugar Carrots Rehydrated Jelly Ear Mushrooms Salt Sesame Oil Ginger Garlic Yeast Extract (contains Barley) Shallots Onions Vegetable Oil (Sunflower/Rapeseed) Coriander Sweet Red Chillies Ground Green Peppercorns.",
+    "allergensRaw": "Crustaceans, Gluten",
+    "allergensMapped": "sesame, shellfish, tree nut, wheat"
+  },
+  {
+    "id": 89,
+    "name": "Goldfish",
+    "link": "https://world.openfoodfacts.org/product/0014100085478",
+    "ingredients": "made with smiles and enriched wheat flour (flour, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), cheddar cheese ([cultured milk, salt, enzymes], annatto), canola and/or sunflower oils, contains 2 percent or less of: salt, yeast, sugar, autolyzed yeast, baking soda, monocalcium phosphate, paprika, spices, celery, onion powder, contains: wheat, milk,",
+    "allergensRaw": "Celery, Gluten, Milk",
+    "allergensMapped": "milk, wheat"
+  },
+  {
+    "id": 90,
+    "name": "5 rodzajów fasoli w sosie pomidorowym",
+    "link": "https://world.openfoodfacts.org/product/5000157072023",
+    "ingredients": "Mixed beans in variable proportions (52%, Haricot beans, Pinto beans, Cannellini beans, Borlotti beans, Red Kidney beans), Tomatoes (37%), Water, Sugar, Modified Cornflour, Spirit Vinegar, Salt, Spice Extracts, Herb Extract",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 91,
+    "name": "Natural Creamy Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0051500017005",
+    "ingredients": "PEANUTS, CONTAINS 1% OR LESS OF SALT.",
+    "allergensRaw": "Peanuts",
+    "allergensMapped": "peanut"
+  },
+  {
+    "id": 92,
+    "name": "Creme Egg",
+    "link": "https://world.openfoodfacts.org/product/7622210344205",
+    "ingredients": "sugar, milk , glucose syrup, cocoa butter, invert sugar syrup, whey powder ( milk ), cocoa mass, vegetable fats (palm, shea), emulsifier (e442), dried egg white, flavourings, colour (paprika extract),",
+    "allergensRaw": "Eggs, Milk",
+    "allergensMapped": "egg, milk"
+  },
+  {
+    "id": 93,
+    "name": "perly",
+    "link": "https://world.openfoodfacts.org/product/6111242100992",
+    "ingredients": "milk cream, cream, sugar, banana, bacteria",
+    "allergensRaw": "Banana, Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 94,
+    "name": "Marmite Yeast Extract",
+    "link": "https://world.openfoodfacts.org/product/50184453",
+    "ingredients": "yeast extract, barley, wheat, oats, rye, salt, vegetable juice concentrate, thiamin, riboflavin, niacin, vitamin B12, folic acid, natural flavouring, celery",
+    "allergensRaw": "Celery, Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 95,
+    "name": "Tomato Ketchup",
+    "link": "https://world.openfoodfacts.org/product/0013000006057",
+    "ingredients": "TOMATO CONCENTRATE FROM RED RIPE TOMATOES, DISTILLED VINEGAR, HIGH FRUCTOSE CORN SYRUP, CORN SYRUP, SALT, SPICE, ONION POWDER, NATURAL FLAVORING",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 96,
+    "name": "Chunk Light Tuna in Water",
+    "link": "https://world.openfoodfacts.org/product/08067308",
+    "ingredients": "LIGHT TUNA, WATER VEGETABLE BROTH, SALT. CONTAINS: FISH (TUNA)",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 97,
+    "name": "Lightly Breaded Chicken Breast Chunks",
+    "link": "https://world.openfoodfacts.org/product/0077013615514",
+    "ingredients": "BONELESS SKINLESS CHICKEN BREAS WATER, SEASONING (SUGAR, SALT, SPICES INCLUDING PAPRIKA AND CELERY, CHICKEN FAT, SPICE EXTRACTIVE, CANOLA OIL, SOYBEAN OIL), RICE STARCH. BREADED WITH: WHEAT FLOUR, SUGAR, SALT NONFAT DRY MILK. DRIED EGG WHITES, BAKING POWDER (SODIUM ACID PYROPHOSPHATE, SODIUM BICARBONATE, CORN STARCH, MONOCALCIUM PHOSPHATE), SPICE, PAPRIKA. BREADING SET IN VEGETABLE OIL. CONTAINS: MILK, EGGS, WHEAT.",
+    "allergensRaw": "Celery, Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 98,
+    "name": "Coca-Cola Original Taste",
+    "link": "https://world.openfoodfacts.org/product/04963406",
+    "ingredients": "carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural flavors, caffeine",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 99,
+    "name": "Original Crackers",
+    "link": "https://world.openfoodfacts.org/product/0897580000106",
+    "ingredients": "brown rice, quinoa, flax seeds, sesame seeds, tamari (water, soybeans, salt, vinegar), sea salt.",
+    "allergensRaw": "Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy"
+  },
+  {
+    "id": 100,
+    "name": "Shrimp Seafood Burgers",
+    "link": "https://world.openfoodfacts.org/product/00577335",
+    "ingredients": "shrimp, pollock, sunflower oil, rice flour, salt, garlic powder, spices. Contains pollock, shrimp.",
+    "allergensRaw": "Crustaceans, Fish",
+    "allergensMapped": "fish, shellfish, wheat"
+  },
+  {
+    "id": 101,
+    "name": "organic GREEK YOGURT plain",
+    "link": "https://world.openfoodfacts.org/product/0096619483556",
+    "ingredients": "organic pasteurized grade a nonfat milk, live and active cultures (streptococcus thermophilus, lactobacillus bulgaricus, lactobacillus acidophilus, bifidus, lactobacillus casei).",
+    "allergensRaw": "Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 102,
+    "name": "CHOCOLATE NUTRITION SHAKE",
+    "link": "https://world.openfoodfacts.org/product/0811620022118",
+    "ingredients": "Filtered lowfat grade A milk, alkalized cocoa, natural flavors, cellulose gel, cellulose gum, salt, carrageenan, lactase enzyme, monk fruit juice concentrate, acesulfame potassium, sucralose, stevia leaf extract, lactase enzyme, vitamin A palmitate, vitamin D3",
+    "allergensRaw": "Gluten, Milk",
+    "allergensMapped": "milk, wheat"
+  },
+  {
+    "id": 103,
+    "name": "EZEKIEL 4:9 Sesame",
+    "link": "https://world.openfoodfacts.org/product/0073472001233",
+    "ingredients": "Organic Sprouted Wheat, Filtered Water, Organic Sprouted Barley, Organic Sprouted Millet, Organic Malted Barley, Organic Sprouted Lentils, Organic Sprouted Soybeans, Organic Sprouted Spelt, Yeast, Organic Wheat Gluten, Sea Salt, Organic Sesame Seeds.",
+    "allergensRaw": "Gluten, Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 104,
+    "name": "Honey Wheat Bread",
+    "link": "https://world.openfoodfacts.org/product/0072250037068",
+    "ingredients": "UNBLEACHED ENRICHED FLOUR (WHEAT FLOUR, MALTED BARLEY FLOUR, NIACIN, REDUCED IRON, THIAMIN MONONITRATE, RIBOFLAVIN, FOLIC ACID), WATER, WHOLE WHEAT FLOUR, HONEY, WHEAT GLUTEN, SUGAR, WHEAT BRAN, YEAST, CULTURED WHEAT FLOUR, SALT, SOY - BEAN OIL, SOY FLOUR, CALCIUM SULFATE, MONOGLYCERIDES, ENZYMES, MONOCALCIUM PHOSPHATE, SOY LECITHIN, ASCORBIC ACID, NIACIN, REDUCED IRON, THIAMIN MONONITRATE (VITAMIN B1), RIBOFLAVIN, FOLIC ACID, CALCIUM CARBONATE.",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 105,
+    "name": "Stem ginger oat biscuits",
+    "link": "https://world.openfoodfacts.org/product/0061232201047",
+    "ingredients": "Wholegrain Oats (64%), Brown Sugar, Sustainable Palm Fruit Oil, Stem Ginger (6.3%) (Stem Ginger, Sugar), Dietary Fibre (Oligofructose), Ground Ginger, Partially Inverted Refiners Syrup, Barley Malt Syrup, Raising Agent: Sodium Carbonates, Sea Salt. May contain traces of milk.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "milk, wheat"
+  },
+  {
+    "id": 106,
+    "name": "Breaded Panko Shrimp",
+    "link": "https://world.openfoodfacts.org/product/0096619283545",
+    "ingredients": "Shrimp, wheat flour, soybean oil, contains 2% or less of each of the following: citric acid, dextrose, dried garlic, leavening (sodium acid pyrophosphate, sodium bicarbonate), methylcellulose, modified corn starch, dried onion, paprika extract, rice starch, salt, soy flour, sugar, tapioca starch, dried whey, xanthan gum, dried yeast, yellow corn flour.",
+    "allergensRaw": "Crustaceans, Gluten, Milk, Soybeans, Ble, Lait",
+    "allergensMapped": "milk, shellfish, soy, wheat"
+  },
+  {
+    "id": 107,
+    "name": "Peanut Butter Crunch",
+    "link": "https://world.openfoodfacts.org/product/0123456789012",
+    "ingredients": "Unbleached enriched wheat flour [flour, barley malt, niacin (vitamin b3), iron, thiamin mononitrate (vitamin b1), riboflavin (vitamin b2), folic acid (vitamin b9)], water, sugar, yeast, wheat gluten, soybean oil, contains 2% or less of the following: salt, dough conditioners (mono - and diglycerides, sodium stearoyl lactylate, ethoxylated mono - and diglycerides, ascorbic acid), calcium propionate and sorbic acid (to retain freshness), yeast nutrients (calcium carbonate, calcium sulfate, monocalcium phosphate, ammonium sulfate), hydrogenated cottonseed oil, ground turmeric, soy lecithin.",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "soy, wheat"
+  },
+  {
+    "id": 108,
+    "name": "Creamy Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0034000400126",
+    "ingredients": "Peanuts, Sugar, hydrogenated Vegetable Oil [rapeseed Oil, Cottonseed Oil, Soybean Oil], Salt, Peanut Oil, Monoglycerides, Molasses, Cornstarch.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 109,
+    "name": "Extra Virgin Olive Oil",
+    "link": "https://world.openfoodfacts.org/product/00358262",
+    "ingredients": "ORGANIC EXTRA VIRGIN OLIVE OIL.",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 110,
+    "name": "Peter's Yard Original Sourdough Crackers",
+    "link": "https://world.openfoodfacts.org/product/5060198820052",
+    "ingredients": "Milk , rye flour, wheat flour, sourdough 11.5% ( rye flour, water), wholewheat flour, honey, salt, yeast.",
+    "allergensRaw": "Gluten, Milk, Gluten",
+    "allergensMapped": "milk, wheat"
+  },
+  {
+    "id": 111,
+    "name": "Cioccolato al latte",
+    "link": "https://world.openfoodfacts.org/product/3017760363396",
+    "ingredients": "wheat flour, sugar, cocoa butter, cocoa mass, skimmed milk powder, vegetable fats (palm, coconut), glucose syrup, milk fat, whey powder (from milk), salt, emulsifier (soya lecithin), raising agent (e503), yeast, flavouring may contain nuts,",
+    "allergensRaw": "Gluten, Milk, Soybeans",
+    "allergensMapped": "milk, soy, tree nut, wheat"
+  },
+  {
+    "id": 112,
+    "name": "Apple Cider Vinegar",
+    "link": "https://world.openfoodfacts.org/product/0074305001321",
+    "ingredients": "Certified Organic, Raw Apple Cider Vinegar and Purified Water",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 113,
+    "name": "Saveur Barbecue",
+    "link": "https://world.openfoodfacts.org/product/3245550078674",
+    "ingredients": "SOYA flour (30%), tapioca starch, dehydrated potato (13%), sunflower oil, potato starch (5%), rice flour, lactose (MILK), sugar, onions, salt, natural flavouring (MILK), yeast extract, tomatoes, colour: paprika extract, acid: malic acid.",
+    "allergensRaw": "Celery, Milk, Soybeans",
+    "allergensMapped": "milk, soy, wheat"
+  },
+  {
+    "id": 114,
+    "name": "Pepsi Max",
+    "link": "https://world.openfoodfacts.org/product/3502110009357",
+    "ingredients": "carbonated water,colour (caramel e150d),sweeteners (aspartame , acesulfame k),acidifiers (phosphoric acid, citric acid),acidity regulator (sodium citrate),flavourings (including plant extracts and caffeine), contains a source of phenylalanine,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 115,
+    "name": "Original Sandwich Spread",
+    "link": "https://world.openfoodfacts.org/product/5000157076021",
+    "ingredients": "spirit vinegar, sugar, cabbage (contains preservative - sulphites), rapeseed oil, water, carrots, gherkins (contain firming agent - calcium chloride), modified cornflour, salt, onions, egg yolks, red peppers, mustard, stabilisers - guar gum and xanthan gum, spice extracts, spices, herb extract (contains celery), flavourings, colour - riboflavin. vegetables 35%.",
+    "allergensRaw": "Celery, Eggs, Mustard, Sulphur Dioxide And Sulphites",
+    "allergensMapped": "egg"
+  },
+  {
+    "id": 116,
+    "name": "Hummus",
+    "link": "https://world.openfoodfacts.org/product/0096619916245",
+    "ingredients": "ORGANIC CHICKPEAS, WATER, ORGANIC SESAME TAHINI, ORGANIC SUNFLOWER OIL, ORGANIC LEMON JUICE, ORGANIC GARLIC, SEA SALT, ORGANIC CUMIN. TOPPING: ORGANIC SUNFLOWER OIL, ORGANIC PINE NUTS, WATER, ORGANIC RED PEPPER, ORGANIC MINCED GARLIC, ORGANIC CUMIN, ORGANIC PARSLEY, SEA SALT, CITRIC ACID, ORGANIC ONION. CONTAINS: Pine Nuts, Sesame.",
+    "allergensRaw": "Sesame Seeds",
+    "allergensMapped": "sesame, tree nut"
+  },
+  {
+    "id": 117,
+    "name": "Houmous",
+    "link": "https://world.openfoodfacts.org/product/5000169090336",
+    "ingredients": "Cooked chickpeas (48%) (water , chickpeas), water , sunflower oil, tahini (14%) (sesame seed paste), concentrated lemon juice, sea salt , garlic.",
+    "allergensRaw": "Sesame Seeds",
+    "allergensMapped": "sesame"
+  },
+  {
+    "id": 118,
+    "name": "Sriracha Hot Chilli Sauce",
+    "link": "https://world.openfoodfacts.org/product/5020580016999",
+    "ingredients": "pickled red chilli 64% [chili, salt, acidity regulator (acetic acid)), sugar, water, garlic, salt, thickener (modified starch, xanthan gum), acidity regulator (acetic acid, citric acid), flavour enhancer (yeast extract), preservative (potassium sorbate), colour (paprika oleoresin).",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 119,
+    "name": "Fridge Pot Tuna Steak",
+    "link": "https://world.openfoodfacts.org/product/50171255",
+    "ingredients": "Tuna (93%), Spring Water, Salt.",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 120,
+    "name": "Peanut Butter Spread",
+    "link": "https://world.openfoodfacts.org/product/0051500255650",
+    "ingredients": "PEANUTS, SUGAR, PALM OIL, SALT, MOLASSES",
+    "allergensRaw": "Gluten, Nuts, Peanuts",
+    "allergensMapped": "peanut, tree nut, wheat"
+  },
+  {
+    "id": 121,
+    "name": "Freshly Baked Chocolat Croissant",
+    "link": "https://world.openfoodfacts.org/product/20048402",
+    "ingredients": "WHEAT FLOUR, BUTTER, WATER, CHOCOLATE (SUGAR, COCOA MASS, COCOA BUTTER, NATURAL VANILLA FLAVOR, SOY LECITHIN), SUGAR, YEAST, WHOLE MILK POWDER, SALT, WHEAT GLUTEN, RAPESEED OIL LECITHIN, EGG WASH (EGGS, WATER), ASCORBIC ACID, ENZYMES.",
+    "allergensRaw": "Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 122,
+    "name": "Swiss style muesli",
+    "link": "https://world.openfoodfacts.org/product/01771879",
+    "ingredients": "Oat Flakes (40%), Malted Toasted Wheat Flakes (38%) ( Wheat , Barley Malt Extract), Sultanas (15%), Whey Powder (Cows' Milk ), Hazelnuts (2%), Almonds (1%).",
+    "allergensRaw": "Gluten, Milk, Nuts",
+    "allergensMapped": "milk, tree nut, wheat"
+  },
+  {
+    "id": 123,
+    "name": "Ancient Grains Probiotic Granola",
+    "link": "https://world.openfoodfacts.org/product/0096619194261",
+    "ingredients": "Whole grain rolled oats , cane sugar , soy oil , khorasan wheat, rolled spelt , almonds, inulin rice starch , rolled quinoa , rolled amaranth , sea salt, molasses , cinnamon , vanilla flavor , Probiotics (Bacillus coagulans GBI-30 6086), tocopherols (vitamin E). ORGANIC Contains soy, almonds and wheat Produced in a facility that uses peanuts and other tree nuts.",
+    "allergensRaw": "Gluten, Nuts, Soybeans",
+    "allergensMapped": "peanut, soy, tree nut, wheat"
+  },
+  {
+    "id": 124,
+    "name": "Oats 'N Honey Granola Bars",
+    "link": "https://world.openfoodfacts.org/product/0016000264694",
+    "ingredients": "Whole Grain Oats, Sugar, Canola Oil, Rice Flour, Honey, Salt, Brown Sugar Syrup, Baking Soda, Soy Lecithin, Natural Flavor. CONTAINS SOY, MAY CONTAIN PEANUT, ALMOND AND PECAN INGREDIENTS Ceneral Mille 20706651",
+    "allergensRaw": "Gluten, Soybeans",
+    "allergensMapped": "peanut, soy, tree nut, wheat"
+  },
+  {
+    "id": 125,
+    "name": "Caprice des Dieux",
+    "link": "https://world.openfoodfacts.org/product/3161711000622",
+    "ingredients": "pasteurized cow's milk of france, salt, lactic ferments (milk),",
+    "allergensRaw": "Milk, Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 126,
+    "name": "Panda Brand Oyster Sauce",
+    "link": "https://world.openfoodfacts.org/product/0078895300017",
+    "ingredients": "Water, Sugar, Salt, Modified Corn Starch, Flavour Enhancer (E621), Oyster Extractives (3%), Wheat Flour , Colour (E150c).",
+    "allergensRaw": "Gluten, Molluscs",
+    "allergensMapped": "shellfish, wheat"
+  },
+  {
+    "id": 127,
+    "name": "Hazelnut Spread with Cocoa",
+    "link": "https://world.openfoodfacts.org/product/0009800895007",
+    "ingredients": "sugar, palm oil, hazelnuts, cocoa, skim milk, whey (milk), lecithin as emulsifier (soy), vanillin: an artificial flavor,",
+    "allergensRaw": "Milk, Nuts, Soybeans",
+    "allergensMapped": "milk, soy, tree nut"
+  },
+  {
+    "id": 128,
+    "name": "Organic Protein Protein Powder",
+    "link": "https://world.openfoodfacts.org/product/0851770008631",
+    "ingredients": "ORGAIN ORGANIC PROTEIN BLENDT : PEA PROTEIN , BROWN RICE PROTEIN , CHIA SEED , ORGAIN ORGANIC CREAMER BASE : ACACIA HIGH OLEIC SUNFLOWER OIL , RICE DEXTRIN , SUNFLOWER LECITHIN , ROSEMARY EXTRACT), ERYTHRITOL, ACACIA, ALKALIZED COCOA ONNAMON, NATURAL FLAVOR ORGAIN ORGANIC 50 SUPERFOODS BLEND [MILLET, AMARANTH , BUCKWHEAT, QUINOA CHIA, KALE POWDER APPLE PULP, CINNAMON , ORGANIC SPROUTS BLEND (AMARANTH SPROUT , QUINOA SPROUT , MILLET SPROUT , BUCKWHEAT SPROUT , GARBANZO BEAN SPROUT , LENTILS SPROUT , ADZUKI SPROUT , FLAX SPROUT , SUNFLOWER SPROUT , PUMPKIN SPROUT , CHIA SPROUT , SESAME SPROUT ORGANIC SUPER VEGGIES SUPER BERRIES, SUPER GRASSES AND SUPER FOODS BLEND (ACAI , CRANBERRY , WHEAT GRASS, BARLEY GRASS, OAT GRASS, BANANA MANGO, BEET CARROT, SPINACH, BROCCOLI, TOMATO, KALE, CABBAGE, PARSLEY LEAF, BRUSSELS SPROUT, GREEN BELL PEPPER, CUCUMBER, CELERY, GARLIC, GINGER ROOT, GREEN ONION, CAULIFLOWER , ASPARAGUS , PINEAPPLE, TURMERIC, STRAWBERRY, TART CHERRY, BLACKBERRY, BLUEBERRY, RASPBERRY, REBAUDIOSIDE A (STEVIA EXTRACT), SEA SALT, GUAR GUM , NATURAL FLAVOR, XANTHAN GUM, ORGANIC FOOD BASED VITAMIN C (FRUIT EXTRACT), ORGANIC FOOD BASED B VITAMIN BLEND (GUAVA, HOLY BASIL, LEMON EXTRACT), PROBIOTIC (BACILLUS COACULANS)",
+    "allergensRaw": "Celery, Gluten, Sesame Seeds",
+    "allergensMapped": "sesame, wheat"
+  },
+  {
+    "id": 129,
+    "name": "Raspberry fruit spread, raspberry",
+    "link": "https://world.openfoodfacts.org/product/20000691",
+    "ingredients": "raspberries, sugar, glucose-fructose syrup, pectin, citric acid,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 130,
+    "name": "APPLE CIDER VINEGAR",
+    "link": "https://world.openfoodfacts.org/product/0074305001161",
+    "ingredients": "ORGANIC APPLE CIDER VINEGAR, WATER.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 131,
+    "name": "Dark Chocolate Nuts & Sea Salt",
+    "link": "https://world.openfoodfacts.org/product/0602652176517",
+    "ingredients": "Almonds, peanuts, chicory root fiber, honey, palm kernel oil, sugar, glucose syrup, rice flour, unsweetened chocolate, alkalized cocoa, sea salt, soy lecithin, natural flavor, cocoa butter",
+    "allergensRaw": "Nuts, Peanuts, Soybeans",
+    "allergensMapped": "milk, peanut, soy, tree nut, wheat"
+  },
+  {
+    "id": 132,
+    "name": "Multi-Grain Crackers 6-Seed",
+    "link": "https://world.openfoodfacts.org/product/0879890000694",
+    "ingredients": "brown rice flour, sesame seeds, potato starch, safflower oil, flax seeds, rice fiber, tamari soy sauce (soybeans, salt), quinoa seeds, amaranth seeds, millet, sea salt, chia seeds,",
+    "allergensRaw": "Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 133,
+    "name": "Classic Yellow Mustard",
+    "link": "https://world.openfoodfacts.org/product/0041500000312",
+    "ingredients": "DISTILLED VINEGAR, WATER, MUSTARD SEED, SALT, TURMERIC, PAPRIKA, SPICE, NATURAL FLAVOR, GARLIC POWDER, : #1 GRADE.",
+    "allergensRaw": "Mustard",
+    "allergensMapped": ""
+  },
+  {
+    "id": 134,
+    "name": "The Ultimate Fish Stick",
+    "link": "https://world.openfoodfacts.org/product/0028029196443",
+    "ingredients": "65% fish (alaska pollock), 35% batter & breading (whole wheat flour, vegetable oil (soybean and/or canola), enriched wheat flour (wheat flour, niacin, iron, thiamine mononitrated, riboflavin, folic acid), water, contains 2% or less of: whole grain yellow corn meal, ranch seasoning (maltodextrin, salt, dehydrated onion, dehydrated garlic, disodium inosinate, disodium guanylate, natrual flavor (maltodextrin), modified food starch, buttermilk, natural flavor), corn starch, salt, vital wheat gluten, rice starch, yeast, leavening (cream of tartar, baking soda), tapioca starch, enriched and unrefined malted barley flour (malted barley flour, niacin, iron, thiamine mononitrate, riboflavin, folic acid)).",
+    "allergensRaw": "Fish, Gluten, Milk, Soybeans",
+    "allergensMapped": "fish, milk, soy, wheat"
+  },
+  {
+    "id": 135,
+    "name": "Original Beef Stick",
+    "link": "https://world.openfoodfacts.org/product/0856584004183",
+    "ingredients": "100% grass fed beef, water, sea salt, encapsulated lactic acid, cultured celery powder (celery powder, sea salt), black pepper, red pepper, granulated garlic, coriander, stuffed in beef collagen casings.",
+    "allergensRaw": "Celery",
+    "allergensMapped": ""
+  },
+  {
+    "id": 136,
+    "name": "Tesco Finest All Butter Croissant 4 Pack",
+    "link": "https://world.openfoodfacts.org/product/5000436734345",
+    "ingredients": "Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin) Butter, Water, Sugar, Pasteurised Egg, Dried Skimmed Milk, Yeast, Salt, Inactive Wheat Sourdough, Acetoc Acid, Flour Treatment Agent (Ascorbic Acid), Lactic Acid.",
+    "allergensRaw": "Eggs, Gluten, Milk",
+    "allergensMapped": "egg, milk, wheat"
+  },
+  {
+    "id": 137,
+    "name": "The Original Cracker",
+    "link": "https://world.openfoodfacts.org/product/5000137487908",
+    "ingredients": "Wheat flour, sunflower oil 22 %, sugar, glucose-fructose syrup, raising agents (calcium phosphates, ammonium carbonates, sodium carbonates, potassium carbonates), salt, barley malt flour. May contain egg, milk, sesame.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "egg, milk, sesame, wheat"
+  },
+  {
+    "id": 138,
+    "name": "Sea Salt & Balsamic Vinegar Crisps",
+    "link": "https://world.openfoodfacts.org/product/5017764128128",
+    "ingredients": "select potatoes, vegetable oils (rapeseed oil, sunflower oil), seasoning with sea salt and balsamic vinegar of modena (sea salt, balsamic vinegar of modena potato maltodextrin, sugar, potato starch, acid: citric acid, natural flavourings).",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 139,
+    "name": "sauce pimentée à l’ail",
+    "link": "https://world.openfoodfacts.org/product/0078895300031",
+    "ingredients": "Water, Sugar, Salt, Oyster Extract 11%, Flavour Enhancer E621, Modified Corn Starch, Wheat Flour, Colour E150c.",
+    "allergensRaw": "Gluten, Molluscs",
+    "allergensMapped": "shellfish, wheat"
+  },
+  {
+    "id": 140,
+    "name": "CHOLULA HOT SAUCE",
+    "link": "https://world.openfoodfacts.org/product/0049733830119",
+    "ingredients": "WATER, SUGAR, DRIED CHILI PEPPERS (4.0%) (CHIPOTLE, GUAJILLO, ARBOL & PIQUN), SALT, VINEGAR BLEND (SPIRIT VINEGAR, CIDER VINEGAR), SMOKE FLAVOURINGS, SPICES, STABILISER (XANTHAN GUM), ACID (CITRIC ACID), COLOUR (E150d)",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 141,
+    "name": "Organic Baked Beans",
+    "link": "https://world.openfoodfacts.org/product/5052910706706",
+    "ingredients": "Organic Haricot Beans (53%), Organic Tomato Purée (21%), Water , Organic Sugar, Organic Maize Starch, Salt , Organic Onion Powder, Organic Rice Flour, Acidity Regulator (Citric Acid), Organic Paprika, Organic Chilli Powder, Organic Garlic Powder.",
+    "allergensRaw": "",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 142,
+    "name": "Juicy Oranges Whole Fruit Squash",
+    "link": "https://world.openfoodfacts.org/product/5023762000137",
+    "ingredients": "Water, Cane Sugar, Whole Oranges (11%), Citric Acid, Orange Oil.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 143,
+    "name": "Milk Chocolate Large Bar",
+    "link": "https://world.openfoodfacts.org/product/7622210496645",
+    "ingredients": "sugar, whole milk powder, cocoa butter, cocoa mass, honey (3,0%), milk fat, almonds (1,6%), emulsifier (soya lecithin), egg white, flavouring, milk chocolate: cocoa solids 28% minimum, milk solids 14% minimum,",
+    "allergensRaw": "Eggs, Milk, Nuts, Soybeans",
+    "allergensMapped": "egg, milk, soy, tree nut"
+  },
+  {
+    "id": 144,
+    "name": "Rosii Cirio Diced Tomatoes",
+    "link": "https://world.openfoodfacts.org/product/8000320010118",
+    "ingredients": "chopped tomatoes, tomato paste, salt, acidity regulator: citric acid,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 145,
+    "name": "Organic Creamy Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0096619555505",
+    "ingredients": "Dry roasted organic peanuts, sea salt",
+    "allergensRaw": "Peanuts",
+    "allergensMapped": "peanut"
+  },
+  {
+    "id": 146,
+    "name": "Velouté de légumes",
+    "link": "https://world.openfoodfacts.org/product/3036811460259",
+    "ingredients": "water, carrot 26%, leek 10%, onion 5.7%, potato 5.7%, tomato puree 2.1%, pumpkin, celeriac, cooking butter, fresh cream, salt, natural pepper extract,",
+    "allergensRaw": "Celery, Gluten, Milk",
+    "allergensMapped": "milk, wheat"
+  },
+  {
+    "id": 147,
+    "name": "Bagels Everything",
+    "link": "https://world.openfoodfacts.org/product/0048121253196",
+    "ingredients": "ENRICHED WHEAT FLOUR (FLOUR, MALTED LEY FLOUR, REDUCED IRON, NIACIN, THIAMIN MONONTRATE (VITAMIN B1), RIBOFLAVIN (VITAMIN B2), FOLIC ACID, WATER, SUGAR, SUNFLOWER SEEDS, YEAST, WHEAT GLUTEN, SESAME SEEDS, ONION, SALT, CORNMEAL, CALCIUM PROPIONATE, SORBIC ACID, POPPY SEEDS, MONO AND DIGLYCERIDES, GARLIC, CITRIC ACID, GUAR GUM, MALTODEXTRIN, soybean OIL, CELLULOSE GUM, CORNSTARCH, ALGIN, SOY LECITHIN.",
+    "allergensRaw": "Gluten, Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 148,
+    "name": "PEANUT BUTTER CREAMY",
+    "link": "https://world.openfoodfacts.org/product/0037600110754",
+    "ingredients": "roasted peanuts, sugar, hydrogenated vegetable oil (cottonseed, soybean and rapeseed oil) to prevent separation, salt.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 149,
+    "name": "Fruit & Seed Oatcakes",
+    "link": "https://world.openfoodfacts.org/product/0612322000202",
+    "ingredients": "Wholegrain Oats (68%), Currants (12%) (Currants, Sunflower Oil), Brown Sugar, Sustainable Palm Fruit Oil, Brown Flaxseeds (6%), Raising Agent: Sodium Bicarbonate, Sea Salt.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 150,
+    "name": "Organic Quinoa & Brown Rice with Garlic",
+    "link": "https://world.openfoodfacts.org/product/0748404287947",
+    "ingredients": "WATER, WHOLE GRAIN BROWN RICE, BLEND OF WHOLE GRAIN QUINOA (WHOLE GRAIN RED QUINOA, WHOLE GRAIN BLACK QUINOA), SUNFLOWER OIL, SEA SALT, GARLIC POWDER, DEHYDRATED GARLIC, ONION POWDER, MINCED GARLIC, PARSLEY, BLACK PEPPER",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 151,
+    "name": "Smoked Trout Fillets",
+    "link": "https://world.openfoodfacts.org/product/00444057",
+    "ingredients": "trout fillets, canola oil, salt, hardwood smoke may contain traces of milk, egg, soy, wheat, herring, tuna, lobster.",
+    "allergensRaw": "Crustaceans, Fish",
+    "allergensMapped": "egg, fish, milk, shellfish, soy, wheat"
+  },
+  {
+    "id": 152,
+    "name": "Marinated King Prawns",
+    "link": "https://world.openfoodfacts.org/product/00699891",
+    "ingredients": "King Prawns (Crustacean) (58%). Sweet Chilli Dipping Sauce (36%) (Sugar Water Rice Wine Vinegar Red Chillies Garlic Purée Cornflour Ground Paprika Salt). Salt. Coriander Ginger Purée Red Chillies Rapeseed Oil Sugar. Red Bell Peppers Ground Paprika Cornflour Cracked Black Pepper Garlic Purée. .",
+    "allergensRaw": "Crustaceans",
+    "allergensMapped": "shellfish"
+  },
+  {
+    "id": 153,
+    "name": "Granola L'Original",
+    "link": "https://world.openfoodfacts.org/product/7622210601988",
+    "ingredients": "wheat flour 48%, milk chocolate 27% sugar, cocoa mass, cocoa butter, whey powder (from milk), skimmed milk powder, vegetable fats (palm, shea in varying proportions), concentrated butter, emulsifiers (soy lecithins, e476), lactose (milk), aromamel, vegetable oils (palm, copra), sugar, sugar syrup, wheat bran, baking powder (sodium carbonates, ammonium carbonates), salt, wheat germ, acidity regulator (citric acid), may contain eggs, nuts, sesame,",
+    "allergensRaw": "Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, sesame, soy, tree nut, wheat"
+  },
+  {
+    "id": 154,
+    "name": "BEANZ In a rich tomato sauce NO ADDED SUGAR",
+    "link": "https://world.openfoodfacts.org/product/5000157078773",
+    "ingredients": "Beans (50%), Tomatoes (37%), Water, Modified Cornflour, Spirit Vinegar, Salt, Natural Flavouring, Spice Extracts, Sweetener - Steviol Glycosides, Herb Extract. Contains naturally occuring sugars.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 155,
+    "name": "Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0037600106252",
+    "ingredients": "ROASTED PEANUTS, SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 156,
+    "name": "Beanz in a rich tomato sauce",
+    "link": "https://world.openfoodfacts.org/product/5000157024855",
+    "ingredients": "Beans (50%), Tomatoes (36%), Water, Sugar, Spirit Vinegar, Modified Cornflour, Salt, Spice Extracts, Herb Extract",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 157,
+    "name": "Unsalted Mixed Nuts",
+    "link": "https://world.openfoodfacts.org/product/0096619885718",
+    "ingredients": "Cashews, Almonds, Pistachios, Pecans, Highly refined peanut oil. May contain: Peanuts, Other tree nuts, Milk, Sesame, Soy, Wheat, Mustard, Sulfites.",
+    "allergensRaw": "Nuts",
+    "allergensMapped": "milk, peanut, sesame, soy, tree nut, wheat"
+  },
+  {
+    "id": 158,
+    "name": "Raw kimchi",
+    "link": "https://world.openfoodfacts.org/product/5010292961182",
+    "ingredients": "Chinese Leaf Cabbage, Carrots, Spring Onion, Sea Salt, Chilli Powder, Ginger, Garlic.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 159,
+    "name": "Thon entier au naturel",
+    "link": "https://world.openfoodfacts.org/product/20403027",
+    "ingredients": "tuna, water, table salt",
+    "allergensRaw": "Fish",
+    "allergensMapped": "fish"
+  },
+  {
+    "id": 160,
+    "name": "Premium Oyster Sauce",
+    "link": "https://world.openfoodfacts.org/product/0078895100013",
+    "ingredients": "Oyster Extract 40% [ Oysters ( Molluscs ) 90%, Water, Salt], Sugar, Water, Salt, Modified Corn Starch, Wheat Flour, Colour (Plain Caramel), Yeast Extract (Yeast Extract, Salt), Flavour Enhancers (Disodium Inosinate, Disodium Guanylate).",
+    "allergensRaw": "Gluten, Molluscs",
+    "allergensMapped": "shellfish, wheat"
+  },
+  {
+    "id": 161,
+    "name": "Tilda Steamed Brown Basmati Rice",
+    "link": "https://world.openfoodfacts.org/product/5011157888132",
+    "ingredients": "Natural Basmati Rice - Cooked (98%), Rice Bran Oil, Salt.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 162,
+    "name": "Geeta's Mango Chutney imp",
+    "link": "https://world.openfoodfacts.org/product/5021185201223",
+    "ingredients": "Mangoes (56%), Sugar, salt, Acidity Regulator : Acetic Acid, Whole Baby Garlic Cloves, Cumin Seeds, Mixed Spices, Fenugreek Seeds, Nigella Seeds, Black Peppercorns, cardamom pods, Whole clove, herb.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 163,
+    "name": "Peanut Butter Pretzels",
+    "link": "https://world.openfoodfacts.org/product/0096619336753",
+    "ingredients": "Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamin Mononitrate, Riboflavin, Folic Acid), Peanut Butter (Valencia Peanuts, Molasses, Mono - and diglycerides), Salt, Soybean Oil, Corn Syrup, Barley Malt Extract.",
+    "allergensRaw": "Gluten, Peanuts, Soybeans",
+    "allergensMapped": "milk, peanut, soy, wheat"
+  },
+  {
+    "id": 164,
+    "name": "Toasted Muesli Almond, Cashew & Chia",
+    "link": "https://world.openfoodfacts.org/product/9326666610447",
+    "ingredients": "Whole Grains (68%) [Oats, Barley, Wheat, Triticale (Wheat, Rye)], Golden Syrup, Nuts [Almond (4%), Cashew (2%)], Seeds [Pepita (2%), Sunflower (2%), Chia (2%)], Honey, Sunflower Oil, Natural Flavour, Cinnamon (0.5%), Antioxidant (Vitamin E). CONTAINS: WHEAT, GLUTEN, ALMOND, CASHEW. MAY CONTAIN: BRAZIL NUT, HAZELNUT, MACADAMIA, PECAN, PINE NUT, PISTACHIO, WALNUT, LUPIN, MILK, PEANUT, SESAME, SOY.",
+    "allergensRaw": "Gluten, Lupin, Milk, Nuts, Peanuts, Sesame Seeds",
+    "allergensMapped": "milk, peanut, sesame, soy, tree nut, wheat"
+  },
+  {
+    "id": 165,
+    "name": "Barbecue Sauce",
+    "link": "https://world.openfoodfacts.org/product/0013409451328",
+    "ingredients": "HIGH FRUCTOSE CORN SYRUP, DISTILLED VINEGAR, TOMATO PASTE, MODIFIED FOOD STARCH, CONTAINS LESS THAN 2% OF: SALT, PINEAPPLE JUICE CONCENTRATE, NATURAL SMOKE FLAVOR, SPICES, CARAMEL COLOR, SODIUM BENZOATE AS A PRESERVATIVE, MOLASSES, CORN SYRUP, GALRIC , SUGAR , TAMARIND, NATURAL FLAVOR.",
+    "allergensRaw": "Celery",
+    "allergensMapped": ""
+  },
+  {
+    "id": 166,
+    "name": "Gewürzgurken",
+    "link": "https://world.openfoodfacts.org/product/20004330",
+    "ingredients": "Cucumbers, water, vinegar, sugar, salt, mustard seeds, dill, onions, red paprika, black peppercorns",
+    "allergensRaw": "Mustard",
+    "allergensMapped": ""
+  },
+  {
+    "id": 167,
+    "name": "Blueberry",
+    "link": "https://world.openfoodfacts.org/product/0857777004195",
+    "ingredients": "Dates, egg whites, almonds, cashews, blueberries, natural blueberry flavor.",
+    "allergensRaw": "Eggs, Nuts",
+    "allergensMapped": "egg, tree nut"
+  },
+  {
+    "id": 168,
+    "name": "coca cola 0,5",
+    "link": "https://world.openfoodfacts.org/product/54491472",
+    "ingredients": "water, fructose-glucose syrup, carbon dioxide, colorant: e150d, acid: phosphoric acid, natural flavors, caffeine flavoring,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 169,
+    "name": "uht jaouda 1L",
+    "link": "https://world.openfoodfacts.org/product/6111242101180",
+    "ingredients": "whole milk",
+    "allergensRaw": "Milk",
+    "allergensMapped": "milk"
+  },
+  {
+    "id": 170,
+    "name": "BEANZ In a rich tomato sauce",
+    "link": "https://world.openfoodfacts.org/product/5000157024671",
+    "ingredients": "Beans (50%), Tomatoes (36%), Water, Sugar, Modified Cornflour, Salt, Spice Extracts , Herb Extract",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 171,
+    "name": "Shrimp",
+    "link": "https://world.openfoodfacts.org/product/0096619187119",
+    "ingredients": "Shrimp, Water and Salt., Shrimp.",
+    "allergensRaw": "Crustaceans",
+    "allergensMapped": "shellfish"
+  },
+  {
+    "id": 172,
+    "name": "Barista edition oat drink",
+    "link": "https://world.openfoodfacts.org/product/7394376620157",
+    "ingredients": "water, oats 10%, rapeseed oil, acidity regulator (dipotassium phosphate), minerals (calcium carbonate, potassium iodide), salt, vitamins (d2, riboflavin, b12),",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 173,
+    "name": "Seabrook sea salt",
+    "link": "https://world.openfoodfacts.org/product/5016451062110",
+    "ingredients": "potatoes, sunflower oil (30%), sea salt",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 174,
+    "name": "Erdnussbutter, creamy",
+    "link": "https://world.openfoodfacts.org/product/20166076",
+    "ingredients": "roasted peanut kernels 90.9%, sugar, fully hydrogenated rapeseed oil, table salt,",
+    "allergensRaw": "Peanuts",
+    "allergensMapped": "peanut"
+  },
+  {
+    "id": 175,
+    "name": "Snickers",
+    "link": "https://world.openfoodfacts.org/product/5000159461122",
+    "ingredients": "Milk Chocolate (sugar, cocoa butter, chocolate, skim milk, lactose, milkfat, soy lecithin), peanuts, corn syrup, sugar, palm oil, skim milk, lactose, salt, egg whites, artificial flavor.",
+    "allergensRaw": "Eggs, Milk, Peanuts, Soybeans",
+    "allergensMapped": "egg, milk, peanut, soy"
+  },
+  {
+    "id": 176,
+    "name": "Jasons Sourdough",
+    "link": "https://world.openfoodfacts.org/product/5025125000129",
+    "ingredients": "Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin), Water, Wholemeal Spelt (Wheat) Flour, Sprouted Spelt (Wheat) Grains (5%), Rye Flour, Salt, Fermented Wheat Flour.",
+    "allergensRaw": "Gluten",
+    "allergensMapped": "wheat"
+  },
+  {
+    "id": 177,
+    "name": "Real Mayonnaise",
+    "link": "https://world.openfoodfacts.org/product/0048001265745",
+    "ingredients": "soybean oil, water, whole eggs and egg yolks, distilled vinegar, salt, sugar, lemon juice concentrate, calcium disodium EDTA, natural flavors",
+    "allergensRaw": "Eggs, Soybeans",
+    "allergensMapped": "egg, soy"
+  },
+  {
+    "id": 178,
+    "name": "Roasted Cashew-Peanut-Mix Honey & Salt",
+    "link": "https://world.openfoodfacts.org/product/20333737",
+    "ingredients": "33% cashews , 32% peanut kernels , sugar, 3% honey, vegetable oils (sunflower, oil palm), gelling agent: gum arabic, 0,8% table salt, glucose syrup, dye: ammonia sugar caramel,",
+    "allergensRaw": "Nuts, Peanuts",
+    "allergensMapped": "peanut, tree nut"
+  },
+  {
+    "id": 179,
+    "name": "Veg crisps",
+    "link": "https://world.openfoodfacts.org/product/5056051802419",
+    "ingredients": "Mixed root vegetables in variable proportions 61% (parsnip, beetroot and carrot), sunflower oil, sea salt",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 180,
+    "name": "Panda Brand Oyster Flavoured Sauce",
+    "link": "https://world.openfoodfacts.org/product/0078895300024",
+    "ingredients": "Water, sugar, salt, oyster extract 11% [oysters (molluscs) 90%, water, salt], salt, modified corn starch, flavour enhancer E621, wheat flour, colour E150a",
+    "allergensRaw": "Gluten, Molluscs",
+    "allergensMapped": "shellfish, wheat"
+  },
+  {
+    "id": 181,
+    "name": "Peanut Butter",
+    "link": "https://world.openfoodfacts.org/product/0051500240946",
+    "ingredients": "ROASTED PEANUTS, SUGAR, CONTAINS 2% OR LESS OF: MOLASSES, FULLY HYDROGENATED VEGETABLE OILS (RAPESEED AND SOYBEAN), MONO AND DIGLYCERIDES, SALT.",
+    "allergensRaw": "Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy"
+  },
+  {
+    "id": 182,
+    "name": "Milk Chocolate Bar",
+    "link": "https://world.openfoodfacts.org/product/7614500035788",
+    "ingredients": "sugar, whole milk powder, cocoa butter, cocoa mass, honey (3,0%), milk fat, almonds (1,6%), emulsifier (soya lecithin), egg white, flavouring, milk chocolate: cocoa solids 28% minimum, milk solids 14% minimum,",
+    "allergensRaw": "Eggs, Milk, Nuts, Soybeans",
+    "allergensMapped": "egg, milk, soy, tree nut"
+  },
+  {
+    "id": 183,
+    "name": "Kinder Chocolate",
+    "link": "https://world.openfoodfacts.org/product/80177616",
+    "ingredients": "Fine milk chocolate 40% (sugar, milk powder, cocoa butter, cocoa mass, emulsifier (lecithins ( soya )), vanillin), sugar, skimmed milk powder, palm oil, concentrated butter , emulsifier (lecithins ( soya )), vanillin.",
+    "allergensRaw": "Milk, Soybeans",
+    "allergensMapped": "milk, soy"
+  },
+  {
+    "id": 184,
+    "name": "PUMPKIN SEED + FLAX GRANOLA",
+    "link": "https://world.openfoodfacts.org/product/0058449770565",
+    "ingredients": "Whole grain rolled oats , cane sugar, soy oil , brown rice flour pumpkin seeds, flax seeds oat syrup solids [oat syrup solids , tocopherols (added to enhance freshness)], sea salt, molasses , cinnamon . Organic. Contains soy. Produced in a facility that uses wheat, peanuts and tree nuts. VEGAN Contains 700 mg of ALA per serving, which is 44% of the 1.6 g Daily Value for ALA.",
+    "allergensRaw": "Gluten, Nuts, Peanuts, Soybeans",
+    "allergensMapped": "peanut, soy, tree nut, wheat"
+  },
+  {
+    "id": 185,
+    "name": "Tiptree tomato ketchup",
+    "link": "https://world.openfoodfacts.org/product/0043647868039",
+    "ingredients": "Tomatoes, Sugar, Wine Vinegar, Lemon Juice, Salt, Spices.",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 186,
+    "name": "Ramen Noodle Soup",
+    "link": "https://world.openfoodfacts.org/product/0041789002113",
+    "ingredients": "ENRICHED WHEAT FLOUR (WHEAT FLOUR, NIACIN, REDUCED IRON, THIAMINE MONONITRAT RIBOFLAVIN, FOLIC ACID), VEGETABLE OIL (CONTAINS ONE OR MORE OF THE FOLLOWING: CANOLA PRESERVED BY TBHQ, CONTAINS LESS THAN 1% OF: SALT, POTASSIUM CARBONATE, SOY SAUCE (WATER, WHEAT, SOYBEAN, SALT), SODIUM CARBONATE, SODIUM HEXAMETAPHOSPHATE, SODIUM TRIPOLYPHOSPHATE, SOUP BASE INGREDIENTS: SALT, SUGAR, CONTAINS LESS THAN 1% OF: MONOSODIUM GLUTAMATE, MALTODEXTRIN, SPICES (CELERY SEED), HYDROLYZED CORN PROTEIN, HYDROLYZED WHEAT PROTEIN, HYDROLYZED SO NATURAL FLAVORS, DEHYDRATED VEGETABLES (CHIVE, GARLIC, ONION), DISODIUM GUANYLATE, DISOCIUM KNOSINATE YEAST EXTRACT. VEGETABLE OIL (PALM), LACTOSE, POWDERED COCKED CHICKEN CONTAINS WHEAT, SOY AND EILE INGREDIENTS. MANUFACTURED IN A FACILITY THAT AI SO PROCESSES CRUSTACEAN SHELLFISH AND SESAME PRODUCTS. CONTAINS A BIOENGINEERED FOOD INGRED ially",
+    "allergensRaw": "Celery, Gluten, Milk, Soybeans",
+    "allergensMapped": "milk, sesame, shellfish, soy, wheat"
+  },
+  {
+    "id": 187,
+    "name": "Almond Flour Crackers",
+    "link": "https://world.openfoodfacts.org/product/0856069005957",
+    "ingredients": "Nut & Seed Flour Blend (almonds, sunflower seeds, flax seeds), Tapioca Starch, Cassava Flour, Organic Sunflower Oil, Sea Salt, Organic Onion, Organic Garlic, Rosemary Extract.",
+    "allergensRaw": "Nuts",
+    "allergensMapped": "tree nut, wheat"
+  },
+  {
+    "id": 188,
+    "name": "Big Mac",
+    "link": "https://world.openfoodfacts.org/product/2000000002603",
+    "ingredients": "bread (e932a, e471, e282, e281), sesame seeds, ground steaks (beef), salad, onion, pickle (e520, e433), processed cheese (cheddar 51%, water, cheese (9%), skimmed milk powder, butter, melting salts (e331, e330, e338, e450), milk proteins, natural flavours, salt, colours (beta carotene, paprika extract), anti-caking agent (sunflower lecithin) sauce (water, rapeseed oil, alcohol vinegar, pickles, glucose-fructose syrup, sugar, modified corn starch, egg yolk, mustard (water, vinegar, mustard seeds, salt, mustard bran, sugar, caramel, turmeric), spices (including mustard), cooking salt, thickener (e415), natural flavours, yeast extract, firming (e509, e15, e433, e211,edta) in unknown quantities: sulphur dioxide and sulphites, gluten (wheat), gluten (soy), sesame seed, milk, eggs, mustard",
+    "allergensRaw": "Eggs, Gluten, Milk, Mustard, Sesame Seeds, Soybeans, Sulphur Dioxide And Sulphites",
+    "allergensMapped": "egg, milk, sesame, soy, wheat"
+  },
+  {
+    "id": 189,
+    "name": "Napolitain l'Original",
+    "link": "https://world.openfoodfacts.org/product/3017760290692",
+    "ingredients": "wheat flour 24.4%, sugar, palm oil, glucose-fructose syrup, chocolate powder 6.7% (sugar, cocoa powder), eggs, stabilizer (glycerol), whey powder (milk), margarine (palm oil, water, rapeseed oil, emulsifier (e471), acidity corrector (sodium citrate), acidifier (citric acid), dye (beta-carotene)), glucose syrup, aromas (contains alcohol), lean cocoa powder, , shea butter, salt, emulsifiers (e472b, e472a, soy lecithin), skimmed milk powder, pastry butter, preservative (potassium sorbate), sunflower oil, dye (e160a)",
+    "allergensRaw": "Eggs, Gluten, Milk, Soybeans",
+    "allergensMapped": "egg, milk, soy, wheat"
+  },
+  {
+    "id": 190,
+    "name": "COCA COLA PET 1.25L CT",
+    "link": "https://world.openfoodfacts.org/product/5449000267412",
+    "ingredients": "carbonated water, sugar, coloring: e150d, acidifier, phosphoric acid, natural flavourings including caffeine,",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  },
+  {
+    "id": 191,
+    "name": "AnSungTangMyun Noodle",
+    "link": "https://world.openfoodfacts.org/product/8801043157735",
+    "ingredients": "noodles 90%: wheat flour, potato starch, palm oil, rice flour, wheat gluten, salt, acidity regulators e501, e500, e339, antioxidant: e306, emulsifier e322 (contains soy), thickener: e412, seasoning agent (maltodextrin, garlic extract), green tea extract, colour: e101, seasoning powder 10%: condiments (hydrolyzed vegetable protein (soy, wheat), maltodextrin, salt, yeast extract, black pepper, shiitake), salt, sugar, condiments (red chillies, garlic, rice bran oil, black pepper), dried seaweed, flavour enhancer: e631, e627, red chillies, colour: e150c, may contain barley, crustaceans, eggs, fish, peanuts, milk, celery, mustard, sesame seeds and molluscs,",
+    "allergensRaw": "Celery, Crustaceans, Eggs, Fish, Gluten, Milk, Mustard, Peanuts, Soybeans",
+    "allergensMapped": "egg, fish, milk, peanut, sesame, shellfish, soy, wheat"
+  },
+  {
+    "id": 192,
+    "name": "organic supergreens fruits & vegetables",
+    "link": "https://world.openfoodfacts.org/product/0860002992570",
+    "ingredients": "Organic Gum Acacia, Organic Ground Rice Hulls, Organic Inulin, Gut Health, Organic Prebiotic & Probiotics Blend (L. rhamnosus, L. plantarum, P. acidilactici, L. acidophilus, L. gasseri, B. longum, B. lactis), Organic Spirulina (Whole Plant) Powder, Organic Spinach (Leaf and Stalk) Powder, Organic Wheatgrass (Leaf and Stem) Powder, Organic Barley Grass (Leaf and Stem) Powder, Organic Oat Grass (Leaf and Stem) Powder, Organic Alfalfa Grass (Leaf and Stem) Powder, Organic Kale (Leaf and Stalk) Powder, Organic, Berry Antioxidant Blend [Organic Pomegranate Juice Powder, Organic Acai Juice Powder, Organic Goji Juice Powder, Organic Grape Juice Powder, Organic Amla Fruit Powder, Organic Cranberry Powder, Organic Aronia Powder, Organic Sea Buckthorn Juice Powder, Organic Camu Camu Powder, Organic Acerola Juice Powder, Organic Maqui Berry], Organic Carrot (Whole Taproot) Powder, Organic Cauliflower (Flower & Stem) Powder, Organic Chlorella (Whole Plant) Powder, Organic Garlic (Bulb) Powder, Organic Moringa (Leaf) Powder, Organic Onion (Root Bulb) Powder, Organic Parsley (Leaf) Powder, Organic Quinoa (Grain) Powder, Organic Hebridean Seaweed (Thallus) Powder, Organic Protein Blend [Organic Brown Rice Powder, Organic Pea Protein Powder, Organic Sacha Inchi Powder, Organic Pumpkin Seed Protein Powder], Organic Ashwagandha (Root) Powder, Organic Ginger Root (Rhizome) Powder, Organic Cinnamon (Bark) Powder, Organic Cocoa Powder Alkalized, Organic Defatted Flax Seed (Hull) Powder, Organic Maca (Root) Powder, Organic Shatavari (Root) Powder, Organic Green Tea (Leaf) Extract, Organic Sea Veggie Blend (Laminaria hyperborea, Ascophyllum nodosum, Laminaria digitata) (Whole Thallus), Organic Broccoli (Floret and Stalk) Powder, Organic Green, Cabbage (Leaf) Powder, Organic, Organic Celery (Leaf & Stalk) Powder, Organic Green Bell Pepper (Fruit) Powder, Organic Coconut Water Powder, Organic Lemon Juice Powder, Organic Mushroom Blend [Organic Cordyceps (Cordyceps militaris), Organic Cordyceps (Cordyceps sinensis), Organic Reshi (Ganoderma lucidum), Organic Maitake (Grifola frondosa), Organic Lion's Mane (Hericium erinaceus), Organic Chaga (Inonotus obliquus), Organic Shiitake (Lentinula edodes), Organic Oyster (Pleurotus ostreatus), Organic Turkey Tail (Trametes versicolor), Organic Snow Fungus (Tremella fuciformis), Organic White Button (Agaricus bisporus), Organic King Oyster (Pleurotus eryngii)], Enzyme Blend (Cellulase, Amylase, Protease), Organic natural flavors, Citric Acid, Organic Stevia extract",
+    "allergensRaw": "Celery, Molluscs",
+    "allergensMapped": "shellfish, tree nut"
+  },
+  {
+    "id": 193,
+    "name": "Tesco Spicy Bean with Cheese Wrap",
+    "link": "https://world.openfoodfacts.org/product/03275771",
+    "ingredients": "Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin], Water, Black Turtle Beans (10%), Borlotti Beans (10%), Medium Fat Soft Cheese (Milk), Lettuce, Mild Cheddar Cheese (With Colour: Beta Carotene) (Milk), Red Pepper, Tomato Paste, Rapeseed Oil, Palm Oil, White Wine Vinegar, Onion, Herbs, Sugar, Tomato Powder, Cornflour, Humectant (Glycerol), Spices, Salt, Pasteurised Egg Yolk, Tomato, Bell Pepper Powder, Potato Starch, Red Chilli Purée, Wheat Fibre, Spirit Vinegar, Garlic Purée, Concentrated Lemon Juice, Garlic Powder, Onion Powder, Mustard Flour, Black Pepper.",
+    "allergensRaw": "Eggs, Gluten, Milk, Mustard",
+    "allergensMapped": "egg, milk, wheat"
+  },
+  {
+    "id": 194,
+    "name": "Alaska Salmon Burgers",
+    "link": "https://world.openfoodfacts.org/product/0028029088816",
+    "ingredients": "Pink And/or Keta Salmon, Vegetable Oil (soybean And/or Canola), Water, Contains 2% Or Less Of: Ground Onion, Salt, Potato Extract, Garlic Powder, Mustard Flour, White Pepper, Beet Juice (color), Annatto (color), Rosemary Extract, Mesquite Smoke Flavor, Lemon Juice From Concentrate.",
+    "allergensRaw": "Mustard, Soybeans",
+    "allergensMapped": "fish, soy, wheat"
+  },
+  {
+    "id": 195,
+    "name": "Buldak Original",
+    "link": "https://world.openfoodfacts.org/product/8801073110502",
+    "ingredients": "Noodle [Wheat flour, Food Starch Modified, Palm Oil, 2% Wheat gluten, Salt, Glycerin, Soy Lecithin, Polyglycerol Esters of Fatty Acids, Potassium Carbonate, Sodium Carbonate, Sodium Phosphate Dibasic, Guar Gum, Tocopherols, Riboflavin (Color)], Sauce [Water, Artificial Chicken Flavor Powder (Artificial Flavor, Dextrin, Wheat Starch, Sugar, Salt, Yeast Extract, Natural Flavor, Disodium 5'-Ribonucleotide, Maltodextrin, Corn Starch), Soy Sauce Seasoning (Soybeans, Water, Salt, Wheat, Sodium Carbonate, High Fructose Corn Syrup, Disodium 5'-Ribonucleotide, Garlic, Steviol Glycoside, Maltodextrin, Sugar), Sugar, Hot Pepper Seasoning (Red Pepper, Dextrin, Salt, Sugar, Onion Powder, Artificial Flavor, Garlic Powder, Silicon Dioxide, Soy Sauce (Water, Soybeans, Wheat, Salt), Capsicum Oleoresin, Paprika Oleoresin, Monosodium Glutamate, Disodium Inosinate, Disodium Guanylate), Soybean Oil, Onion, Red Pepper Seed Oil, 2% Garlic, Food Starch Modified, Capsicum Oleoresin, Paprika Oleoresin, Black Pepper Powder, Natural and Artificial Curry Flavor (Cumin, Salt, Maltodextrin, Artificial Flavor)], Flake [Sesame, Dried Seaweed].",
+    "allergensRaw": "Gluten, Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 196,
+    "name": "Mae ploy Red curry paste 400g",
+    "link": "https://world.openfoodfacts.org/product/0044738102346",
+    "ingredients": "Dried red chili, garlic, lemongrass, salt, shallot, galangal, shrimp paste (shrimp, salt), kaffir lime peel, pepper.",
+    "allergensRaw": "Crustaceans",
+    "allergensMapped": "shellfish"
+  },
+  {
+    "id": 197,
+    "name": "Artesano bakery bread",
+    "link": "https://world.openfoodfacts.org/product/0072945612419",
+    "ingredients": "ENRICHED WHEAT FLOUR (FLOUR, MALTED BARLEY FLOUR, REDUCED IRON, NIACIN, THIAMIN MONONITRATE (VITAMIN B1), RIBOFLAVIN (VITAMIN B2), FOLIC ACID), WATER, SUGAR, YEAST, VEGETABLE OIL (SOYBEAN), WHEAT GLUTEN, SEA SALT, CULTURED WHEAT FLOUR, SOY LECITHIN, CITRIC ACID GRAIN VINEGAR, SESAME SEEDS.",
+    "allergensRaw": "Gluten, Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 198,
+    "name": "Sesame crostini crunchy little toasts with bold possibilities",
+    "link": "https://world.openfoodfacts.org/product/8710649120909",
+    "ingredients": "Wheat flour, sesame seeds, yeast, salt, malt (barley), emulsifiers: sodium stearoyl-2-lactylate, soy lecithin.",
+    "allergensRaw": "Gluten, Sesame Seeds, Soybeans",
+    "allergensMapped": "sesame, soy, wheat"
+  },
+  {
+    "id": 199,
+    "name": "REAL MAYONNAISE",
+    "link": "https://world.openfoodfacts.org/product/0048001213487",
+    "ingredients": "soybean oil, water, whole eggs and egg yolks (whole eggs and egg yolks), vinegar, salt, sugar, lemon juice concentrate, calcium disodium edta (used to protect quality), natural flavors,",
+    "allergensRaw": "Eggs, Soybeans",
+    "allergensMapped": "egg, soy"
+  },
+  {
+    "id": 200,
+    "name": "Coke Zero",
+    "link": "https://world.openfoodfacts.org/product/5449000214799",
+    "ingredients": "carbonated water, colouring (e150d), acidifier (phosphoric acid), sweeteners (aspartame, acesulfame-k), natural flavors, caffeine aroma, acidity regulator (sodium citrates)",
+    "allergensRaw": "",
+    "allergensMapped": ""
+  }
+]

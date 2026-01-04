@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Forest Apothecary - Model Comparison Card
+     Aesthetic: Botanical specimen card with scientific data annotation
+     Each model is presented like a catalogued specimen with measured properties -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardModel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/snow_white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/mint_sage"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- CARD HEADER - Specimen identification                           -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_header_gradient"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Model indicator dot -->
+            <View
+                android:id="@+id/modelIndicator"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/bg_indicator_dot"
+                app:layout_constraintBottom_toBottomOf="@id/tvModelName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvModelName" />
+
+            <!-- Model Name - Specimen name style -->
+            <TextView
+                android:id="@+id/tvModelName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="serif"
+                android:textColor="@color/deep_forest"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                app:layout_constraintEnd_toStartOf="@id/tvPredictionCount"
+                app:layout_constraintStart_toEndOf="@id/modelIndicator"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Qwen 2.5 1.5B" />
+
+            <!-- Prediction Count Badge -->
+            <TextView
+                android:id="@+id/tvPredictionCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_count_badge"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="200/200"
+                tools:textColor="@color/forest_green" />
+
+            <!-- Status text -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.05"
+                android:textAllCaps="true"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@id/modelIndicator"
+                app:layout_constraintTop_toBottomOf="@id/tvModelName"
+                tools:text="COMPLETE"
+                tools:textColor="@color/forest_green" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- METRICS SECTION - Scientific measurement panel                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <LinearLayout
+            android:id="@+id/metricsSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerContainer"
+            tools:visibility="visible">
+
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- ACCURACY - Primary metric, emphasized                      -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_accuracy_highlight"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/labelAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.1"
+                    android:text="ACCURACY"
+                    android:textAllCaps="true"
+                    android:textColor="@color/forest_green"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvAccuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textColor="@color/deep_forest"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="85.5%" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- PERFORMANCE METRICS - Timing section                       -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.15"
+                android:text="PERFORMANCE"
+                android:textAllCaps="true"
+                android:textColor="@color/sage_green"
+                android:textSize="9sp" />
+
+            <!-- Latency Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg Latency"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvLatency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="1,250 ms" />
+
+            </LinearLayout>
+
+            <!-- TTFT Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg TTFT"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvTtft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="380 ms" />
+
+            </LinearLayout>
+
+            <!-- ITPS Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg ITPS"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvItps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="45 tok/s" />
+
+            </LinearLayout>
+
+            <!-- OTPS Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg OTPS"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvOtps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="12 tok/s" />
+
+            </LinearLayout>
+
+            <!-- OET Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg OET"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvOet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="850 ms" />
+
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/mint_sage"
+                android:alpha="0.5" />
+
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- MEMORY METRICS - Resource usage section                    -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.15"
+                android:text="MEMORY USAGE"
+                android:textAllCaps="true"
+                android:textColor="@color/sage_green"
+                android:textSize="9sp" />
+
+            <!-- Java Heap Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg Java Heap"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvJavaHeap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="2,048 KB" />
+
+            </LinearLayout>
+
+            <!-- Native Heap Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg Native Heap"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvNativeHeap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="512,000 KB" />
+
+            </LinearLayout>
+
+            <!-- Total PSS Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:text="Avg Total PSS"
+                    android:textColor="@color/sage_green"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvPss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/forest_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="650,000 KB" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- INCOMPLETE STATE - When predictions < 200                       -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/incompleteSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerContainer"
+            tools:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivIncompleteIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:alpha="0.4"
+                android:src="@drawable/ic_leaf"
+                app:tint="@color/sage_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="Incomplete" />
+
+            <TextView
+                android:id="@+id/tvIncompleteMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.3"
+                android:text="Complete all 200 predictions\nto view aggregate metrics"
+                android:textColor="@color/sage_green"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivIncompleteIcon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

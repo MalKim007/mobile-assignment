@@ -232,4 +232,13 @@
         <item name="android:dropDownVerticalOffset">8dp</item>
     </style>
 
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- BOTTOM NAVIGATION STYLE                                              -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+
+    <!-- Bottom Nav Active Indicator - Soft mint green pill -->
+    <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/mint_sage</item>
+    </style>
+
 </resources>

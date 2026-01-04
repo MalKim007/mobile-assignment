@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services") // firebase plugin
-
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -65,9 +65,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Apache POI for reading Excel files
-    implementation("org.apache.poi:poi:5.2.5")
-    implementation("org.apache.poi:poi-ooxml:5.2.5")
+    // JSON parsing with kotlinx-serialization (replaces Apache POI)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
     // Coroutines for background processing (no UI freeze)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")

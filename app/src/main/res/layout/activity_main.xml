@@ -136,6 +136,87 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- MODEL SELECTION SECTION                                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/modelSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_section_card"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/datasetSection">
+
+        <!-- Section Label -->
+        <TextView
+            android:id="@+id/labelModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="SELECT MODEL"
+            android:textAllCaps="true"
+            android:textColor="@color/sage_green"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Model Spinner -->
+        <Spinner
+            android:id="@+id/spinnerModel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_input_field"
+            android:dropDownWidth="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="40dp"
+            android:popupBackground="@color/snow_white"
+            app:layout_constraintEnd_toStartOf="@id/btnRunAll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelModel"
+            tools:ignore="RtlSymmetry" />
+
+        <!-- Run All 200 Button -->
+        <Button
+            android:id="@+id/btnRunAll"
+            style="@style/ForestButton.Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:minWidth="100dp"
+            android:paddingHorizontal="16dp"
+            android:text="Run All"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            app:backgroundTint="@color/deep_forest"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelModel" />
+
+        <!-- Model Status -->
+        <TextView
+            android:id="@+id/tvModelStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="No model selected"
+            android:textColor="@color/status_error"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerModel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- SELECTION INFO & BUTTONS                                            -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
 
@@ -153,7 +234,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/datasetSection"
+        app:layout_constraintTop_toBottomOf="@id/modelSection"
         tools:visibility="visible" />
 
     <!-- Selection Buttons Row -->
@@ -362,12 +443,13 @@
         android:id="@+id/summarySection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
         android:visibility="gone"
         app:cardBackgroundColor="@color/forest_green"
         app:cardCornerRadius="16dp"
         app:cardElevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible">
@@ -454,5 +536,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- BOTTOM NAVIGATION                                                   -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/snow_white"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemActiveIndicatorStyle="@style/BottomNavIndicator"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

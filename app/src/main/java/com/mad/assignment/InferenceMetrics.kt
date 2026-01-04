@@ -32,6 +32,9 @@ data class InferenceMetrics (
     val otps: Long,
 
     // Output-Evaluation-Time
-    val oet: Long
+    val oet: Long,
+
+    // Model name used for this inference
+    val modelName: String = ""
 
 )

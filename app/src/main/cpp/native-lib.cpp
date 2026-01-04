@@ -39,7 +39,9 @@
         "wheat", "soy", "fish", "shellfish", "sesame"
 };*/
 
-std::string runModel(const std::string& prompt) {
+std::string runModel(const std::string& prompt,
+                     const std::string& model_path,
+                     int template_type) {
 
     // ================= Metrics =================
     auto t_start = std::chrono::high_resolution_clock::now();
@@ -55,20 +57,27 @@ std::string runModel(const std::string& prompt) {
     __android_log_print(ANDROID_LOG_INFO, LOG_TAG,
                         "runModel() started");
 
-    // ================= Wrap prompt in Qwen chat template =================
-    // Qwen models are instruction-tuned and REQUIRE this format
-    std::string formatted_prompt =
-        "<|im_start|>user\n" + prompt + "<|im_end|>\n<|im_start|>assistant\n";
+    // ================= Apply chat template based on model type =================
+    std::string formatted_prompt;
+    if (template_type == 1) {
+        // Gemma format
+        formatted_prompt = "<start_of_turn>user\n" + prompt + "<end_of_turn>\n<start_of_turn>model\n";
+        __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using Gemma chat template");
+    } else {
+        // ChatML format (Qwen, SmolLM2) - templateType=0 or default
+        formatted_prompt = "<|im_start|>user\n" + prompt + "<|im_end|>\n<|im_start|>assistant\n";
+        __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using ChatML chat template");
+    }
 
     // ================= Backend =================
     llama_backend_init();
 
     // ================= Load model =================
     llama_model_params model_params = llama_model_default_params();
-    const char* model_path =
-            "/data/data/com.mad.assignment/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";
 
-    llama_model* model = llama_model_load_from_file(model_path, model_params);
+    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Loading model from: %s", model_path.c_str());
+
+    llama_model* model = llama_model_load_from_file(model_path.c_str(), model_params);
     if (!model) {
         __android_log_print(ANDROID_LOG_ERROR, LOG_TAG,
                             "Failed to load model");
@@ -79,7 +88,7 @@ std::string runModel(const std::string& prompt) {
 
     // ================= Context =================
     llama_context_params ctx_params = llama_context_default_params();
-    ctx_params.n_ctx = 512;
+    ctx_params.n_ctx = 2048;  // Increased from 512 to handle long ingredient lists
     ctx_params.n_threads = 4;
 
     llama_context* ctx = llama_init_from_model(model, ctx_params);
@@ -252,25 +261,30 @@ JNIEXPORT jstring JNICALL
 Java_com_mad_assignment_MainActivity_inferAllergens(
         JNIEnv *env,
         jobject,
-        jstring inputPrompt) {
+        jstring inputPrompt,
+        jstring modelPath,
+        jint templateType) {
 
     __android_log_print(ANDROID_LOG_INFO, LOG_TAG,
                         "inferAllergens() called");
 
-    const char* model_path =
-            "/data/data/com.mad.assignment/files/qwen2.5-1.5b-instruct-q4_k_m.gguf";
+    // Extract model path from Java string
+    const char* pathCstr = env->GetStringUTFChars(modelPath, nullptr);
+    std::string model_path(pathCstr);
+    env->ReleaseStringUTFChars(modelPath, pathCstr);
 
     __android_log_print(ANDROID_LOG_INFO, LOG_TAG,
-                        "Model path: %s", model_path);
+                        "Model path: %s", model_path.c_str());
+    __android_log_print(ANDROID_LOG_INFO, LOG_TAG,
+                        "Template type: %d", templateType);
 
-    // (Later this is where llama.cpp init will go)
-
+    // Extract prompt from Java string
     const char *cstr = env->GetStringUTFChars(inputPrompt, nullptr);
     std::string prompt(cstr);
     env->ReleaseStringUTFChars(inputPrompt, cstr);
 
-    // Run model using EXACT prompt from Kotlin
-    std::string output = runModel(prompt);
+    // Run model with specified path and template type
+    std::string output = runModel(prompt, model_path, templateType);
 
     __android_log_print(ANDROID_LOG_INFO, LOG_TAG,
                         "Inference output: %s", output.c_str());

@@ -16,6 +16,7 @@ import com.google.firebase.Timestamp
  * @property metrics h. All inference metrics
  * @property datasetNumber Which dataset (1-20) this item belongs to
  * @property isMatch Whether prediction matches ground truth
+ * @property modelName Name of the model used for prediction
  */
 data class PredictionResult(
     val dataId: Int,
@@ -27,7 +28,8 @@ data class PredictionResult(
     val timestamp: Timestamp,
     val metrics: InferenceMetrics,
     val datasetNumber: Int,
-    val isMatch: Boolean
+    val isMatch: Boolean,
+    val modelName: String = ""
 ) {
     /**
      * Converts this result to a Firestore-compatible Map.
@@ -55,6 +57,7 @@ data class PredictionResult(
 
         // Additional fields for app functionality
         "datasetNumber" to datasetNumber,
-        "isMatch" to isMatch
+        "isMatch" to isMatch,
+        "modelName" to modelName
     )
 }

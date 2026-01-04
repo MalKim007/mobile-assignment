@@ -1,11 +1,13 @@
 package com.mad.assignment
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.LinearLayout
@@ -18,6 +20,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp
@@ -30,6 +33,24 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
+
+/**
+ * Enum representing available LLM models with their configurations.
+ * @property displayName User-friendly name shown in UI
+ * @property fileName The GGUF file name in assets/filesDir
+ * @property templateType 0 = ChatML (Qwen, SmolLM2), 1 = Gemma format
+ * @property firestoreKey Key used for Firestore collection path
+ */
+enum class ModelType(
+    val displayName: String,
+    val fileName: String,
+    val templateType: Int,
+    val firestoreKey: String
+) {
+    QWEN_2_5("Qwen 2.5 1.5B", "qwen2.5-1.5b-instruct-q4_k_m.gguf", 0, "qwen_2_5_1_5b"),
+    GEMMA_3("Gemma 3 1B", "gemma-3-1b-it-Q4_K_M.gguf", 1, "gemma_3_1b"),
+    SMOLLM2("SmolLM2 1.7B", "smollm2-1.7b-instruct-q4_k_m.gguf", 0, "smollm2_1_7b")
+}
 
 /**
  * BITP 3453 Mobile Application Development
@@ -56,10 +77,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Native JNI function declaration
-    external fun inferAllergens(input: String): String
+    external fun inferAllergens(input: String, modelPath: String, templateType: Int): String
 
     // Repositories
-    private lateinit var excelRepository: ExcelDataRepository
+    private lateinit var dataRepository: JsonDataRepository
     private lateinit var firestoreRepository: FirestoreRepository
 
     // UI Components
@@ -82,6 +103,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvSummaryMetrics: TextView
     private lateinit var tvSummaryFirestore: TextView
 
+    // Model selection UI
+    private lateinit var spinnerModel: Spinner
+    private lateinit var tvModelStatus: TextView
+    private lateinit var btnRunAll: Button
+
+    // Bottom Navigation
+    private lateinit var bottomNavigation: BottomNavigationView
+
     // Adapter
     private lateinit var adapter: FoodItemAdapter
 
@@ -94,118 +123,63 @@ class MainActivity : AppCompatActivity() {
     private val currentResults = mutableListOf<PredictionResult>()
     private var batchStartTime: Long = 0
 
+    // Model selection state
+    private var selectedModelType: ModelType? = null
+    private var loadingDialog: AlertDialog? = null
+
     // Allowed allergens for filtering LLM output
     private val allowedAllergens = setOf(
         "milk", "egg", "peanut", "tree nut",
         "wheat", "soy", "fish", "shellfish", "sesame"
     )
 
-    // Map raw model output terms to standardized allergen names
-    // Based on dataset analysis: allergensraw → allergensmapped patterns
+    // Basic normalization only - model must output correct category names
+    // Only handles plurals and common formatting variations
     private val allergenMapping = mapOf(
-        // Direct matches
+        // Identity mappings (for completeness)
         "milk" to "milk",
         "egg" to "egg",
-        "eggs" to "egg",
         "peanut" to "peanut",
-        "peanuts" to "peanut",
         "wheat" to "wheat",
         "soy" to "soy",
         "fish" to "fish",
         "shellfish" to "shellfish",
         "sesame" to "sesame",
         "tree nut" to "tree nut",
+
+        // Plural handling only
+        "eggs" to "egg",
+        "peanuts" to "peanut",
         "tree nuts" to "tree nut",
+
+        // Common formatting variations
         "treenut" to "tree nut",
         "treenuts" to "tree nut",
-
-        // Raw allergen names from dataset → mapped names
-        "crustaceans" to "shellfish",
-        "crustacean" to "shellfish",
-        "molluscs" to "shellfish",
-        "mollusc" to "shellfish",
-        "mollusk" to "shellfish",
-        "mollusks" to "shellfish",
-        "prawn" to "shellfish",
-        "prawns" to "shellfish",
-        "shrimp" to "shellfish",
-        "crab" to "shellfish",
-        "lobster" to "shellfish",
-        "oyster" to "shellfish",
-        "oysters" to "shellfish",
-
-        "gluten" to "wheat",
-        "flour" to "wheat",
-        "barley" to "wheat",
-        "rye" to "wheat",
-        "oat" to "wheat",
-        "oats" to "wheat",
-
-        "nuts" to "tree nut",
-        "nut" to "tree nut",
-        "almond" to "tree nut",
-        "almonds" to "tree nut",
-        "hazelnut" to "tree nut",
-        "hazelnuts" to "tree nut",
-        "cashew" to "tree nut",
-        "cashews" to "tree nut",
-        "walnut" to "tree nut",
-        "walnuts" to "tree nut",
-        "pecan" to "tree nut",
-        "pecans" to "tree nut",
-        "pistachio" to "tree nut",
-        "pistachios" to "tree nut",
-        "macadamia" to "tree nut",
-        "brazil nut" to "tree nut",
-
-        "soybeans" to "soy",
-        "soybean" to "soy",
-        "soya" to "soy",
-        "lecithin" to "soy",
-        "soy lecithin" to "soy",
-        "soya lecithin" to "soy",
-
-        "tuna" to "fish",
-        "salmon" to "fish",
-        "sardine" to "fish",
-        "sardines" to "fish",
-        "anchovy" to "fish",
-        "anchovies" to "fish",
-        "pollock" to "fish",
-        "cod" to "fish",
-        "trout" to "fish",
-
-        "sesame seeds" to "sesame",
-        "tahini" to "sesame",
-
-        "dairy" to "milk",
-        "cream" to "milk",
-        "butter" to "milk",
-        "cheese" to "milk",
-        "whey" to "milk",
-        "lactose" to "milk",
-        "casein" to "milk"
+        "tree-nut" to "tree nut",
+        "tree-nuts" to "tree nut"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Copy model file if needed
-        copyModelIfNeeded(this)
-
         // Initialize
         initRepositories()
         initUI()
         setupSpinner()
+        setupModelSpinner()
+        setupBottomNavigation()
         setupRecyclerView()
         setupClickListeners()
+
+        // Copy all models on first launch with loading dialog
+        showLoadingDialogAndCopyModels()
 
         Log.d(TAG, "MainActivity created")
     }
 
     private fun initRepositories() {
-        excelRepository = ExcelDataRepository(this)
+        dataRepository = JsonDataRepository(this)
         firestoreRepository = FirestoreRepository()
         Log.d(TAG, "Repositories initialized")
     }
@@ -229,6 +203,14 @@ class MainActivity : AppCompatActivity() {
         tvSummaryAccuracy = findViewById(R.id.tvSummaryAccuracy)
         tvSummaryMetrics = findViewById(R.id.tvSummaryMetrics)
         tvSummaryFirestore = findViewById(R.id.tvSummaryFirestore)
+
+        // Model selection UI
+        spinnerModel = findViewById(R.id.spinnerModel)
+        tvModelStatus = findViewById(R.id.tvModelStatus)
+        btnRunAll = findViewById(R.id.btnRunAll)
+
+        // Bottom Navigation
+        bottomNavigation = findViewById(R.id.bottomNavigation)
     }
 
     private fun setupSpinner() {
@@ -248,6 +230,177 @@ class MainActivity : AppCompatActivity() {
         spinnerDataset.adapter = spinnerAdapter
 
         Log.d(TAG, "Spinner setup with ${datasets.size} datasets")
+    }
+
+    /**
+     * Setup model selection spinner with placeholder and model options
+     */
+    private fun setupModelSpinner() {
+        // Create adapter with placeholder + model names
+        val modelOptions = mutableListOf("-- Select Model --")
+        modelOptions.addAll(ModelType.values().map { it.displayName })
+
+        val modelAdapter = ArrayAdapter(
+            this,
+            R.layout.spinner_item,
+            modelOptions
+        )
+        modelAdapter.setDropDownViewResource(R.layout.spinner_item)
+        spinnerModel.adapter = modelAdapter
+
+        spinnerModel.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (position == 0) {
+                    // Placeholder selected
+                    selectedModelType = null
+                    tvModelStatus.text = "No model selected"
+                    tvModelStatus.setTextColor(Color.parseColor("#C86464")) // status_error
+                } else {
+                    // Actual model selected
+                    selectedModelType = ModelType.values()[position - 1]
+                    tvModelStatus.text = "Ready: ${selectedModelType?.displayName}"
+                    tvModelStatus.setTextColor(Color.parseColor("#375534")) // forest_green
+                    Log.d(TAG, "Model selected: ${selectedModelType?.displayName}")
+                }
+                updateButtonStates()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                selectedModelType = null
+                updateButtonStates()
+            }
+        }
+
+        Log.d(TAG, "Model spinner setup complete")
+    }
+
+    /**
+     * Setup bottom navigation for switching between screens
+     */
+    private fun setupBottomNavigation() {
+        bottomNavigation.selectedItemId = R.id.nav_home
+
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_comparison -> {
+                    startActivity(Intent(this, ComparisonActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    /**
+     * Show loading dialog and copy all models on first launch
+     */
+    private fun showLoadingDialogAndCopyModels() {
+        val models = ModelType.values()
+        val allModelsExist = models.all { File(filesDir, it.fileName).exists() }
+
+        if (allModelsExist) {
+            Log.d(TAG, "All models already exist, skipping copy")
+            setUIEnabled(true)
+            return
+        }
+
+        // Show loading dialog
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_loading_models, null)
+        val progressLoading = dialogView.findViewById<ProgressBar>(R.id.progressLoading)
+        val tvLoadingProgress = dialogView.findViewById<TextView>(R.id.tvLoadingProgress)
+
+        progressLoading.max = models.size
+        progressLoading.progress = 0
+
+        loadingDialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        loadingDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        loadingDialog?.show()
+
+        // Disable UI while copying
+        setUIEnabled(false)
+
+        // Copy models in background
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                models.forEachIndexed { index, modelType ->
+                    withContext(Dispatchers.Main) {
+                        tvLoadingProgress.text = "Loading ${modelType.displayName} (${index + 1}/${models.size})..."
+                        progressLoading.progress = index
+                    }
+
+                    val outFile = File(filesDir, modelType.fileName)
+                    if (!outFile.exists()) {
+                        Log.d(TAG, "Copying model: ${modelType.fileName}")
+                        assets.open(modelType.fileName).use { input ->
+                            outFile.outputStream().use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                        Log.d(TAG, "Model copied: ${modelType.fileName}")
+                    } else {
+                        Log.d(TAG, "Model already exists: ${modelType.fileName}")
+                    }
+                }
+
+                withContext(Dispatchers.Main) {
+                    progressLoading.progress = models.size
+                    tvLoadingProgress.text = "All models ready!"
+                    kotlinx.coroutines.delay(500) // Brief pause to show completion
+                    loadingDialog?.dismiss()
+                    loadingDialog = null
+                    setUIEnabled(true)
+                    Log.d(TAG, "All models ready")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Error copying models: ${e.message}", e)
+                withContext(Dispatchers.Main) {
+                    loadingDialog?.dismiss()
+                    loadingDialog = null
+                    showSnackbar("Error loading models: ${e.message}", isSuccess = false)
+                    tvModelStatus.text = "Error loading models"
+                }
+            }
+        }
+    }
+
+    /**
+     * Enable/disable UI during model loading
+     */
+    private fun setUIEnabled(enabled: Boolean) {
+        spinnerDataset.isEnabled = enabled
+        spinnerModel.isEnabled = enabled
+        btnLoadDataset.isEnabled = enabled && selectedModelType != null
+        btnStartPrediction.isEnabled = enabled && selectedModelType != null && adapter.getSelectedIds().isNotEmpty()
+    }
+
+    /**
+     * Update button states based on model selection
+     */
+    private fun updateButtonStates() {
+        val modelSelected = selectedModelType != null
+        val itemsSelected = if (::adapter.isInitialized) adapter.getSelectedIds().isNotEmpty() else false
+        val datasetLoaded = loadedFoodItems.isNotEmpty()
+
+        // Load button requires model to be selected
+        btnLoadDataset.isEnabled = modelSelected && !isProcessing
+
+        // Predict button requires model AND items selected
+        btnStartPrediction.isEnabled = modelSelected && itemsSelected && !isProcessing
+
+        // Run All button requires model to be selected
+        btnRunAll.isEnabled = modelSelected && !isProcessing
+
+        // Selection buttons require dataset loaded
+        if (::btnSelectAll.isInitialized) {
+            btnSelectAll.isEnabled = datasetLoaded && !isProcessing
+            btnDeselectAll.isEnabled = datasetLoaded && !isProcessing
+        }
     }
 
     private fun setupRecyclerView() {
@@ -286,6 +439,10 @@ class MainActivity : AppCompatActivity() {
         btnCancel.setOnClickListener {
             cancelPrediction()
         }
+
+        btnRunAll.setOnClickListener {
+            runAllPredictions()
+        }
     }
 
     /**
@@ -309,9 +466,9 @@ class MainActivity : AppCompatActivity() {
                 btnLoadDataset.isEnabled = false
                 btnLoadDataset.text = "Loading..."
 
-                // Load from Excel
+                // Load from JSON
                 loadedFoodItems = withContext(Dispatchers.IO) {
-                    excelRepository.getDataset(currentDatasetNumber)
+                    dataRepository.getDataset(currentDatasetNumber)
                 }
 
                 Log.d(TAG, "Loaded ${loadedFoodItems.size} items")
@@ -422,7 +579,8 @@ class MainActivity : AppCompatActivity() {
                             timestamp = Timestamp.now(),
                             metrics = metrics,
                             datasetNumber = currentDatasetNumber,
-                            isMatch = isMatch
+                            isMatch = isMatch,
+                            modelName = selectedModelType?.displayName ?: "Unknown"
                         )
                         currentResults.add(result)
 
@@ -449,13 +607,16 @@ class MainActivity : AppCompatActivity() {
                     progressOverall.progress = index + 1
                 }
 
-                // Store results to Firestore
+                // Store results to Firestore using model-specific collection
                 if (currentResults.isNotEmpty()) {
                     tvProgress.text = "Saving to Firebase..."
                     withContext(Dispatchers.IO) {
                         try {
-                            firestoreRepository.storeBatchPredictions(currentResults, currentDatasetNumber)
-                            Log.d(TAG, "Stored ${currentResults.size} results to Firestore")
+                            firestoreRepository.storeBatchPredictions(
+                                currentResults,
+                                selectedModelType!!.firestoreKey
+                            )
+                            Log.d(TAG, "Stored ${currentResults.size} results to Firestore for model ${selectedModelType?.firestoreKey}")
                         } catch (e: Exception) {
                             Log.e(TAG, "Firestore error: ${e.message}")
                             throw e
@@ -483,16 +644,26 @@ class MainActivity : AppCompatActivity() {
      * Perform LLM inference for a single food item
      */
     private fun performInference(foodItem: FoodItem): Pair<String, InferenceMetrics> {
+        val modelType = selectedModelType
+            ?: throw IllegalStateException("No model selected")
+
         val prompt = buildPrompt(foodItem.ingredients)
+        val modelPath = "${filesDir.absolutePath}/${modelType.fileName}"
+
+        // Verify model file exists
+        val modelFile = File(modelPath)
+        if (!modelFile.exists()) {
+            throw IllegalStateException("Model file not found: ${modelType.displayName}")
+        }
 
         // Memory measurements before
         val javaBefore = MemoryReader.javaHeapKb()
         val nativeBefore = MemoryReader.nativeHeapKb()
         val pssBefore = MemoryReader.totalPssKb()
 
-        // Run inference
+        // Run inference with selected model
         val startNs = System.nanoTime()
-        val rawResult = inferAllergens(prompt)
+        val rawResult = inferAllergens(prompt, modelPath, modelType.templateType)
         val latencyMs = (System.nanoTime() - startNs) / 1_000_000
 
         // Memory measurements after
@@ -527,7 +698,8 @@ class MainActivity : AppCompatActivity() {
             ttft = ttftMs,
             itps = itps,
             otps = otps,
-            oet = oetMs
+            oet = oetMs,
+            modelName = modelType.displayName
         )
 
         Log.i("SLM_METRICS", "Item ${foodItem.id}: Latency=${metrics.latencyMs}ms | TTFT=${ttftMs}ms | OTPS=${otps} tok/s")
@@ -551,18 +723,16 @@ class MainActivity : AppCompatActivity() {
         val mappedAllergens = mutableSetOf<String>()
 
         for (token in tokens) {
-            // Try direct mapping first
+            // Direct mapping only - model must output correct category names
             allergenMapping[token]?.let { mappedAllergens.add(it) }
 
-            // Also check if any mapping key is contained in the token
-            for ((key, value) in allergenMapping) {
-                if (token.contains(key) && key.length >= 3) {
-                    mappedAllergens.add(value)
-                }
+            // Also check if token directly matches an allowed allergen
+            if (token in allowedAllergens) {
+                mappedAllergens.add(token)
             }
         }
 
-        // Filter to only allowed allergens (should already be, but safety check)
+        // Filter to only allowed allergens (safety check)
         val allergens = mappedAllergens
             .filter { it in allowedAllergens }
             .sorted()
@@ -575,11 +745,12 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Build the prompt for allergen detection
-     * ULTRA-SIMPLE prompt - small models work better with minimal text
+     * Lists exact categories so model outputs standardized terms
      */
     private fun buildPrompt(ingredients: String): String {
-        // Ultra-minimal prompt for small LLM
-        return "List allergens in: $ingredients\nAllergens:"
+        return """Categories: milk,egg,peanut,tree nut,wheat,soy,fish,shellfish,sesame
+Ingredients: $ingredients
+Allergens:"""
     }
 
     /**
@@ -612,15 +783,173 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Run predictions for all 200 items at once.
+     * Loads all datasets and processes every item sequentially.
+     */
+    private fun runAllPredictions() {
+        if (selectedModelType == null) {
+            showSnackbar("Please select a model first", isSuccess = false)
+            return
+        }
+
+        Log.d(TAG, "Starting Run All 200 predictions for ${selectedModelType?.displayName}")
+
+        // Cancel any existing job
+        currentJob?.cancel()
+        currentResults.clear()
+        currentStates.clear()
+
+        // Update UI state
+        setProcessingState(true)
+        summarySection.visibility = View.GONE
+        batchStartTime = System.currentTimeMillis()
+
+        // Hide selection UI elements during run all
+        tvSelectionInfo.visibility = View.GONE
+        recyclerView.visibility = View.GONE
+        tvEmptyState.visibility = View.GONE
+
+        currentJob = lifecycleScope.launch(Dispatchers.Main) {
+            try {
+                // Load all 200 items from JSON
+                tvProgress.text = "Loading all 200 items..."
+                val allItems = withContext(Dispatchers.IO) {
+                    dataRepository.getAllItems()
+                }
+
+                Log.d(TAG, "Loaded ${allItems.size} items for Run All")
+
+                if (allItems.isEmpty()) {
+                    showSnackbar("No items found in dataset", isSuccess = false)
+                    return@launch
+                }
+
+                progressOverall.max = allItems.size
+                progressOverall.progress = 0
+
+                // Process all items
+                allItems.forEachIndexed { index, foodItem ->
+                    // Check if cancelled
+                    if (!isActive) {
+                        Log.d(TAG, "Run All cancelled at index $index")
+                        return@launch
+                    }
+
+                    updateProgress(index, allItems.size, foodItem.name)
+
+                    try {
+                        // Run inference on background thread
+                        val (predictedAllergens, metrics) = withContext(Dispatchers.Default) {
+                            performInference(foodItem)
+                        }
+
+                        // Compare prediction with ground truth
+                        val isMatch = compareAllergens(predictedAllergens, foodItem.allergensMapped)
+
+                        // Create PredictionResult for Firestore
+                        val result = PredictionResult(
+                            dataId = foodItem.id,
+                            name = foodItem.name,
+                            ingredients = foodItem.ingredients,
+                            allergens = foodItem.allergensRaw,
+                            mappedAllergens = foodItem.allergensMapped,
+                            predictedAllergens = predictedAllergens,
+                            timestamp = Timestamp.now(),
+                            metrics = metrics,
+                            datasetNumber = (foodItem.id - 1) / ITEMS_PER_DATASET + 1,
+                            isMatch = isMatch,
+                            modelName = selectedModelType?.displayName ?: "Unknown"
+                        )
+                        currentResults.add(result)
+
+                        Log.d(TAG, "Item ${foodItem.id} completed: match=$isMatch")
+
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error processing item ${foodItem.id}: ${e.message}")
+                        // Continue with next item even if one fails
+                    }
+
+                    progressOverall.progress = index + 1
+                }
+
+                // Store all results to Firestore
+                if (currentResults.isNotEmpty()) {
+                    tvProgress.text = "Saving ${currentResults.size} results to Firebase..."
+                    withContext(Dispatchers.IO) {
+                        try {
+                            firestoreRepository.storeBatchPredictions(
+                                currentResults,
+                                selectedModelType!!.firestoreKey
+                            )
+                            Log.d(TAG, "Stored ${currentResults.size} results to Firestore")
+                        } catch (e: Exception) {
+                            Log.e(TAG, "Firestore error: ${e.message}")
+                            throw e
+                        }
+                    }
+                }
+
+                // Show summary
+                showRunAllSummary(currentResults)
+                showSnackbar("Completed! ${currentResults.size}/200 predictions saved", isSuccess = true)
+
+            } catch (e: CancellationException) {
+                Log.d(TAG, "Run All cancelled")
+                showSnackbar("Run All cancelled", isSuccess = false)
+            } catch (e: Exception) {
+                Log.e(TAG, "Run All failed: ${e.message}", e)
+                showSnackbar("Error: ${e.message}", isSuccess = false)
+            } finally {
+                setProcessingState(false)
+            }
+        }
+    }
+
+    /**
+     * Show summary for Run All operation
+     */
+    private fun showRunAllSummary(results: List<PredictionResult>) {
+        if (results.isEmpty()) return
+
+        val totalTime = System.currentTimeMillis() - batchStartTime
+        val matchCount = results.count { it.isMatch }
+        val accuracy = (matchCount * 100.0 / results.size)
+        val modelName = selectedModelType?.displayName ?: "Unknown"
+
+        val avgLatency = results.map { it.metrics.latencyMs }.average()
+        val avgTtft = results.map { it.metrics.ttft }.filter { it > 0 }.average()
+        val avgOtps = results.map { it.metrics.otps }.filter { it > 0 }.average()
+
+        tvSummaryAccuracy.text = "Accuracy: $matchCount/${results.size} (${String.format("%.1f", accuracy)}%) correct predictions"
+
+        tvSummaryMetrics.text = String.format(
+            "Model: %s\nAvg Latency: %.0fms | Avg TTFT: %.0fms\nTotal Time: %.1f minutes",
+            modelName,
+            avgLatency,
+            if (avgTtft.isNaN()) 0.0 else avgTtft,
+            totalTime / 60000.0
+        )
+
+        tvSummaryFirestore.text = "All 200 predictions saved to Firebase"
+        tvSummaryFirestore.setTextColor(Color.parseColor("#E3EED4"))
+
+        summarySection.visibility = View.VISIBLE
+
+        Log.d(TAG, "Run All Summary: accuracy=$accuracy%, totalTime=${totalTime}ms")
+    }
+
+    /**
      * Update UI for processing/idle state
      */
     private fun setProcessingState(processing: Boolean) {
         isProcessing = processing
-        btnLoadDataset.isEnabled = !processing
+        btnLoadDataset.isEnabled = !processing && selectedModelType != null
         spinnerDataset.isEnabled = !processing
+        spinnerModel.isEnabled = !processing  // Lock model selector during processing
         btnSelectAll.isEnabled = !processing
         btnDeselectAll.isEnabled = !processing
-        btnStartPrediction.isEnabled = !processing
+        btnStartPrediction.isEnabled = !processing && selectedModelType != null
+        btnRunAll.isEnabled = !processing && selectedModelType != null
         selectionButtonsRow.visibility = if (processing) View.GONE else View.VISIBLE
         progressSection.visibility = if (processing) View.VISIBLE else View.GONE
     }
@@ -641,6 +970,7 @@ class MainActivity : AppCompatActivity() {
         val totalTime = System.currentTimeMillis() - batchStartTime
         val matchCount = results.count { it.isMatch }
         val accuracy = if (results.isNotEmpty()) (matchCount * 100.0 / results.size) else 0.0
+        val modelName = selectedModelType?.displayName ?: "Unknown"
 
         val avgLatency = results.map { it.metrics.latencyMs }.average()
         val avgTtft = results.map { it.metrics.ttft }.filter { it > 0 }.average()
@@ -649,7 +979,8 @@ class MainActivity : AppCompatActivity() {
         tvSummaryAccuracy.text = "Accuracy: $matchCount/${results.size} (${String.format("%.1f", accuracy)}%) correct predictions"
 
         tvSummaryMetrics.text = String.format(
-            "Avg Latency: %.0fms | Avg TTFT: %.0fms | Total Time: %.1fs",
+            "Model: %s\nAvg Latency: %.0fms | Avg TTFT: %.0fms | Total: %.1fs",
+            modelName,
             avgLatency,
             if (avgTtft.isNaN()) 0.0 else avgTtft,
             totalTime / 1000.0
@@ -758,31 +1089,16 @@ class MainActivity : AppCompatActivity() {
         snackbar.show()
     }
 
-    /**
-     * Copy model file from assets to internal storage if needed
-     */
-    private fun copyModelIfNeeded(context: Context) {
-        val modelName = "qwen2.5-1.5b-instruct-q4_k_m.gguf"
-        val outFile = File(context.filesDir, modelName)
-
-        if (outFile.exists()) {
-            Log.d(TAG, "Model already exists: ${outFile.absolutePath}")
-            return
-        }
-
-        Log.d(TAG, "Copying model to: ${outFile.absolutePath}")
-        context.assets.open(modelName).use { input ->
-            outFile.outputStream().use { output ->
-                input.copyTo(output)
-            }
-        }
-        Log.d(TAG, "Model copied successfully")
+    override fun onResume() {
+        super.onResume()
+        // Ensure correct nav item is selected when returning
+        bottomNavigation.selectedItemId = R.id.nav_home
     }
 
     override fun onDestroy() {
         super.onDestroy()
         currentJob?.cancel()
-        excelRepository.clearCache()
+        dataRepository.clearCache()
         Log.d(TAG, "MainActivity destroyed")
     }
 }

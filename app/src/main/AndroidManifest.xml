@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- Comparison Activity - Model performance comparison screen -->
+        <activity
+            android:name=".ComparisonActivity"
+            android:exported="false" />
+    </application>
 </manifest>
