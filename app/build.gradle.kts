@@ -48,6 +48,23 @@ android {
         jvmTarget = "11"
     }
 
+    packaging {
+        resources {
+            excludes += listOf(
+                "META-INF/DEPENDENCIES",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/license.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/notice.txt",
+                "META-INF/*.SF",
+                "META-INF/*.DSA",
+                "META-INF/*.RSA"
+            )
+        }
+    }
+
     externalNativeBuild {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
@@ -85,4 +102,13 @@ dependencies {
 
     // CardView for Material cards
     implementation("androidx.cardview:cardview:1.0.0")
+
+    // Apache POI for Excel export (prediction records)
+    implementation("org.apache.poi:poi:5.2.5")
+    implementation("org.apache.poi:poi-ooxml:5.2.5") {
+        exclude(group = "org.apache.xmlgraphics", module = "batik-all")
+        exclude(group = "org.apache.santuario", module = "xmlsec")
+        exclude(group = "org.bouncycastle", module = "bcpkix-jdk18on")
+        exclude(group = "org.bouncycastle", module = "bcprov-jdk18on")
+    }
 }

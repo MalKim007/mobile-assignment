@@ -37,8 +37,8 @@ import java.util.Locale
 /**
  * Enum representing available LLM models with their configurations.
  * @property displayName User-friendly name shown in UI
- * @property fileName The GGUF file name in assets/filesDir
- * @property templateType 0 = ChatML (Qwen, SmolLM2), 1 = Gemma format
+ * @property fileName The GGUF file name in external storage (pushed via ADB)
+ * @property templateType 0 = ChatML (Qwen), 1 = Gemma, 2 = Llama 3, 3 = Phi
  * @property firestoreKey Key used for Firestore collection path
  */
 enum class ModelType(
@@ -47,9 +47,13 @@ enum class ModelType(
     val templateType: Int,
     val firestoreKey: String
 ) {
-    QWEN_2_5("Qwen 2.5 1.5B", "qwen2.5-1.5b-instruct-q4_k_m.gguf", 0, "qwen_2_5_1_5b"),
-    GEMMA_3("Gemma 3 1B", "gemma-3-1b-it-Q4_K_M.gguf", 1, "gemma_3_1b"),
-    SMOLLM2("SmolLM2 1.7B", "smollm2-1.7b-instruct-q4_k_m.gguf", 0, "smollm2_1_7b")
+    QWEN_2_5_1_5B("Qwen 2.5 1.5B", "qwen2.5-1.5b-instruct-q4_k_m.gguf", 0, "qwen_2_5_1_5b"),
+    QWEN_2_5_3B("Qwen 2.5 3B", "qwen2.5-3b-instruct-q4_k_m.gguf", 0, "qwen_2_5_3b"),
+    LLAMA_3_2_1B("Llama 3.2 1B", "Llama-3.2-1B-Instruct-Q4_K_M.gguf", 2, "llama_3_2_1b"),
+    LLAMA_3_2_3B("Llama 3.2 3B", "Llama-3.2-3B-Instruct-Q4_K_M.gguf", 2, "llama_3_2_3b"),
+    PHI_3_5_MINI("Phi 3.5 mini", "Phi-3.5-mini-instruct-Q4_K_M.gguf", 3, "phi_3_5_mini"),
+    PHI_3_MINI_4K("Phi 3 mini 4k", "Phi-3-mini-4k-instruct-q4.gguf", 3, "phi_3_mini_4k"),
+    VIKHR_GEMMA_2B("Vikhr Gemma 2B", "Vikhr-Gemma-2B-instruct-Q4_K_M.gguf", 1, "vikhr_gemma_2b")
 }
 
 /**
@@ -126,6 +130,7 @@ class MainActivity : AppCompatActivity() {
     // Model selection state
     private var selectedModelType: ModelType? = null
     private var loadingDialog: AlertDialog? = null
+    private var availableModels: List<ModelType> = emptyList()
 
     // Allowed allergens for filtering LLM output
     private val allowedAllergens = setOf(
@@ -172,8 +177,8 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
         setupClickListeners()
 
-        // Copy all models on first launch with loading dialog
-        showLoadingDialogAndCopyModels()
+        // Check which models are available in external storage
+        checkModelsAndShowStatus()
 
         Log.d(TAG, "MainActivity created")
     }
@@ -233,12 +238,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Setup model selection spinner with placeholder and model options
+     * Setup model selection spinner with only available models
      */
     private fun setupModelSpinner() {
-        // Create adapter with placeholder + model names
-        val modelOptions = mutableListOf("-- Select Model --")
-        modelOptions.addAll(ModelType.values().map { it.displayName })
+        // Check which models exist in external storage
+        val externalDir = getExternalFilesDir(null)
+        availableModels = if (externalDir != null) {
+            ModelType.values().filter { File(externalDir, it.fileName).exists() }
+        } else {
+            emptyList()
+        }
+
+        // Create adapter with placeholder + available model names
+        val modelOptions = if (availableModels.isEmpty()) {
+            mutableListOf("No models available - push via ADB")
+        } else {
+            mutableListOf("-- Select Model --").apply {
+                addAll(availableModels.map { it.displayName })
+            }
+        }
 
         val modelAdapter = ArrayAdapter(
             this,
@@ -250,16 +268,21 @@ class MainActivity : AppCompatActivity() {
 
         spinnerModel.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if (position == 0) {
+                if (availableModels.isEmpty()) {
+                    // No models available
+                    selectedModelType = null
+                    tvModelStatus.text = "No models - push via ADB"
+                    tvModelStatus.setTextColor(Color.parseColor("#C86464"))
+                } else if (position == 0) {
                     // Placeholder selected
                     selectedModelType = null
                     tvModelStatus.text = "No model selected"
-                    tvModelStatus.setTextColor(Color.parseColor("#C86464")) // status_error
+                    tvModelStatus.setTextColor(Color.parseColor("#C86464"))
                 } else {
-                    // Actual model selected
-                    selectedModelType = ModelType.values()[position - 1]
+                    // Actual model selected from available models
+                    selectedModelType = availableModels[position - 1]
                     tvModelStatus.text = "Ready: ${selectedModelType?.displayName}"
-                    tvModelStatus.setTextColor(Color.parseColor("#375534")) // forest_green
+                    tvModelStatus.setTextColor(Color.parseColor("#375534"))
                     Log.d(TAG, "Model selected: ${selectedModelType?.displayName}")
                 }
                 updateButtonStates()
@@ -271,7 +294,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        Log.d(TAG, "Model spinner setup complete")
+        Log.d(TAG, "Model spinner setup: ${availableModels.size} models available")
     }
 
     /**
@@ -294,78 +317,63 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Show loading dialog and copy all models on first launch
+     * Check which models are available in external storage and show status
      */
-    private fun showLoadingDialogAndCopyModels() {
-        val models = ModelType.values()
-        val allModelsExist = models.all { File(filesDir, it.fileName).exists() }
+    private fun checkModelsAndShowStatus() {
+        val externalDir = getExternalFilesDir(null)
 
-        if (allModelsExist) {
-            Log.d(TAG, "All models already exist, skipping copy")
+        if (externalDir == null) {
+            Log.e(TAG, "External storage not available")
+            showSnackbar("External storage not available", isSuccess = false)
+            tvModelStatus.text = "Storage error"
+            return
+        }
+
+        val models = ModelType.values()
+        val missingModels = models.filter { !File(externalDir, it.fileName).exists() }
+        val availableModels = models.filter { File(externalDir, it.fileName).exists() }
+
+        Log.d(TAG, "Models check: ${availableModels.size} available, ${missingModels.size} missing")
+
+        if (missingModels.isEmpty()) {
+            // All models present
+            Log.d(TAG, "All models available in external storage")
             setUIEnabled(true)
             return
         }
 
-        // Show loading dialog
-        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_loading_models, null)
-        val progressLoading = dialogView.findViewById<ProgressBar>(R.id.progressLoading)
-        val tvLoadingProgress = dialogView.findViewById<TextView>(R.id.tvLoadingProgress)
-
-        progressLoading.max = models.size
-        progressLoading.progress = 0
-
-        loadingDialog = AlertDialog.Builder(this)
-            .setView(dialogView)
-            .setCancelable(false)
-            .create()
-
-        loadingDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        loadingDialog?.show()
-
-        // Disable UI while copying
-        setUIEnabled(false)
-
-        // Copy models in background
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                models.forEachIndexed { index, modelType ->
-                    withContext(Dispatchers.Main) {
-                        tvLoadingProgress.text = "Loading ${modelType.displayName} (${index + 1}/${models.size})..."
-                        progressLoading.progress = index
-                    }
-
-                    val outFile = File(filesDir, modelType.fileName)
-                    if (!outFile.exists()) {
-                        Log.d(TAG, "Copying model: ${modelType.fileName}")
-                        assets.open(modelType.fileName).use { input ->
-                            outFile.outputStream().use { output ->
-                                input.copyTo(output)
-                            }
-                        }
-                        Log.d(TAG, "Model copied: ${modelType.fileName}")
-                    } else {
-                        Log.d(TAG, "Model already exists: ${modelType.fileName}")
-                    }
-                }
-
-                withContext(Dispatchers.Main) {
-                    progressLoading.progress = models.size
-                    tvLoadingProgress.text = "All models ready!"
-                    kotlinx.coroutines.delay(500) // Brief pause to show completion
-                    loadingDialog?.dismiss()
-                    loadingDialog = null
-                    setUIEnabled(true)
-                    Log.d(TAG, "All models ready")
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "Error copying models: ${e.message}", e)
-                withContext(Dispatchers.Main) {
-                    loadingDialog?.dismiss()
-                    loadingDialog = null
-                    showSnackbar("Error loading models: ${e.message}", isSuccess = false)
-                    tvModelStatus.text = "Error loading models"
-                }
+        // Show dialog with missing models info
+        val message = buildString {
+            append("${missingModels.size} of ${models.size} models not found.\n\n")
+            append("Missing models:\n")
+            missingModels.forEach { append("• ${it.displayName}\n") }
+            append("\nPush models via ADB:\n")
+            append("adb push <model>.gguf /sdcard/Android/data/com.mad.assignment/files/\n\n")
+            if (availableModels.isNotEmpty()) {
+                append("Available models: ${availableModels.size}")
+            } else {
+                append("No models available yet.")
             }
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle("Models Required")
+            .setMessage(message)
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(true)
+            .show()
+
+        // Enable UI - user can use available models
+        setUIEnabled(true)
+
+        if (availableModels.isEmpty()) {
+            tvModelStatus.text = "No models - push via ADB"
+            tvModelStatus.setTextColor(Color.parseColor("#C86464"))
+        } else {
+            tvModelStatus.text = "${availableModels.size} models available"
+            tvModelStatus.setTextColor(Color.parseColor("#375534"))
         }
     }
 
@@ -425,11 +433,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSelectAll.setOnClickListener {
-            adapter.selectAll()
+            selectAllItems()
         }
 
         btnDeselectAll.setOnClickListener {
-            adapter.deselectAll()
+            deselectAllItems()
         }
 
         btnStartPrediction.setOnClickListener {
@@ -452,6 +460,69 @@ class MainActivity : AppCompatActivity() {
         btnStartPrediction.isEnabled = selectedCount > 0
         btnStartPrediction.text = "Predict ($selectedCount)"
         tvSelectionInfo.text = "$selectedCount of ${loadedFoodItems.size} items selected"
+    }
+
+    /**
+     * Select all items - handles selection directly using currentStates
+     */
+    private fun selectAllItems() {
+        if (currentStates.isEmpty()) {
+            Log.d(TAG, "selectAllItems: currentStates is empty")
+            return
+        }
+
+        // Update currentStates to mark all as selected
+        val updatedStates = currentStates.map { state ->
+            if (state is FoodItemState.Selectable) {
+                state.copy(isSelected = true)
+            } else state
+        }
+        currentStates.clear()
+        currentStates.addAll(updatedStates)
+
+        // Update adapter's selectedIds tracking
+        adapter.clearSelection()
+        loadedFoodItems.forEach { item ->
+            adapter.addToSelection(item.id)
+        }
+
+        // Submit list and force full refresh
+        adapter.submitList(currentStates.toList())
+        adapter.notifyDataSetChanged()
+
+        // Update UI
+        updateSelectionUI(loadedFoodItems.size)
+        Log.d(TAG, "Selected all ${loadedFoodItems.size} items")
+    }
+
+    /**
+     * Deselect all items - handles deselection directly using currentStates
+     */
+    private fun deselectAllItems() {
+        if (currentStates.isEmpty()) {
+            Log.d(TAG, "deselectAllItems: currentStates is empty")
+            return
+        }
+
+        // Update currentStates to mark all as deselected
+        val updatedStates = currentStates.map { state ->
+            if (state is FoodItemState.Selectable) {
+                state.copy(isSelected = false)
+            } else state
+        }
+        currentStates.clear()
+        currentStates.addAll(updatedStates)
+
+        // Clear adapter's selectedIds tracking
+        adapter.clearSelection()
+
+        // Submit list and force full refresh
+        adapter.submitList(currentStates.toList())
+        adapter.notifyDataSetChanged()
+
+        // Update UI
+        updateSelectionUI(0)
+        Log.d(TAG, "Deselected all items")
     }
 
     /**
@@ -481,18 +552,24 @@ class MainActivity : AppCompatActivity() {
 
                 // Show items as Selectable
                 currentStates.addAll(loadedFoodItems.map { FoodItemState.Selectable(it, false) })
-                adapter.submitList(currentStates.toList())
+
+                // Hide buttons until list is ready
+                selectionButtonsRow.visibility = View.GONE
+
+                adapter.submitList(currentStates.toList()) {
+                    // This callback runs AFTER list is committed to RecyclerView
+                    // Now safe to enable selection buttons
+                    selectionButtonsRow.visibility = View.VISIBLE
+                    tvSelectionInfo.text = "0 of ${loadedFoodItems.size} items selected"
+                    btnStartPrediction.isEnabled = false
+                    btnStartPrediction.text = "Predict (0)"
+                    showSnackbar("Dataset $currentDatasetNumber loaded - select items to predict", isSuccess = true)
+                }
 
                 // Show selection UI
                 tvEmptyState.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
                 tvSelectionInfo.visibility = View.VISIBLE
-                selectionButtonsRow.visibility = View.VISIBLE
-                tvSelectionInfo.text = "0 of ${loadedFoodItems.size} items selected"
-                btnStartPrediction.isEnabled = false
-                btnStartPrediction.text = "Predict (0)"
-
-                showSnackbar("Dataset $currentDatasetNumber loaded - select items to predict", isSuccess = true)
 
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to load dataset: ${e.message}", e)
@@ -648,12 +725,17 @@ class MainActivity : AppCompatActivity() {
             ?: throw IllegalStateException("No model selected")
 
         val prompt = buildPrompt(foodItem.ingredients)
-        val modelPath = "${filesDir.absolutePath}/${modelType.fileName}"
+        val externalDir = getExternalFilesDir(null)
+            ?: throw IllegalStateException("External storage not available")
+        val modelPath = "${externalDir.absolutePath}/${modelType.fileName}"
 
         // Verify model file exists
         val modelFile = File(modelPath)
         if (!modelFile.exists()) {
-            throw IllegalStateException("Model file not found: ${modelType.displayName}")
+            throw IllegalStateException(
+                "Model not found: ${modelType.displayName}\n" +
+                "Push via ADB: adb push ${modelType.fileName} /sdcard/Android/data/com.mad.assignment/files/"
+            )
         }
 
         // Memory measurements before
@@ -744,12 +826,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Build the prompt for allergen detection
-     * Lists exact categories so model outputs standardized terms
+     * Build the zero-shot prompt for allergen detection.
+     * Optimized for small LLMs with clear instruction and constrained output.
      */
     private fun buildPrompt(ingredients: String): String {
-        return """Categories: milk,egg,peanut,tree nut,wheat,soy,fish,shellfish,sesame
+        return """Detect allergens in the ingredients. Output only allergens from this list: milk, egg, peanut, tree nut, wheat, soy, fish, shellfish, sesame
+
 Ingredients: $ingredients
+
 Allergens:"""
     }
 

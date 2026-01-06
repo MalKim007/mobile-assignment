@@ -58,15 +58,29 @@ std::string runModel(const std::string& prompt,
                         "runModel() started");
 
     // ================= Apply chat template based on model type =================
+    // Template types: 0 = ChatML (Qwen), 1 = Gemma, 2 = Llama 3, 3 = Phi
     std::string formatted_prompt;
-    if (template_type == 1) {
-        // Gemma format
-        formatted_prompt = "<start_of_turn>user\n" + prompt + "<end_of_turn>\n<start_of_turn>model\n";
-        __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using Gemma chat template");
-    } else {
-        // ChatML format (Qwen, SmolLM2) - templateType=0 or default
-        formatted_prompt = "<|im_start|>user\n" + prompt + "<|im_end|>\n<|im_start|>assistant\n";
-        __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using ChatML chat template");
+    switch (template_type) {
+        case 1:
+            // Gemma format (Vikhr-Gemma-2B)
+            formatted_prompt = "<start_of_turn>user\n" + prompt + "<end_of_turn>\n<start_of_turn>model\n";
+            __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using Gemma chat template");
+            break;
+        case 2:
+            // Llama 3 format (Llama-3.2-1B, Llama-3.2-3B)
+            formatted_prompt = "<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n" + prompt + "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n";
+            __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using Llama 3 chat template");
+            break;
+        case 3:
+            // Phi format (Phi-3.5-mini, Phi-3-mini-4k)
+            formatted_prompt = "<|user|>\n" + prompt + "<|end|>\n<|assistant|>\n";
+            __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using Phi chat template");
+            break;
+        default:
+            // ChatML format (Qwen 2.5) - templateType=0 or default
+            formatted_prompt = "<|im_start|>user\n" + prompt + "<|im_end|>\n<|im_start|>assistant\n";
+            __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Using ChatML chat template");
+            break;
     }
 
     // ================= Backend =================

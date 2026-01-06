@@ -94,7 +94,8 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- ═══════════════════════════════════════════════════════════════ -->
-        <!-- METRICS SECTION - Scientific measurement panel                  -->
+        <!-- METRICS SECTION - Comparative insights panel                    -->
+        <!-- Botanical specimen style: Rankings, Strengths, Weaknesses       -->
         <!-- ═══════════════════════════════════════════════════════════════ -->
 
         <LinearLayout
@@ -110,7 +111,7 @@
             tools:visibility="visible">
 
             <!-- ══════════════════════════════════════════════════════════ -->
-            <!-- ACCURACY - Primary metric, emphasized                      -->
+            <!-- ACCURACY + MATCH COUNT - Primary metrics header            -->
             <!-- ══════════════════════════════════════════════════════════ -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -118,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_accuracy_highlight"
                 android:padding="12dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp">
 
                 <TextView
                     android:id="@+id/labelAccuracy"
@@ -143,277 +144,178 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="85.5%" />
+
+                <!-- Match Count below accuracy label -->
+                <TextView
+                    android:id="@+id/tvMatchCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/sage_green"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/labelAccuracy"
+                    tools:text="Correct: 171 / 200" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- ══════════════════════════════════════════════════════════ -->
-            <!-- PERFORMANCE METRICS - Timing section                       -->
+            <!-- RANKING BADGES - Award ribbons for top performance         -->
             <!-- ══════════════════════════════════════════════════════════ -->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.15"
-                android:text="PERFORMANCE"
-                android:textAllCaps="true"
-                android:textColor="@color/sage_green"
-                android:textSize="9sp" />
-
-            <!-- Latency Row -->
             <LinearLayout
+                android:id="@+id/badgesContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg Latency"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvLatency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="1,250 ms" />
-
-            </LinearLayout>
-
-            <!-- TTFT Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg TTFT"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvTtft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="380 ms" />
-
-            </LinearLayout>
-
-            <!-- ITPS Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg ITPS"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvItps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="45 tok/s" />
-
-            </LinearLayout>
-
-            <!-- OTPS Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg OTPS"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvOtps"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="12 tok/s" />
-
-            </LinearLayout>
-
-            <!-- OET Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg OET"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/tvOet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="850 ms" />
-
-            </LinearLayout>
-
-            <!-- Divider -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:orientation="vertical"
                 android:layout_marginBottom="12dp"
-                android:background="@color/mint_sage"
-                android:alpha="0.5" />
-
-            <!-- ══════════════════════════════════════════════════════════ -->
-            <!-- MEMORY METRICS - Resource usage section                    -->
-            <!-- ══════════════════════════════════════════════════════════ -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.15"
-                android:text="MEMORY USAGE"
-                android:textAllCaps="true"
-                android:textColor="@color/sage_green"
-                android:textSize="9sp" />
-
-            <!-- Java Heap Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/tvBadge1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg Java Heap"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/deep_forest"
+                    android:textSize="12sp"
+                    tools:text="🥇 Highest Accuracy" />
 
                 <TextView
-                    android:id="@+id/tvJavaHeap"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvBadge2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="2,048 KB" />
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/deep_forest"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="🥈 2nd Fastest Inference"
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
-            <!-- Native Heap Row -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- STRENGTHS & WEAKNESSES - Side by side comparison           -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
-                <TextView
+                <!-- STRENGTHS Column -->
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg Native Heap"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
+                    android:orientation="vertical"
+                    android:paddingEnd="8dp">
 
-                <TextView
-                    android:id="@+id/tvNativeHeap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="512,000 KB" />
+                    <TextView
+                        android:id="@+id/labelStrengths"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.1"
+                        android:text="STRENGTHS"
+                        android:textAllCaps="true"
+                        android:textColor="@color/forest_green"
+                        android:textSize="9sp" />
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/strengthsContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-            <!-- Total PSS Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tvStrength1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/deep_forest"
+                            android:textSize="12sp"
+                            tools:text="• #1 Recall (0.83)" />
 
-                <TextView
+                        <TextView
+                            android:id="@+id/tvStrength2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/deep_forest"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:text="• #2 Precision (0.76)"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Vertical Divider -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/mint_sage"
+                    android:alpha="0.4" />
+
+                <!-- WEAKNESSES Column -->
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif"
-                    android:text="Avg Total PSS"
-                    android:textColor="@color/sage_green"
-                    android:textSize="13sp" />
+                    android:orientation="vertical"
+                    android:paddingStart="8dp">
 
-                <TextView
-                    android:id="@+id/tvPss"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:textColor="@color/forest_green"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    tools:text="650,000 KB" />
+                    <TextView
+                        android:id="@+id/labelWeaknesses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.1"
+                        android:text="WEAKNESSES"
+                        android:textAllCaps="true"
+                        android:textColor="@color/sage_green"
+                        android:textSize="9sp" />
+
+                    <LinearLayout
+                        android:id="@+id/weaknessesContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvWeakness1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/sage_green"
+                            android:textSize="12sp"
+                            tools:text="• #6 TTFT (450ms)" />
+
+                        <TextView
+                            android:id="@+id/tvWeakness2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/sage_green"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            tools:text="• #7 Memory (650 KB)"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 

@@ -337,34 +337,42 @@ class FoodItemAdapter(
      * Select all items
      */
     fun selectAll() {
-        currentList.forEach { state ->
+        val list = currentList.toList()  // Snapshot of current list
+        if (list.isEmpty()) return  // Guard against async timing issue
+
+        list.forEach { state ->
             if (state is FoodItemState.Selectable) {
                 selectedIds.add(state.foodItem.id)
             }
         }
         onSelectionChanged(selectedIds.size)
         // Refresh list to update checkboxes
-        val updatedList = currentList.map { state ->
+        val updatedList = list.map { state ->
             if (state is FoodItemState.Selectable) {
                 state.copy(isSelected = true)
             } else state
         }
-        submitList(updatedList)
+        submitList(null)  // Force reset
+        submitList(updatedList)  // Then submit new list
     }
 
     /**
      * Deselect all items
      */
     fun deselectAll() {
+        val list = currentList.toList()  // Snapshot of current list
+        if (list.isEmpty()) return  // Guard against async timing issue
+
         selectedIds.clear()
         onSelectionChanged(0)
         // Refresh list to update checkboxes
-        val updatedList = currentList.map { state ->
+        val updatedList = list.map { state ->
             if (state is FoodItemState.Selectable) {
                 state.copy(isSelected = false)
             } else state
         }
-        submitList(updatedList)
+        submitList(null)  // Force reset
+        submitList(updatedList)  // Then submit new list
     }
 
     /**
@@ -372,7 +380,13 @@ class FoodItemAdapter(
      */
     fun clearSelection() {
         selectedIds.clear()
-        onSelectionChanged(0)
+    }
+
+    /**
+     * Add an item ID to selection (used by MainActivity for select all)
+     */
+    fun addToSelection(id: Int) {
+        selectedIds.add(id)
     }
 
     /**

@@ -17,3 +17,4 @@ local.properties
 /.claude/
 /CLAUDE.md
 /app/src/main/assets/*.gguf
+models/*.gguf

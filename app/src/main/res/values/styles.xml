@@ -241,4 +241,41 @@
         <item name="android:color">@color/mint_sage</item>
     </style>
 
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <!-- COMPARISON TABLE STYLES                                              -->
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+
+    <!-- Table Header Cell - Bold forest green -->
+    <style name="TableHeaderCell">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/forest_green</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+
+    <!-- Table Data Cell - Monospace for metrics -->
+    <style name="TableDataCell">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/deep_forest</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <!-- Table Model Name Cell - Serif font -->
+    <style name="TableModelCell">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/deep_forest</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 </resources>

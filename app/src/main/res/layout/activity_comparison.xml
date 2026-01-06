@@ -96,7 +96,7 @@
             android:letterSpacing="0.05"
             android:paddingHorizontal="12dp"
             android:paddingVertical="6dp"
-            android:text="3 MODELS • 200 SAMPLES EACH"
+            android:text="7 MODELS • 200 SAMPLES EACH"
             android:textAllCaps="true"
             android:textColor="@color/forest_green"
             android:textSize="10sp"
@@ -121,6 +121,563 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- STACKED COMPARISON TABLES - Quality, Safety, Efficiency             -->
+    <!-- Botanical specimen catalog aesthetic with grouped metrics           -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ScrollView
+        android:id="@+id/tablesScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/controlsRow"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 1: QUALITY METRICS (Table 2)                        -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:id="@+id/sectionQuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section_card"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Section Header - Botanical label style -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="16dp"
+                        android:background="@color/forest_green" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="serif"
+                        android:text="Quality Metrics"
+                        android:textColor="@color/deep_forest"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0.1"
+                        android:text="TABLE 2"
+                        android:textAllCaps="true"
+                        android:textColor="@color/sage_green"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+
+                <!-- Quality Table - Using FrameLayout for single continuous divider -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Layer 1: Table Content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- FROZEN: Model Name Column (Static) -->
+                        <LinearLayout
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/snow_white">
+
+                            <!-- Model Header (height matches metrics headers) -->
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="20dp"
+                                android:text="Model"
+                                android:textStyle="bold"
+                                android:textColor="@color/forest_green"
+                                android:textSize="11sp"
+                                android:fontFamily="serif"
+                                android:gravity="center_vertical" />
+
+                            <!-- Spacer for divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp" />
+
+                            <!-- Model Names Body -->
+                            <LinearLayout
+                                android:id="@+id/qualityModelColumn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="6dp" />
+
+                        </LinearLayout>
+
+                        <!-- SCROLLABLE: Metrics Columns -->
+                        <HorizontalScrollView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scrollbars="none"
+                            android:fadingEdge="horizontal"
+                            android:fadingEdgeLength="12dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <!-- Metrics Header Row -->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="64dp" android:text="Precision" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="56dp" android:text="Recall" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="64dp" android:text="F1-Micro" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="64dp" android:text="F1-Macro" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="80dp" android:text="Exact Match" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="80dp" android:text="Hamming Loss" />
+                                    <TextView style="@style/TableHeaderCell" android:layout_width="80dp" android:text="False Neg Rate" />
+
+                                </LinearLayout>
+
+                                <!-- Spacer for divider -->
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp" />
+
+                                <!-- Metrics Data Body -->
+                                <LinearLayout
+                                    android:id="@+id/qualityMetricsBody"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingTop="6dp" />
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
+
+                    <!-- Layer 2: Single Continuous Divider (overlaid) -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/mint_sage"
+                        android:alpha="0.5" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 2: SAFETY METRICS (Table 3)                         -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:id="@+id/sectionSafety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section_card"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="16dp"
+                        android:background="@color/sage_green" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="serif"
+                        android:text="Safety Metrics"
+                        android:textColor="@color/deep_forest"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0.1"
+                        android:text="TABLE 3"
+                        android:textAllCaps="true"
+                        android:textColor="@color/sage_green"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+
+                <!-- Safety Table - Using FrameLayout for single continuous divider -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Layer 1: Table Content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- FROZEN: Model Name Column -->
+                        <LinearLayout
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/snow_white">
+
+                            <!-- Model Header -->
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="20dp"
+                                android:text="Model"
+                                android:textStyle="bold"
+                                android:textColor="@color/forest_green"
+                                android:textSize="11sp"
+                                android:fontFamily="serif"
+                                android:gravity="center_vertical" />
+
+                            <!-- Spacer for divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp" />
+
+                            <!-- Model Names Body -->
+                            <LinearLayout
+                                android:id="@+id/safetyModelColumn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="6dp" />
+
+                        </LinearLayout>
+
+                        <!-- Metrics Section (no scroll needed) -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!-- Metrics Headers -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    style="@style/TableHeaderCell"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="Hallucination" />
+                                <TextView
+                                    style="@style/TableHeaderCell"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="Over-Predict" />
+                                <TextView
+                                    style="@style/TableHeaderCell"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="Abstention" />
+
+                            </LinearLayout>
+
+                            <!-- Spacer for divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp" />
+
+                            <!-- Metrics Data Body -->
+                            <LinearLayout
+                                android:id="@+id/safetyMetricsBody"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="6dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Layer 2: Single Continuous Divider (overlaid) -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/mint_sage"
+                        android:alpha="0.5" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SECTION 3: EFFICIENCY METRICS (Table 4)                     -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:id="@+id/sectionEfficiency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section_card"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="16dp"
+                        android:background="@color/mint_sage" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="serif"
+                        android:text="Efficiency Metrics"
+                        android:textColor="@color/deep_forest"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0.1"
+                        android:text="TABLE 4"
+                        android:textAllCaps="true"
+                        android:textColor="@color/sage_green"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+
+                <!-- Efficiency Table - Using FrameLayout for single continuous divider -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Layer 1: Table Content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- FROZEN: Model Name Column -->
+                        <LinearLayout
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/snow_white">
+
+                            <!-- Model Header -->
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="20dp"
+                                android:text="Model"
+                                android:textStyle="bold"
+                                android:textColor="@color/forest_green"
+                                android:textSize="11sp"
+                                android:fontFamily="serif"
+                                android:gravity="center_vertical" />
+
+                            <!-- Spacer for divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp" />
+
+                            <!-- Model Names Body -->
+                            <LinearLayout
+                                android:id="@+id/efficiencyModelColumn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="6dp" />
+
+                        </LinearLayout>
+
+                        <!-- SCROLLABLE: Metrics Columns -->
+                        <HorizontalScrollView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scrollbars="none"
+                            android:fadingEdge="horizontal"
+                            android:fadingEdgeLength="12dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <!-- Metrics Header Row -->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView style="@style/TableHeaderCell" android:text="Latency" />
+                                    <TextView style="@style/TableHeaderCell" android:text="TTFT" />
+                                    <TextView style="@style/TableHeaderCell" android:text="ITPS" />
+                                    <TextView style="@style/TableHeaderCell" android:text="OTPS" />
+                                    <TextView style="@style/TableHeaderCell" android:text="OET" />
+                                    <TextView style="@style/TableHeaderCell" android:text="Java" />
+                                    <TextView style="@style/TableHeaderCell" android:text="Native" />
+                                    <TextView style="@style/TableHeaderCell" android:text="PSS" />
+
+                                </LinearLayout>
+
+                                <!-- Spacer for divider -->
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp" />
+
+                                <!-- Metrics Data Body -->
+                                <LinearLayout
+                                    android:id="@+id/efficiencyMetricsBody"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingTop="6dp" />
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
+
+                    <!-- Layer 2: Single Continuous Divider (overlaid) -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/mint_sage"
+                        android:alpha="0.5" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- EXPORT BUTTONS ROW                                          -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnExportExcel"
+                    style="@style/ForestButtonOutlined"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Export Excel"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnExportCsv"
+                    style="@style/ForestButtonOutlined"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Export CSV"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- MODEL CARDS SECTION - Detailed per-model view               -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+
+            <!-- Section Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/mint_sage"
+                android:alpha="0.3"
+                android:layout_marginVertical="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:text="DETAILED MODEL CARDS"
+                android:textAllCaps="true"
+                android:textColor="@color/sage_green"
+                android:textSize="10sp" />
+
+            <!-- Model Cards Container - populated dynamically -->
+            <LinearLayout
+                android:id="@+id/modelCardsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clipToPadding="false" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- LOADING INDICATOR                                                   -->
@@ -153,37 +710,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressLoading"
         tools:visibility="visible" />
-
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <!-- MODEL CARDS SCROLLVIEW - Specimen catalog style                     -->
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-
-    <ScrollView
-        android:id="@+id/scrollViewModels"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:clipToPadding="false"
-        android:fadingEdge="vertical"
-        android:fadingEdgeLength="32dp"
-        android:fillViewport="true"
-        android:overScrollMode="never"
-        android:paddingBottom="16dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/controlsRow">
-
-        <LinearLayout
-            android:id="@+id/modelCardsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:clipToPadding="false" />
-
-    </ScrollView>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
     <!-- EMPTY STATE                                                         -->
